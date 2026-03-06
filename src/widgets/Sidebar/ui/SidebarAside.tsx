@@ -1,6 +1,6 @@
+import {Dispatch, HTMLAttributes, ReactNode, SetStateAction, useState} from "react";
 import {cn} from "shared/lib/classNames/classNames";
 import s from './Sidebar.module.scss';
-import {Dispatch, HTMLAttributes, ReactNode, SetStateAction, useState} from "react";
 
 interface SidebarAsideProps extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
   children(options: { collapsed: boolean, setCollapsed: Dispatch<SetStateAction<boolean>> } ): ReactNode;

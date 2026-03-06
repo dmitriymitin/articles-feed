@@ -7,7 +7,7 @@ type Props = Pick<TransProps, 'ns'> & PropsWithChildren
 export const withChildrenTranslation = <T extends ComponentType<any> | object>(
   WrappedComponent: T
 ): FC<GetProps<T> & Props> => {
-  return (props) => {
+  return (props: Props) => {
     const {children, ns, ...restProps} = props;
 
     const translatedChildren: ReactNode =

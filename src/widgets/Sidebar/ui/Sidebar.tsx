@@ -1,9 +1,9 @@
 import {cn} from "shared/lib/classNames/classNames";
-import s from './Sidebar.module.scss';
 import {useState} from "react";
 import {Button} from "shared/ui/Button";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {LangSwitcher} from "widgets/LangSwitcher";
+import s from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
@@ -30,8 +30,8 @@ const _Sidebar = (props: SidebarProps) => {
       <Button
         onClick={onToggle}
         className={s.collapseBtn}
-        theme={'backgroundInverted'}
-        size={'l'}
+        theme="backgroundInverted"
+        size="l"
         square
       >
         {collapsed ? '>' : '<'}

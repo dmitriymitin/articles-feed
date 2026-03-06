@@ -4,7 +4,7 @@ import {cn} from "shared/lib/classNames/classNames";
 import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
 
-import '../app/styles/index.scss'
+import "./styles/index.scss"
 import {Sidebar} from "widgets/Sidebar";
 
 const Wrapper = ({children}: PropsWithChildren) => {

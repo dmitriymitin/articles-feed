@@ -1,7 +1,7 @@
 import {cn} from "shared/lib/classNames/classNames";
-import s from './Button.module.scss';
-import {ButtonHTMLAttributes, PropsWithChildren, ReactNode} from "react";
+import {ButtonHTMLAttributes, PropsWithChildren} from "react";
 import {withChildrenTranslation} from "shared/lib/hocs";
+import s from './Button.module.scss';
 
 export type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outline_red' | 'background' | 'backgroundInverted'
 

@@ -2,7 +2,7 @@ export type Mods = Record<string, boolean | string | undefined>;
 type className = string | Record<string, boolean | undefined> | null | undefined;
 
 export const cn = (...classes: className[]): string => {
-  let result: string[] = []
+  const result: string[] = [];
 
   classes.forEach(value => {
     if (!value) {
