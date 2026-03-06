@@ -1,9 +1,10 @@
 import React from 'react';
+import {Trans} from "shared/ui/Translate";
 
 const AboutPage = () => {
   return (
     <div>
-        AboutPage
+      <Trans ns='about'>О сайте</Trans>
     </div>
   );
 };

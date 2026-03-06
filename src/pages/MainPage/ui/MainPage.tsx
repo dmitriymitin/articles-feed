@@ -1,9 +1,11 @@
 import React from 'react';
+import {Trans} from "shared/ui/Translate";
+
 
 const MainPage = () => {
   return (
     <div>
-        MainPage
+      <Trans>Главная страница</Trans>
     </div>
   );
 };
