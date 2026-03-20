@@ -4,14 +4,17 @@ import {Button} from "shared/ui/Button";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {LangSwitcher} from "widgets/LangSwitcher";
 import s from './Sidebar.module.scss';
+import { useSidebarItems } from '../../model/selectors/useSidebarItems';
+import {SidebarItem} from "../SidebarItem/SidebarItem";
 
 interface SidebarProps {
   className?: string;
 }
 
-const _Sidebar = (props: SidebarProps) => {
+export const Sidebar = (props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const sidebarItemsList = useSidebarItems();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -37,12 +40,19 @@ const _Sidebar = (props: SidebarProps) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
+      <div className={s.items}>
+        {sidebarItemsList.map((item) => (
+          <SidebarItem
+            item={item}
+            collapsed={collapsed}
+            key={item.path}
+          />
+        ))}
+      </div>
       <div className={s.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher />
+        <LangSwitcher short={collapsed} className={s.lang} />
       </div>
     </aside>
   );
 };
-
-export const Sidebar = _Sidebar

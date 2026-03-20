@@ -5,7 +5,7 @@ export interface TransProps extends PropsWithChildren {
   ns?: string;
 }
 
-const _Trans = (props: TransProps) => {
+export const Trans = (props: TransProps) => {
   const { children, ns } = props;
   const { t } = useTranslation(ns);
 
@@ -15,5 +15,3 @@ const _Trans = (props: TransProps) => {
     </>
   )
 };
-
-export const Trans = _Trans

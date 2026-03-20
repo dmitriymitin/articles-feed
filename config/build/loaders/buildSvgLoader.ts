@@ -8,7 +8,7 @@ export function buildSvgLoader(options: Partial<BuildOptions> = {}): webpack.Rul
     use: [{
       loader: '@svgr/webpack',
       options: {
-        icon: true,
+        // icon: true,
         // svgoConfig: {
         //   plugins: [
         //     {
