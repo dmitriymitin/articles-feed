@@ -1,7 +1,7 @@
-import {BuildOptions} from "../types/config";
 import webpack from "webpack";
+import {BuildOptions} from "../types/config";
 
-export function buildSvgLoader(options: BuildOptions): webpack.RuleSetRule {
+export function buildSvgLoader(options: Partial<BuildOptions> = {}): webpack.RuleSetRule {
 
   return {
     test: /\.svg$/,

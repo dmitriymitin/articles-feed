@@ -3,7 +3,7 @@ import {Link, LinkProps} from "react-router-dom";
 import {withChildrenTranslation} from "shared/lib/hocs";
 import s from './AppLink.module.scss';
 
-type AppLinkTheme = 'primary' | 'secondary'
+type AppLinkTheme = 'primary' | 'secondary' | 'red'
 
 interface AppLinkProps extends LinkProps {
   theme?: AppLinkTheme
