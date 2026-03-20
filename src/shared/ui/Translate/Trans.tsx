@@ -10,9 +10,9 @@ const _Trans = (props: TransProps) => {
   const { t } = useTranslation(ns);
 
   return (
-    <Fragment {...props}>
+    <>
       {t(`${children}`)}
-    </Fragment>
+    </>
   )
 };
 

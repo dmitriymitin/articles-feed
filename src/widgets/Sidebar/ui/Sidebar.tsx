@@ -28,6 +28,7 @@ const _Sidebar = (props: SidebarProps) => {
   return (
     <aside data-testid="sidebar" className={cls}>
       <Button
+        data-testid="sidebar-toggle"
         onClick={onToggle}
         className={s.collapseBtn}
         theme="backgroundInverted"
