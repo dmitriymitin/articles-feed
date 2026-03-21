@@ -5,6 +5,7 @@ import {App} from "app/App"
 
 import './shared/config/i18n/i18n'
 import {ErrorBoundary} from "app/providers/ErrorBoundary";
+import {StoreProvider} from "app/providers/StoreProvider";
 
 const container = document.getElementById('root');
 
@@ -17,11 +18,13 @@ if (!container) {
 const root = createRoot(container);
 
 root.render(
-  <ErrorBoundary>
-    <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
-  </ErrorBoundary>,
+  <StoreProvider>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
+  </StoreProvider>,
 );
