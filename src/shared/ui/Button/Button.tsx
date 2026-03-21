@@ -1,6 +1,6 @@
 import {cn} from "shared/lib/classNames/classNames";
-import {ButtonHTMLAttributes, PropsWithChildren} from "react";
-import {withChildrenTranslation} from "shared/lib/hocs";
+import {ButtonHTMLAttributes, memo, PropsWithChildren} from "react";
+import {withChildrenTranslation} from "shared/lib/hocs/withChildrenTranslation";
 import s from './Button.module.scss';
 
 export type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outline_red' | 'background' | 'backgroundInverted'
@@ -71,4 +71,4 @@ const _Button = (props: ButtonProps) => {
   );
 };
 
-export const Button = withChildrenTranslation(_Button)
+export const Button = memo(withChildrenTranslation(_Button))
