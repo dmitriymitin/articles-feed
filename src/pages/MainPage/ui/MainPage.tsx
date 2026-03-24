@@ -1,6 +1,5 @@
-import React from 'react';
-import {Trans} from "shared/ui/Translate";
-
+import React from "react";
+import { Trans } from "shared/ui/Translate";
 
 const MainPage = () => {
   return (

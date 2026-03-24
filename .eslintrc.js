@@ -35,6 +35,7 @@ module.exports = {
                 extensions: ['.js', '.jsx', '.tsx'],
             },
         ],
+        "object-curly-spacing": ["error", "always"],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
