@@ -1,11 +1,16 @@
-import {cn} from "shared/lib/classNames/classNames";
-import {ButtonHTMLAttributes, memo, PropsWithChildren} from "react";
-import {withChildrenTranslation} from "shared/lib/hocs/withChildrenTranslation";
-import s from './Button.module.scss';
+import { cn } from "shared/lib/classNames/classNames";
+import { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
+import s from "./Button.module.scss";
 
-export type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outline_red' | 'background' | 'backgroundInverted'
+export type ButtonTheme =
+  | "clear"
+  | "clearInverted"
+  | "outline"
+  | "outline_red"
+  | "background"
+  | "backgroundInverted";
 
-export type ButtonSize = 'm' | 'l' | 'xl'
+export type ButtonSize = "m" | "l" | "xl";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -28,7 +33,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Содержимое кнопки
    */
-  children?: PropsWithChildren['children'];
+  children?: PropsWithChildren["children"];
   /**
    * Увеличивает кнопку на всю свободную ширину
    */
@@ -39,11 +44,11 @@ const _Button = (props: ButtonProps) => {
   const {
     className,
     children,
-    theme = 'outline',
+    theme = "outline",
     square,
     disabled,
     fullWidth,
-    size = 'm',
+    size = "m",
     ...restProps
   } = props;
 
@@ -57,18 +62,13 @@ const _Button = (props: ButtonProps) => {
       [s.fullWidth]: fullWidth,
     },
     className
-  )
+  );
 
   return (
-    <button
-      type="button"
-      className={cls}
-      disabled={disabled}
-      {...restProps}
-    >
+    <button type="button" className={cls} disabled={disabled} {...restProps}>
       {children}
     </button>
   );
 };
 
-export const Button = memo(withChildrenTranslation(_Button))
+export const Button = memo(_Button);

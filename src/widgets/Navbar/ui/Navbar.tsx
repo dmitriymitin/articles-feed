@@ -1,27 +1,19 @@
-import React, { useCallback, useState } from "react";
-import { cn } from "shared/lib/classNames/classNames";
-import { Button } from "shared/ui/Button";
-import s from "./Navbar.module.scss";
-import { LoginModal } from "../../../features/AuthByUsername";
+import React from "react";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "entities/User";
+import { NavbarAuth } from "./NavbarAuth";
+import { NavbarNoAuth } from "./NavbarNoAuth";
 
-interface NavbarProps {
-  className?: string;
-}
+import s from "./Navbar.module.scss";
+
+interface NavbarProps {}
 
 export const Navbar = (props: NavbarProps) => {
-  const { className } = props;
-  const [isAuthModal, setIsAuthModal] = useState(false);
-
-  const onToggleModal = useCallback(() => {
-    setIsAuthModal((prev) => !prev);
-  }, []);
+  const authData = useSelector(getUserAuthData);
 
   return (
-    <div className={cn(s.Navbar, className)}>
-      <Button className={s.links} theme="clearInverted" onClick={onToggleModal}>
-        Войти
-      </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />
+    <div className={s.Navbar}>
+      {authData ? <NavbarAuth /> : <NavbarNoAuth />}
     </div>
   );
 };

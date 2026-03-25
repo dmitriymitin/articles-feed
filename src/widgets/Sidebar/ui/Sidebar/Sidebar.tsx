@@ -1,18 +1,15 @@
-import {cn} from "shared/lib/classNames/classNames";
-import {useState} from "react";
-import {Button} from "shared/ui/Button";
-import {ThemeSwitcher} from "widgets/ThemeSwitcher";
-import {LangSwitcher} from "widgets/LangSwitcher";
-import s from './Sidebar.module.scss';
-import { useSidebarItems } from '../../model/selectors/useSidebarItems';
-import {SidebarItem} from "../SidebarItem/SidebarItem";
+import { cn } from "shared/lib/classNames/classNames";
+import { useState } from "react";
+import { Button } from "shared/ui/Button";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { LangSwitcher } from "widgets/LangSwitcher";
+import s from "./Sidebar.module.scss";
+import { useSidebarItems } from "../../model/selectors/useSidebarItems";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
-interface SidebarProps {
-  className?: string;
-}
+interface SidebarProps {}
 
 export const Sidebar = (props: SidebarProps) => {
-  const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
   const sidebarItemsList = useSidebarItems();
 
@@ -20,13 +17,9 @@ export const Sidebar = (props: SidebarProps) => {
     setCollapsed((prev) => !prev);
   };
 
-  const cls = cn(
-    s.Sidebar,
-    {
-      [s.collapsed]: collapsed
-    },
-    className
-  )
+  const cls = cn(s.Sidebar, {
+    [s.collapsed]: collapsed,
+  });
 
   return (
     <aside data-testid="sidebar" className={cls}>
@@ -38,15 +31,11 @@ export const Sidebar = (props: SidebarProps) => {
         size="l"
         square
       >
-        {collapsed ? '>' : '<'}
+        {collapsed ? ">" : "<"}
       </Button>
       <div className={s.items}>
         {sidebarItemsList.map((item) => (
-          <SidebarItem
-            item={item}
-            collapsed={collapsed}
-            key={item.path}
-          />
+          <SidebarItem item={item} collapsed={collapsed} key={item.path} />
         ))}
       </div>
       <div className={s.switchers}>

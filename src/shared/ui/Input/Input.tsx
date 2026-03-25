@@ -14,7 +14,7 @@ type HTMLInputProps = Omit<
   "value" | "onChange" | "readOnly"
 >;
 
-interface InputProps extends HTMLInputProps {
+export interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
   onChange?: (value: string) => void;
@@ -75,7 +75,8 @@ const _Input = (props: InputProps) => {
     <div className={classes}>
       {placeholder && (
         <div className={s.placeholder}>
-          <Trans>{`${placeholder}>`}</Trans>
+          <Trans>{placeholder}</Trans>
+          {">"}
         </div>
       )}
       <div className={s.caretWrapper}>
