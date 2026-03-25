@@ -1,26 +1,29 @@
-export type Mods = Record<string, boolean | string | undefined>;
-type className = string | Record<string, boolean | undefined> | null | undefined;
+type className =
+  | string
+  | Record<string, boolean | undefined>
+  | null
+  | undefined;
 
 export const cn = (...classes: className[]): string => {
   const result: string[] = [];
 
-  classes.forEach(value => {
+  classes.forEach((value) => {
     if (!value) {
-      return
+      return;
     }
 
-    if (typeof value === 'string') {
-      result.push(value)
+    if (typeof value === "string") {
+      result.push(value);
     }
 
-    if (typeof value === 'object') {
+    if (typeof value === "object") {
       Object.entries(value).forEach(([key, value]) => {
         if (value) {
           result.push(key);
         }
       });
     }
-  })
+  });
 
-  return result.join(' ')
-}
+  return result.join(" ");
+};

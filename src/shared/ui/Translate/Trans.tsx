@@ -1,4 +1,4 @@
-import {Fragment, PropsWithChildren} from "react";
+import { PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 
 export interface TransProps extends PropsWithChildren {
@@ -9,9 +9,5 @@ export const Trans = (props: TransProps) => {
   const { children, ns } = props;
   const { t } = useTranslation(ns);
 
-  return (
-    <>
-      {t(`${children}`)}
-    </>
-  )
+  return <>{t(`${children}`)}</>;
 };

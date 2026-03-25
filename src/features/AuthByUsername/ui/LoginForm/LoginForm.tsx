@@ -1,8 +1,8 @@
 import { memo } from "react";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Text } from "shared/ui/Text";
-import { useAppStore } from "shared/lib/hooks/useAppStore/useAppStore";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { Text } from "@/shared/ui/Text";
+import { useAppStore } from "@/shared/lib/hooks/useAppStore/useAppStore";
 
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";

@@ -1,4 +1,4 @@
-import {ComponentType} from "react";
+import { ComponentType } from "react";
 
 /**
  * Получить пропсы компонента
@@ -11,7 +11,7 @@ import {ComponentType} from "react";
  * ```
  */
 export type GetProps<T extends ComponentType<any> | object> =
-  T extends ComponentType<infer P> ? P : T extends object ? T : never
+  T extends ComponentType<infer P> ? P : T extends object ? T : never;
 
 /**
  * Получить пропс компонента по имени компонента
@@ -29,6 +29,7 @@ export type GetProps<T extends ComponentType<any> | object> =
  * };
  * ```
  */
-export type GetProp<T extends ComponentType<any> | object, PropName extends keyof GetProps<T>> = NonNullable<
-  GetProps<T>[PropName]
->
+export type GetProp<
+  T extends ComponentType<any> | object,
+  PropName extends keyof GetProps<T>
+> = NonNullable<GetProps<T>[PropName]>;

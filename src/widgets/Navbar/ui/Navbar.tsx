@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "entities/User";
+
+import { getUserAuthData } from "@/entities/User";
+
 import { NavbarAuth } from "./NavbarAuth";
 import { NavbarNoAuth } from "./NavbarNoAuth";
 

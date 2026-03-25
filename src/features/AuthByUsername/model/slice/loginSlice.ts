@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import { LoginSchema, LoginSchemaInputFields } from "../types/LoginSchema";
 import { loginByUsername } from "../services/loginByUsername/loginByUsername";
 

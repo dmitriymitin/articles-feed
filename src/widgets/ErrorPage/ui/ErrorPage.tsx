@@ -1,7 +1,7 @@
-import { cn } from "shared/lib/classNames/classNames";
-import { Button } from "shared/ui/Button";
-import { Trans } from "shared/ui/Translate";
-import cls from "./ErrorPage.module.scss";
+import { cn } from "@/shared/lib/classNames/classNames";
+import { Button } from "@/shared/ui/Button";
+import { Trans } from "@/shared/ui/Translate";
+import s from "./ErrorPage.module.scss";
 
 interface ErrorPageProps {
   className?: string;
@@ -16,7 +16,7 @@ export const ErrorPage = (props: ErrorPageProps) => {
   };
 
   return (
-    <div className={cn(cls.ErrorPage, className)}>
+    <div className={cn(s.ErrorPage, className)}>
       <p>
         <Trans>Произошла непредвиденная ошибка</Trans>
       </p>

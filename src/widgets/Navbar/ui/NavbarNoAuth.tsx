@@ -1,7 +1,7 @@
-import React, { Fragment, useCallback, useState } from "react";
-import { Button } from "shared/ui/Button";
-import { Trans } from "shared/ui/Translate";
-import { LoginModal } from "features/AuthByUsername";
+import React, { useCallback, useState } from "react";
+import { Button } from "@/shared/ui/Button";
+import { Trans } from "@/shared/ui/Translate";
+import { LoginModal } from "@/features/AuthByUsername";
 
 import s from "./Navbar.module.scss";
 

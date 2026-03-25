@@ -1,5 +1,5 @@
 import { useStore as useStoreBase } from "react-redux";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 
 export const useAppStore = () => {
   const result = useStoreBase();

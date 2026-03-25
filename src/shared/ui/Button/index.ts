@@ -1,9 +1,5 @@
-import {GetProps} from "shared/types/getProps";
+import { Button } from "./Button";
 
-import { Button } from './Button'
+export type { ButtonProps } from "./Button";
 
-export type ButtonProps = GetProps<typeof Button>
-
-export {
-  Button
-}
+export { Button };

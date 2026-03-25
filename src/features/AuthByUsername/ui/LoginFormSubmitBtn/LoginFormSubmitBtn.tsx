@@ -1,6 +1,6 @@
-import { Button, ButtonProps } from "shared/ui/Button";
-import { Trans } from "shared/ui/Translate";
 import { useSelector } from "react-redux";
+import { Button, ButtonProps } from "@/shared/ui/Button";
+import { Trans } from "@/shared/ui/Translate";
 import { getLoginStateLoading } from "../../model/selectors/getLoginStateLoading/getLoginStateLoading";
 
 interface LoginFormSubmitBtnProps

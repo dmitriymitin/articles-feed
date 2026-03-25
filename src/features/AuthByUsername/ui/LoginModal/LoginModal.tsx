@@ -1,4 +1,4 @@
-import { Modal, ModalProps } from "shared/ui/Modal";
+import { Modal, ModalProps } from "@/shared/ui/Modal";
 import s from "./LoginModal.module.scss";
 import { LoginForm } from "../LoginForm/LoginForm";
 

@@ -1,5 +1,5 @@
-import {ComponentType} from "react";
+import { ComponentType } from "react";
 
-export type AnyObject = Record<PropertyKey, any>
+export type AnyObject = Record<PropertyKey, any>;
 
-export type CustomComponent<P = AnyObject> = ComponentType<P> | string
+export type CustomComponent<P = AnyObject> = ComponentType<P> | string;

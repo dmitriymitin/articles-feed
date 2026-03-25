@@ -5,9 +5,11 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { cn } from "@/shared/lib/classNames/classNames";
+
 import { Trans } from "../Translate";
+
 import s from "./Input.module.scss";
-import { cn } from "../../lib/classNames/classNames";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

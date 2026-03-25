@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { Input, InputProps } from "shared/ui/Input";
+import { Input, InputProps } from "@/shared/ui/Input";
 
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { LoginSchemaInputFields } from "../../model/types/LoginSchema";
 import { loginActions } from "../../model/slice/loginSlice";
 import { getLoginStateInputField } from "../../model/selectors/getLoginStateInputField/getLoginStateInputField";

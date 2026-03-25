@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Text } from "shared/ui/Text";
+import { Text } from "@/shared/ui/Text";
 import { getLoginStateError } from "../../model/selectors/getLoginStateError/getLoginStateError";
 
 interface LoginFormErrorProps {}

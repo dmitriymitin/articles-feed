@@ -1,5 +1,5 @@
-import { cn } from "shared/lib/classNames/classNames";
 import { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
+import { cn } from "@/shared/lib/classNames/classNames";
 import s from "./Button.module.scss";
 
 export type ButtonTheme =
@@ -12,7 +12,7 @@ export type ButtonTheme =
 
 export type ButtonSize = "m" | "l" | "xl";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   /**
    * Тема кнопки. Отвечает за визуал (в рамке, без стилей, противоположный теме приложения цвет и тд)
