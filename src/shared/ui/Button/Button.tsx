@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
 
-import s from "./Button.module.scss";
-
 import { cn } from "@/shared/lib/classNames/classNames";
+
+import s from "./Button.module.scss";
 
 export type ButtonTheme =
   | "clear"

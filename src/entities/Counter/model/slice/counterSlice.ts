@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { CounterSchema } from "../types/counterSchema";
-
 import { StateSchema } from "@/app/providers/StoreProvider";
+
+import { CounterSchema } from "../types/counterSchema";
 
 const initialState: CounterSchema = {
   value: 0,

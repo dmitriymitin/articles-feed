@@ -1,12 +1,12 @@
-import React, { memo, ReactNode } from "react";
+import React, { Fragment, memo, ReactNode } from "react";
+
+import { cn } from "@/shared/lib/classNames/classNames";
+import { useModal } from "@/shared/lib/hooks/useModal";
 
 import { Overlay } from "../Overlay";
 import { Portal } from "../Portal";
 
 import s from "./Modal.module.scss";
-
-import { cn } from "@/shared/lib/classNames/classNames";
-import { useModal } from "@/shared/lib/hooks/useModal";
 
 export interface ModalProps {
   className?: string;
@@ -41,13 +41,18 @@ const _Modal = (props: ModalProps) => {
     return null;
   }
 
-  return (
+  /** isOpen ? () : <></> нужен для корретной работы дестроя редюсеров
+   * {@link DynamicModuleLoader}
+   * */
+  return isOpen ? (
     <Portal element={document.getElementById("app") ?? document.body}>
       <div className={cls}>
         <Overlay onClick={close} />
         <div className={s.content}>{children}</div>
       </div>
     </Portal>
+  ) : (
+    <></>
   );
 };
 

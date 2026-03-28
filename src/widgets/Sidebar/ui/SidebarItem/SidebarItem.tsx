@@ -1,11 +1,11 @@
 import { AppLink } from "@/shared/ui/AppLink";
 import { Trans } from "@/shared/ui/Translate";
 
+import { cn } from "@/shared/lib/classNames/classNames";
+
 import { SidebarItemType } from "../../model/types/sidebar";
 
 import s from "./SidebarItem.module.scss";
-
-import { cn } from "@/shared/lib/classNames/classNames";
 
 interface SidebarItemProps {
   item: SidebarItemType;

@@ -56,6 +56,10 @@ export interface ThunkExtraArg {
   api: AxiosInstance;
 }
 
+export type ReducersList = {
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
+};
+
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;

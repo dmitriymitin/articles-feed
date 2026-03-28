@@ -6,6 +6,7 @@ import { render } from "@testing-library/react";
 
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { Theme, ThemeProvider } from "@/app/providers/ThemeProvider";
+
 import i18nForTests from "@/shared/config/i18n/i18nForTests";
 
 export interface ComponentRenderOptions {

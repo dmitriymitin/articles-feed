@@ -1,12 +1,14 @@
 import React, { PropsWithChildren, Suspense, useEffect } from "react";
 
-import "./styles/index.scss";
-
 import { AppRouter } from "@/app/providers/router";
 import { useTheme } from "@/app/providers/ThemeProvider";
-import { userActions } from "@/entities/User";
+
 import { cn } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+
+import "./styles/index.scss";
+
+import { userActions } from "@/entities/User";
 import { Navbar } from "@/widgets/Navbar";
 import { Sidebar } from "@/widgets/Sidebar";
 

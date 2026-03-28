@@ -1,9 +1,9 @@
 import { Link, LinkProps } from "react-router-dom";
 
-import s from "./AppLink.module.scss";
-
 import { cn } from "@/shared/lib/classNames/classNames";
 import { withChildrenTranslation } from "@/shared/lib/hocs/withChildrenTranslation";
+
+import s from "./AppLink.module.scss";
 
 type AppLinkTheme = "primary" | "secondary" | "red";
 

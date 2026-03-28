@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { StateSchema } from "@/app/providers/StoreProvider";
+
 import { loginByUsername } from "../services/loginByUsername/loginByUsername";
 import { LoginSchema, LoginSchemaInputFields } from "../types/LoginSchema";
 
-import { StateSchema } from "@/app/providers/StoreProvider";
-
-const initialState: LoginSchema = {
+export const loginSliceInitialState: LoginSchema = {
   username: "",
   password: "",
   isLoading: false,
@@ -13,7 +13,7 @@ const initialState: LoginSchema = {
 
 export const loginSlice = createSlice({
   name: "loginForm" as keyof StateSchema,
-  initialState,
+  initialState: loginSliceInitialState,
   reducers: {
     setInputField: (
       state,

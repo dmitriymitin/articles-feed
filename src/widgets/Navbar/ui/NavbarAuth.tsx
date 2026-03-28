@@ -3,10 +3,11 @@ import React from "react";
 import { Button } from "@/shared/ui/Button";
 import { Trans } from "@/shared/ui/Translate";
 
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+
 import s from "./Navbar.module.scss";
 
 import { userActions } from "@/entities/User";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface NavbarAuthProps {}
 

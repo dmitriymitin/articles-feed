@@ -1,8 +1,8 @@
 import { Trans } from "@/shared/ui/Translate";
 
-import cls from "./NotFoundPage.module.scss";
-
 import { cn } from "@/shared/lib/classNames/classNames";
+
+import cls from "./NotFoundPage.module.scss";
 
 interface NotFoundPageProps {
   className?: string;

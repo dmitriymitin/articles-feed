@@ -1,6 +1,6 @@
-import { AppLink } from "./AppLink";
-
 import { GetProps } from "@/shared/types/getProps";
+
+import { AppLink } from "./AppLink";
 
 export type AppLinkProps = GetProps<typeof AppLink>;
 

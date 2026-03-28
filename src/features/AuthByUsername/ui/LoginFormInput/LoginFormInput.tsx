@@ -2,11 +2,11 @@ import { useSelector } from "react-redux";
 
 import { Input, InputProps } from "@/shared/ui/Input";
 
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+
 import { getLoginInputField } from "../../model/selectors/getLoginInputField/getLoginInputField";
 import { loginActions } from "../../model/slice/loginSlice";
 import { LoginSchemaInputFields } from "../../model/types/LoginSchema";
-
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface LoginFormInputProps
   extends Pick<InputProps, "placeholder" | "autofocus"> {
