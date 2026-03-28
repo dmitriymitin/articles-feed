@@ -2,22 +2,19 @@ import { useState } from "react";
 
 import { Button } from "@/shared/ui/Button";
 
-import { cn } from "@/shared/lib/classNames/classNames";
-
-import { useSidebarItems } from "../../model/selectors/useSidebarItems";
-
-import { SidebarItem } from "../SidebarItem/SidebarItem";
-
-import s from "./Sidebar.module.scss";
-
 import { LangSwitcher } from "@/widgets/LangSwitcher";
 import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
+
+import { cn } from "@/shared/lib/classNames/classNames";
+
+import { SidebarItemsList } from "./SidebarItemsList";
+
+import s from "./Sidebar.module.scss";
 
 interface SidebarProps {}
 
 export const Sidebar = (props: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-  const sidebarItemsList = useSidebarItems();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -39,11 +36,7 @@ export const Sidebar = (props: SidebarProps) => {
       >
         {collapsed ? ">" : "<"}
       </Button>
-      <div className={s.items}>
-        {sidebarItemsList.map((item) => (
-          <SidebarItem item={item} collapsed={collapsed} key={item.path} />
-        ))}
-      </div>
+      <SidebarItemsList collapsed={collapsed} />
       <div className={s.switchers}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={s.lang} />

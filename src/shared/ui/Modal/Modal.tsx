@@ -1,4 +1,4 @@
-import React, { Fragment, memo, ReactNode } from "react";
+import React, { Fragment, ReactNode } from "react";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 import { useModal } from "@/shared/lib/hooks/useModal";
@@ -18,7 +18,7 @@ export interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
-const _Modal = (props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
 
   const { close, isClosing, isMounted } = useModal({
@@ -55,5 +55,3 @@ const _Modal = (props: ModalProps) => {
     <></>
   );
 };
-
-export const Modal = memo(_Modal);

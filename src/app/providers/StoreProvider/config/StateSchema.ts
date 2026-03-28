@@ -11,14 +11,14 @@ import {
 import { LoginSchema } from "@/features/AuthByUsername";
 
 import { CounterSchema } from "@/entities/Counter";
-import { UserSchema } from "@/entities/User";
 // import { ArticleDetailsSchema } from "@/entities/Article";
 // import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 // import { AddCommentFormSchema } from "@/features/addCommentForm";
 // import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 // import { UISchema } from "@/features/UI";
 // import { rtkApi } from "@/shared/api/rtkApi";
-// import { ProfileSchema } from "@/features/editableProfileCard";
+import { ProfileSchema } from "@/entities/Profile";
+import { UserSchema } from "@/entities/User";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -26,9 +26,13 @@ export interface StateSchema {
   // ui: UISchema;
   // [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
-  // Асинхронные редюсеры
+  /**
+   * Асинхронные редюсеры
+   * при добавлении асинхронного редюсера не забыть положить в
+   * {@link StoreDecorator} defaultAsyncReducers
+   */
   loginForm?: LoginSchema;
-  // profile?: ProfileSchema;
+  profile?: ProfileSchema;
   // articleDetails?: ArticleDetailsSchema;
   // addCommentForm?: AddCommentFormSchema;
   // articlesPage?: ArticlesPageSchema;

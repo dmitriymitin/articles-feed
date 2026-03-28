@@ -7,14 +7,15 @@ import {
 } from "@/app/providers/StoreProvider";
 
 import { loginReducer } from "@/features/AuthByUsername/testing";
+
 // import { articleDetailsReducer } from '@/entities/Article/testing';
 // import { addCommentFormReducer } from '@/features/addCommentForm/testing';
-// import { profileReducer } from '@/features/editableProfileCard/testing';
+import { profileReducer } from "@/entities/Profile";
 // import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
-  // profile: profileReducer,
+  profile: profileReducer,
   // articleDetails: articleDetailsReducer,
   // addCommentForm: addCommentFormReducer,
   // articleDetailsPage: articleDetailsPageReducer,

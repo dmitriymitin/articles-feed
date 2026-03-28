@@ -19,14 +19,12 @@ export const SidebarItem = (props: SidebarItemProps) => {
     return null;
   }
 
+  const classes = cn(s.item, {
+    [s.collapsed]: collapsed,
+  });
+
   return (
-    <AppLink
-      theme="secondary"
-      to={item.path}
-      className={cn(s.item, {
-        [s.collapsed]: collapsed,
-      })}
-    >
+    <AppLink theme="secondary" to={item.path} className={classes}>
       <item.Icon className={s.icon} />
       <span className={s.link}>
         <Trans>{item.text}</Trans>

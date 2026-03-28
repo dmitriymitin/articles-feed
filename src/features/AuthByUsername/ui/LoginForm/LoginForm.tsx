@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { ReducersList } from "@/app/providers/StoreProvider";
 
 import { Text } from "@/shared/ui/Text";
@@ -57,4 +59,4 @@ const LoginForm = (props: LoginFormProps) => {
   );
 };
 
-export default LoginForm;
+export default memo(LoginForm);

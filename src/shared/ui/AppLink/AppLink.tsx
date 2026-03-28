@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link, LinkProps } from "react-router-dom";
 
 import { cn } from "@/shared/lib/classNames/classNames";
@@ -12,6 +13,7 @@ interface AppLinkProps extends LinkProps {
 }
 
 const _AppLink = (props: AppLinkProps) => {
+  console.log("render");
   const { className, theme = "primary", children, ...restProps } = props;
 
   const cls = cn(s.AppLink, s?.[theme], className);
@@ -23,4 +25,4 @@ const _AppLink = (props: AppLinkProps) => {
   );
 };
 
-export const AppLink = withChildrenTranslation(_AppLink);
+export const AppLink = memo(withChildrenTranslation(_AppLink));

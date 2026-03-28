@@ -1,10 +1,4 @@
-import React, {
-  InputHTMLAttributes,
-  memo,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { InputHTMLAttributes, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
@@ -25,7 +19,7 @@ export interface InputProps extends HTMLInputProps {
   readonly?: boolean;
 }
 
-const _Input = (props: InputProps) => {
+export const Input = (props: InputProps) => {
   const {
     className,
     value,
@@ -105,6 +99,3 @@ const _Input = (props: InputProps) => {
     </div>
   );
 };
-
-// @ts-ignore
-export const Input = memo(_Input);
