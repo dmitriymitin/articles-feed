@@ -83,6 +83,7 @@ module.exports = {
           ["^@(?![\\/])[a-zA-ZА-Яа-яёЁ]"],
           ["^@/app/"],
           ["^@/shared/ui"],
+          ["^@/features/"],
           ["^@/shared/lib"],
           ["^@/shared/const"],
           ["^@/shared/config"],
