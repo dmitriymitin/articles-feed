@@ -1,9 +1,11 @@
-import { useTranslation } from "react-i18next";
 import React from "react";
-import { cn } from "@/shared/lib/classNames/classNames";
+import { useTranslation } from "react-i18next";
+
 import { Button } from "@/shared/ui/Button";
 
 import s from "./LangSwitcher.module.scss";
+
+import { cn } from "@/shared/lib/classNames/classNames";
 
 interface LangSwitcherProps {
   className?: string;

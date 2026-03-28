@@ -1,7 +1,9 @@
-import { cn } from "@/shared/lib/classNames/classNames";
 import { Button } from "@/shared/ui/Button";
 import { Trans } from "@/shared/ui/Translate";
+
 import s from "./ErrorPage.module.scss";
+
+import { cn } from "@/shared/lib/classNames/classNames";
 
 interface ErrorPageProps {
   className?: string;

@@ -1,10 +1,16 @@
 import HTMLWebpackPlugin from "html-webpack-plugin";
-import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack from "webpack";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
-import {BuildOptions} from "./types/config";
+
+import { BuildOptions } from "./types/config";
+
+
+
+
+
 
 export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
   const { paths, isDev, isProd } = options

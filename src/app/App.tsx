@@ -1,14 +1,14 @@
 import React, { PropsWithChildren, Suspense, useEffect } from "react";
-import { useTheme } from "@/app/providers/ThemeProvider";
-import { cn } from "@/shared/lib/classNames/classNames";
-import { AppRouter } from "@/app/providers/router";
-import { Navbar } from "@/widgets/Navbar";
-
-import { Sidebar } from "@/widgets/Sidebar";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { userActions } from "@/entities/User";
 
 import "./styles/index.scss";
+
+import { AppRouter } from "@/app/providers/router";
+import { useTheme } from "@/app/providers/ThemeProvider";
+import { userActions } from "@/entities/User";
+import { cn } from "@/shared/lib/classNames/classNames";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { Navbar } from "@/widgets/Navbar";
+import { Sidebar } from "@/widgets/Sidebar";
 
 const Wrapper = ({ children }: PropsWithChildren) => {
   const { theme } = useTheme();

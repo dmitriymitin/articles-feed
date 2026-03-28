@@ -1,4 +1,5 @@
 import "./Loader.scss";
+
 import { cn } from "@/shared/lib/classNames/classNames";
 
 interface LoaderProps {

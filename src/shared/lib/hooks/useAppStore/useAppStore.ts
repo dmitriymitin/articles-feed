@@ -1,13 +1,9 @@
 import { useStore as useStoreBase } from "react-redux";
-import { StateSchema } from "@/app/providers/StoreProvider";
+
+import { ReduxStoreWithManager } from "@/app/providers/StoreProvider/config/StateSchema";
 
 export const useAppStore = () => {
-  const result = useStoreBase();
+  const result = useStoreBase() as ReduxStoreWithManager;
 
-  const getState = () => result.getState() as StateSchema;
-
-  return {
-    ...result,
-    getState,
-  };
+  return result;
 };

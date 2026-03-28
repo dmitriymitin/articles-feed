@@ -1,9 +1,12 @@
 import React, { memo, ReactNode } from "react";
-import { useModal } from "@/shared/lib/hooks/useModal";
-import { cn } from "@/shared/lib/classNames/classNames";
+
 import { Overlay } from "../Overlay";
 import { Portal } from "../Portal";
+
 import s from "./Modal.module.scss";
+
+import { cn } from "@/shared/lib/classNames/classNames";
+import { useModal } from "@/shared/lib/hooks/useModal";
 
 export interface ModalProps {
   className?: string;

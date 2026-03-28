@@ -1,6 +1,7 @@
-import { StateSchema } from "@/app/providers/StoreProvider";
 import { LoginSchemaInputFields } from "../../types/LoginSchema";
 
-export const getLoginStateInputField =
+import { StateSchema } from "@/app/providers/StoreProvider";
+
+export const getLoginInputField =
   (field: keyof LoginSchemaInputFields) => (state: StateSchema) =>
-    state?.loginForm[field];
+    state?.loginForm?.[field] || "";

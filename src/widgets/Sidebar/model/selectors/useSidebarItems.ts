@@ -1,7 +1,8 @@
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { SidebarItemType } from "../types/sidebar";
+
 import MainIcon from "@/shared/assets/icons/home.svg";
 import AboutIcon from "@/shared/assets/icons/Info.svg";
-import { SidebarItemType } from "../types/sidebar";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 
 const sidebarItemsList: SidebarItemType[] = [
   {

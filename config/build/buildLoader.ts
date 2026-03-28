@@ -1,10 +1,11 @@
 import webpack from "webpack";
-import {buildSvgLoader} from "./loaders/buildSvgLoader";
-import {buildCssLoader} from "./loaders/buildCssLoader";
-import {buildFileLoader} from "./loaders/builFileLoader";
-import {BuildOptions} from "./types/config";
-import {buildTypescriptLoader} from "./loaders/buildTypescriptLoader";
-import {buildBabelLoader} from "./loaders/buildBabelLoader";
+
+import { buildBabelLoader } from "./loaders/buildBabelLoader";
+import { buildCssLoader } from "./loaders/buildCssLoader";
+import { buildSvgLoader } from "./loaders/buildSvgLoader";
+import { buildTypescriptLoader } from "./loaders/buildTypescriptLoader";
+import { buildFileLoader } from "./loaders/builFileLoader";
+import { BuildOptions } from "./types/config";
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 

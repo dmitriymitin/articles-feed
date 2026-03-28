@@ -1,6 +1,8 @@
 import { ComponentType, FC, PropsWithChildren, ReactNode } from "react";
-import { GetProps } from "@/shared/types/getProps";
+
 import { Trans, TransProps } from "@/shared/ui/Translate";
+
+import { GetProps } from "@/shared/types/getProps";
 
 type Props = Pick<TransProps, "ns"> & PropsWithChildren;
 

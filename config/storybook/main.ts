@@ -1,5 +1,6 @@
-import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
 import path from "path";
+import { Configuration, DefinePlugin, RuleSetRule } from "webpack";
+
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 import { buildSvgLoader } from "../build/loaders/buildSvgLoader";
 

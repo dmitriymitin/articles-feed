@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
+
 import { Input, InputProps } from "@/shared/ui/Input";
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { LoginSchemaInputFields } from "../../model/types/LoginSchema";
+import { getLoginInputField } from "../../model/selectors/getLoginInputField/getLoginInputField";
 import { loginActions } from "../../model/slice/loginSlice";
-import { getLoginStateInputField } from "../../model/selectors/getLoginStateInputField/getLoginStateInputField";
+import { LoginSchemaInputFields } from "../../model/types/LoginSchema";
+
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface LoginFormInputProps
   extends Pick<InputProps, "placeholder" | "autofocus"> {
@@ -18,7 +20,7 @@ export const LoginFormInput = (props: LoginFormInputProps) => {
   const dispatch = useAppDispatch();
   const { setInputField } = loginActions;
 
-  const fieldValue = useSelector(getLoginStateInputField(field));
+  const fieldValue = useSelector(getLoginInputField(field));
 
   const onChangeField = (value: string) => {
     dispatch(setInputField({ value, field }));

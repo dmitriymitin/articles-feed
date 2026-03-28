@@ -1,8 +1,10 @@
 import { memo } from "react";
-import { cn } from "@/shared/lib/classNames/classNames";
+
 import { Trans } from "../Translate";
 
 import s from "./Text.module.scss";
+
+import { cn } from "@/shared/lib/classNames/classNames";
 
 type TextTheme = "primary" | "inverted" | "error";
 

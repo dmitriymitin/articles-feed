@@ -1,6 +1,8 @@
-import { cn } from "@/shared/lib/classNames/classNames";
 import { Loader } from "@/shared/ui/Loader";
+
 import cls from "./PageLoader.module.scss";
+
+import { cn } from "@/shared/lib/classNames/classNames";
 
 interface PageLoaderProps {
   className?: string;

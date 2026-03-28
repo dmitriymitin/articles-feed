@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
+
 import { Text } from "@/shared/ui/Text";
-import { getLoginStateError } from "../../model/selectors/getLoginStateError/getLoginStateError";
+
+import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 
 interface LoginFormErrorProps {}
 
 export const LoginFormError = (props: LoginFormErrorProps) => {
-  const error = useSelector(getLoginStateError);
+  const error = useSelector(getLoginError);
 
   if (!error) {
     return null;

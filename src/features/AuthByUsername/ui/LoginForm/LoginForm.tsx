@@ -1,19 +1,20 @@
 import { memo } from "react";
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Text } from "@/shared/ui/Text";
-import { useAppStore } from "@/shared/lib/hooks/useAppStore/useAppStore";
 
+import { getLoginInputField } from "../../model/selectors/getLoginInputField/getLoginInputField";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
-import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 
+import { LoginFormError } from "../LoginFormError/LoginFormError";
 import { LoginFormInput } from "../LoginFormInput/LoginFormInput";
 import { LoginFormSubmitBtn } from "../LoginFormSubmitBtn/LoginFormSubmitBtn";
-import { LoginFormError } from "../LoginFormError/LoginFormError";
 
 import s from "./LoginForm.module.scss";
 
-interface LoginFormProps {}
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppStore } from "@/shared/lib/hooks/useAppStore/useAppStore";
+
+export interface LoginFormProps {}
 
 const _LoginForm = (props: LoginFormProps) => {
   const dispatch = useAppDispatch();
@@ -21,7 +22,9 @@ const _LoginForm = (props: LoginFormProps) => {
 
   const login = async () => {
     const state = store.getState();
-    const { username, password } = getLoginState(state);
+
+    const username = getLoginInputField("username")(state);
+    const password = getLoginInputField("password")(state);
 
     dispatch(loginByUsername({ username, password }));
   };
@@ -46,4 +49,4 @@ const _LoginForm = (props: LoginFormProps) => {
   );
 };
 
-export const LoginForm = memo(_LoginForm);
+export default memo(_LoginForm);

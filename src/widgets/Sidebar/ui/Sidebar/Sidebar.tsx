@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { cn } from "@/shared/lib/classNames/classNames";
+
 import { Button } from "@/shared/ui/Button";
-import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
-import { LangSwitcher } from "@/widgets/LangSwitcher";
+
 import { useSidebarItems } from "../../model/selectors/useSidebarItems";
+
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 import s from "./Sidebar.module.scss";
+
+import { cn } from "@/shared/lib/classNames/classNames";
+import { LangSwitcher } from "@/widgets/LangSwitcher";
+import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
 
 interface SidebarProps {}
 
