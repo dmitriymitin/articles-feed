@@ -7,6 +7,7 @@ export type {
   ReduxStoreWithManager,
   StateSchemaKey,
   ReducersList,
+  ThunkConfig
 } from "./config/StateSchema";
 
 export type { AppDispatch } from "./config/store";

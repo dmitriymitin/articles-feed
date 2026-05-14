@@ -1,4 +1,5 @@
 import { AxiosInstance } from "axios";
+import { NavigateOptions, To } from 'react-router-dom';
 import { CombinedState } from "redux";
 
 import {
@@ -59,6 +60,7 @@ export interface ReduxStoreWithManager
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
+  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export type ReducersList = {
