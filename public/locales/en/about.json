@@ -1,5 +1,18 @@
 {
-    "О сайте": "About us",
-    "Админ панель": "Админ панель",
-    "У вас нет доступа к этой странице": "У вас нет доступа к этой странице"
+    "О сайте": "About",
+    "Описание проекта": "A learning project for studying the modern React development stack. Built using the Feature-Sliced Design methodology with a focus on scalability and code maintainability.",
+    "Возможности": "Features",
+    "Чтение и просмотр статей": "Reading and browsing articles",
+    "Регистрация и авторизация": "Registration and authentication",
+    "Личный профиль пользователя": "Personal user profile",
+    "Тёмная и светлая тема": "Dark and light theme",
+    "Поддержка двух языков (RU / EN)": "Two languages support (RU / EN)",
+    "Стек технологий": "Tech stack",
+    "Обратная связь": "Feedback",
+    "Ваш email": "Your email",
+    "Сообщение": "Message",
+    "Опишите вашу обратную связь...": "Describe your feedback...",
+    "Отправить": "Send",
+    "Админ панель": "Admin panel",
+    "У вас нет доступа к этой странице": "You do not have access to this page"
 }

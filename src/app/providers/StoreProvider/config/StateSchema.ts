@@ -9,6 +9,7 @@ import {
 } from "@reduxjs/toolkit";
 
 import { LoginSchema } from "@/features/AuthByUsername";
+import { FeedbackFormSchema } from "@/features/FeedbackForm";
 
 import { CounterSchema } from "@/entities/Counter";
 // import { ArticleDetailsSchema } from "@/entities/Article";
@@ -32,6 +33,7 @@ export interface StateSchema {
    * {@link StoreDecorator} defaultAsyncReducers
    */
   loginForm?: LoginSchema;
+  feedbackForm?: FeedbackFormSchema;
   profile?: ProfileSchema;
   // articleDetails?: ArticleDetailsSchema;
   // addCommentForm?: AddCommentFormSchema;

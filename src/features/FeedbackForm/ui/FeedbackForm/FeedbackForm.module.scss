@@ -1,0 +1,31 @@
+.FeedbackForm {
+    margin-top: 40px;
+    padding: 28px 32px;
+    border: 1px solid var(--primary-color);
+    max-width: 560px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.label {
+    font: var(--font-s);
+    margin-bottom: 8px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.inputWrapper {
+    border-bottom: 1px solid var(--primary-color);
+    padding: 4px 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
