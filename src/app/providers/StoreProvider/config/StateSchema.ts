@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { NavigateOptions, To } from 'react-router-dom';
+import { NavigateOptions, To } from "react-router-dom";
 import { CombinedState } from "redux";
 
 import {
@@ -10,15 +10,15 @@ import {
 } from "@reduxjs/toolkit";
 
 import { LoginSchema } from "@/features/AuthByUsername";
-
-import { CounterSchema } from "@/entities/Counter";
 // import { ArticleDetailsSchema } from "@/entities/Article";
 // import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 // import { AddCommentFormSchema } from "@/features/addCommentForm";
 // import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 // import { UISchema } from "@/features/UI";
 // import { rtkApi } from "@/shared/api/rtkApi";
-import { ProfileSchema } from "@/entities/Profile";
+import { ProfileSchema } from "@/features/editableProfileCard";
+
+import { CounterSchema } from "@/entities/Counter";
 import { UserSchema } from "@/entities/User";
 
 export interface StateSchema {
