@@ -835,14 +835,14 @@
   "profile": [
     {
       "id": "1",
-      "first": "фыаыфаыф",
-      "lastname": "ulbi",
-      "age": 25,
+      "first": "фыаыфаыф123",
+      "lastname": "dm",
+      "age": 2,
       "currency": "EUR",
-      "country": "Ukraine",
+      "country": "Armenia",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
+      "avatar": "https://avatars.mds.yandex.net/i?id=a5aebe75cd14586081259f4ff424fdc268904d67-4570234-images-thumbs&n=13"
     },
     {
       "id": "2",

@@ -1,9 +1,6 @@
-export interface LoginSchemaInputFields {
-  username: string;
-  password: string;
-}
-
-export interface LoginSchema extends LoginSchemaInputFields {
+export interface LoginSchema {
   isLoading: boolean;
   error?: string;
+  username: string;
+  password: string;
 }

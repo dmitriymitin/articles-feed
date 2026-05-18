@@ -2,23 +2,23 @@ import { StateSchema } from "@/app/providers/StoreProvider";
 
 import { loginSliceInitialState } from "../../slice/loginSlice";
 
-import { getLoginInputField } from "./getLoginInputField";
+import { getLoginField } from "./getLoginField";
 
-describe("getLoginInputField.test", () => {
+describe("getLoginField.test", () => {
   test("should return username value", () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         username: "username123",
       },
     };
-    expect(getLoginInputField("username")(state as StateSchema)).toEqual(
+    expect(getLoginField("username")(state as StateSchema)).toEqual(
       "username123"
     );
   });
 
   test("should work with empty username state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getLoginInputField("username")(state as StateSchema)).toEqual(
+    expect(getLoginField("username")(state as StateSchema)).toEqual(
       loginSliceInitialState.username
     );
   });
@@ -29,14 +29,14 @@ describe("getLoginInputField.test", () => {
         password: "password123",
       },
     };
-    expect(getLoginInputField("password")(state as StateSchema)).toEqual(
+    expect(getLoginField("password")(state as StateSchema)).toEqual(
       "password123"
     );
   });
 
   test("should work with empty password state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getLoginInputField("password")(state as StateSchema)).toEqual(
+    expect(getLoginField("password")(state as StateSchema)).toEqual(
       loginSliceInitialState.password
     );
   });

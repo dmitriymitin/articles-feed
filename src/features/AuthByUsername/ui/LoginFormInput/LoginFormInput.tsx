@@ -4,26 +4,24 @@ import { Input, InputProps } from "@/shared/ui/Input";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { getLoginInputField } from "../../model/selectors/getLoginInputField/getLoginInputField";
+import { getLoginField } from "../../model/selectors/getLoginField/getLoginField";
 import { loginActions } from "../../model/slice/loginSlice";
-import { LoginSchemaInputFields } from "../../model/types/LoginSchema";
+import { LoginSchema } from "../../model/types/LoginSchema";
 
 interface LoginFormInputProps
-  extends Pick<InputProps, "placeholder" | "autofocus"> {
-  field: keyof LoginSchemaInputFields;
-  className?: string;
+  extends Pick<InputProps, "placeholder" | "autofocus" | 'className'> {
+  field: keyof Pick<LoginSchema, "password" | "username">;
 }
 
 export const LoginFormInput = (props: LoginFormInputProps) => {
   const { field, className, placeholder, autofocus } = props;
 
   const dispatch = useAppDispatch();
-  const { setInputField } = loginActions;
 
-  const fieldValue = useSelector(getLoginInputField(field));
+  const fieldValue = useSelector(getLoginField(field));
 
   const onChangeField = (value: string) => {
-    dispatch(setInputField({ value, field }));
+    dispatch(loginActions.setField({ value, field }));
   };
 
   return (

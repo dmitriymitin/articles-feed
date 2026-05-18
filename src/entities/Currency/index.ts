@@ -1,1 +1,4 @@
+export { CurrencySelect } from "./ui/CurrencySelect/CurrencySelect";
+export type { CurrencySelectProps } from "./ui/CurrencySelect/CurrencySelect";
+
 export { Currency } from "./model/types/currency";

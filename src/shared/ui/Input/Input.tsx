@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
-import { Trans } from "../Translate";
+import { Trans, TransProps } from "../Translate";
 
 import s from "./Input.module.scss";
 
@@ -11,7 +11,7 @@ type HTMLInputProps = Omit<
   "value" | "onChange" | "readOnly"
 >;
 
-export interface InputProps extends HTMLInputProps {
+export interface InputProps extends HTMLInputProps, Pick<TransProps, 'ns'> {
   className?: string;
   value?: string | number;
   onChange?: (value: string) => void;
@@ -28,6 +28,7 @@ export const Input = (props: InputProps) => {
     placeholder,
     autofocus,
     readonly,
+    ns,
     ...restProps
   } = props;
   const ref = useRef<HTMLInputElement>(null);
@@ -72,7 +73,7 @@ export const Input = (props: InputProps) => {
     <div className={classes}>
       {placeholder && (
         <div className={s.placeholder}>
-          <Trans>{placeholder}</Trans>
+          <Trans ns={ns}>{placeholder}</Trans>
           {">"}
         </div>
       )}

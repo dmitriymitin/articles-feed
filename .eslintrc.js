@@ -42,6 +42,7 @@ module.exports = {
     "no-unused-vars": "off",
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "warn",
     "react/jsx-pascal-case": "warn",
     "react/jsx-props-no-spreading": "warn",
     "react/jsx-no-useless-fragment": "warn",
@@ -102,13 +103,7 @@ module.exports = {
         ],
       },
     ],
-    "max-len": [
-      "error",
-      {
-        ignoreComments: true,
-        code: 125,
-      },
-    ],
+    "max-len": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react-hooks/rules-of-hooks": "error",

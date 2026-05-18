@@ -1,20 +1,16 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 import { ReducersList } from "@/app/providers/StoreProvider";
 
-import { Button } from "@/shared/ui/Button";
-import { Input } from "@/shared/ui/Input";
-import { Text } from "@/shared/ui/Text";
-import { Trans } from "@/shared/ui/Translate";
-
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
-import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
-import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { profileReducer } from "../../model/slice/profileSlice";
 
-import s from "./EditableProfileCard.module.scss";
+import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
+import { EditableProfileCardView } from "../EditableProfileCardView/EditableProfileCardView";
+import { EditableProfileCardViewWrapper } from "../EditableProfileCardViewWrapper/EditableProfileCardViewWrapper";
 
 import { Profile } from "@/entities/Profile";
 
@@ -26,39 +22,21 @@ interface EditableProfileCardProps {
   id: Profile["id"];
 }
 
-const _EditableProfileCard = (props: EditableProfileCardProps) => {
-  const { id } = props;
+export const EditableProfileCard = (props: EditableProfileCardProps) => {
+  const { id = "1" } = props;
 
-  const data = useSelector(getProfileData);
-  const isLoading = useSelector(getProfileIsLoading);
-  const error = useSelector(getProfileError);
+  const dispatch = useAppDispatch();
 
-  return (
-    <div className={s.ProfileCard}>
-      <div className={s.header}>
-        <Text title="Профиль" />
-        <Button theme="outline" className={s.editBtn}>
-          <Trans>Редактировать</Trans>
-        </Button>
-      </div>
-      <div className={s.data}>
-        <Input value={data?.first} placeholder="Ваше имя" className={s.input} />
-        <Input
-          value={data?.lastname}
-          placeholder="Ваше фамилия"
-          className={s.input}
-        />
-      </div>
-    </div>
-  );
-};
+  useEffect(() => {
+    dispatch(fetchProfileData(id));
+  }, [id])
 
-const hoc = () => (props: EditableProfileCardProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <_EditableProfileCard {...props} />
+      <EditableProfileCardHeader />
+      <EditableProfileCardViewWrapper>
+        <EditableProfileCardView />
+      </EditableProfileCardViewWrapper>
     </DynamicModuleLoader>
   );
 };
-
-export const EditableProfileCard = hoc();

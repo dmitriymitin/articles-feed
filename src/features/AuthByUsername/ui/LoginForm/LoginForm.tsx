@@ -8,7 +8,7 @@ import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useAppStore } from "@/shared/lib/hooks/useAppStore/useAppStore";
 
-import { getLoginInputField } from "../../model/selectors/getLoginInputField/getLoginInputField";
+import { getLoginField } from "../../model/selectors/getLoginField/getLoginField";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { loginReducer } from "../../model/slice/loginSlice";
 
@@ -30,9 +30,8 @@ const LoginForm = (props: LoginFormProps) => {
 
   const login = async () => {
     const state = store.getState();
-
-    const username = getLoginInputField("username")(state);
-    const password = getLoginInputField("password")(state);
+    const username = getLoginField("username")(state);
+    const password = getLoginField("password")(state);
 
     dispatch(loginByUsername({ username, password }));
   };
@@ -41,17 +40,8 @@ const LoginForm = (props: LoginFormProps) => {
     <DynamicModuleLoader reducers={initialReducers}>
       <div className={s.LoginForm}>
         <Text title="Форма авторизации" />
-        <LoginFormInput
-          className={s.input}
-          placeholder="Введите username"
-          autofocus
-          field="username"
-        />
-        <LoginFormInput
-          className={s.input}
-          placeholder="Введите пароль"
-          field="password"
-        />
+        <LoginFormInput placeholder="Введите username" field="username" autofocus className={s.input} />
+        <LoginFormInput placeholder="Введите пароль" field="password" className={s.input} />
         <LoginFormError />
         <LoginFormSubmitBtn onClick={login} className={s.loginBtn} />
       </div>

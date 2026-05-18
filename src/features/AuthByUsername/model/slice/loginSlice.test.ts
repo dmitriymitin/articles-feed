@@ -9,7 +9,7 @@ describe("loginSlice.test", () => {
     expect(
       loginReducer(
         state as LoginSchema,
-        loginActions.setInputField({ field: "username", value: "123123" })
+        loginActions.setField({ field: "username", value: "123123" })
       )
     ).toEqual({ username: "123123" });
   });
@@ -19,7 +19,7 @@ describe("loginSlice.test", () => {
     expect(
       loginReducer(
         state as LoginSchema,
-        loginActions.setInputField({ field: "password", value: "123123" })
+        loginActions.setField({ field: "password", value: "123123" })
       )
     ).toEqual({ password: "123123" });
   });

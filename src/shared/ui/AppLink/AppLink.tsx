@@ -13,7 +13,6 @@ interface AppLinkProps extends LinkProps {
 }
 
 const _AppLink = (props: AppLinkProps) => {
-  console.log("render");
   const { className, theme = "primary", children, ...restProps } = props;
 
   const cls = cn(s.AppLink, s?.[theme], className);
