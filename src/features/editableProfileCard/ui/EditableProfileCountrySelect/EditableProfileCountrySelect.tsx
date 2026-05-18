@@ -8,7 +8,12 @@ import { profileAction } from "../../model/slice/profileSlice";
 
 import { CountrySelect, CountrySelectProps } from "@/entities/Country";
 
-export const EditableProfileCountrySelect = () => {
+interface EditableProfileCountrySelectProps {
+  className?: string;
+}
+
+export const EditableProfileCountrySelect = (props: EditableProfileCountrySelectProps) => {
+  const { className } = props;
   const dispatch = useAppDispatch()
 
   const country = useSelector(getProfileFormField('country'))
@@ -20,6 +25,7 @@ export const EditableProfileCountrySelect = () => {
 
   return (
     <CountrySelect
+      className={className}
       label='Укажите страну'
       value={country}
       onChange={onChange}

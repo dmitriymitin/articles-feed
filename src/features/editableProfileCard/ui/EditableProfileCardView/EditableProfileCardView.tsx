@@ -72,8 +72,8 @@ export const EditableProfileCardView = () => {
         placeholder="Введите ссылку на аватар"
         className={s.input}
       />
-      <EditableProfileCountrySelect />
-      <EditableProfileCurrencySelect />
+      <EditableProfileCountrySelect className={s.select} />
+      <EditableProfileCurrencySelect className={s.select} />
     </div>
   );
 };

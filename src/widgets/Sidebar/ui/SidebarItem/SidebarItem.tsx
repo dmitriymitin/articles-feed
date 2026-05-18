@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import { AppLink } from "@/shared/ui/AppLink";
 import { Trans } from "@/shared/ui/Translate";
 
@@ -7,6 +9,8 @@ import { SidebarItemType } from "../../model/types/sidebar";
 
 import s from "./SidebarItem.module.scss";
 
+import { getUserAuthData } from "@/entities/User";
+
 interface SidebarItemProps {
   item: SidebarItemType;
   collapsed: boolean;
@@ -14,8 +18,9 @@ interface SidebarItemProps {
 
 export const SidebarItem = (props: SidebarItemProps) => {
   const { item, collapsed } = props;
+  const isAuth = useSelector(getUserAuthData);
 
-  if (item.authOnly) {
+  if (item.authOnly && !isAuth) {
     return null;
   }
 

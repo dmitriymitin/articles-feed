@@ -22,17 +22,15 @@ export const loginByUsername = createAsyncThunk<
   const { username, password } = authData;
 
   try {
-    const response = await extra.api.post("/login", {
-      username,
-      password,
-    });
+    const response = await extra.api.post("/login", { username, password });
 
     if (!response.data) {
       throw new Error();
     }
 
-    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+    console.log('response', response)
     dispatch(userActions.setAuthData(response.data));
+    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
     extra.navigate?.('/about')
 
     return response.data;

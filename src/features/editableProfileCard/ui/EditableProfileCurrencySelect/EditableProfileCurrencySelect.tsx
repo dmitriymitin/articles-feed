@@ -11,22 +11,29 @@ import {
   CurrencySelectProps,
 } from "@/entities/Currency";
 
- export const EditableProfileCurrencySelect = () => {
-   const dispatch = useAppDispatch()
+interface EditableProfileCurrencySelectProps {
+  className?: string;
+}
 
-   const currency = useSelector(getProfileFormField('currency'))
-   const readonly = useSelector(getProfileReadonly)
 
-   const onChange: CurrencySelectProps['onChange'] = (value) => {
-     dispatch(profileAction.setField({ field: 'currency', value }))
-   }
+export const EditableProfileCurrencySelect = (props: EditableProfileCurrencySelectProps) => {
+  const { className } = props;
+  const dispatch = useAppDispatch();
 
-   return (
-     <CurrencySelect
-       label='Укажите валюту'
-       value={currency}
-       onChange={onChange}
-       readonly={readonly}
-     />
-   );
- };
+  const currency = useSelector(getProfileFormField("currency"));
+  const readonly = useSelector(getProfileReadonly);
+
+  const onChange: CurrencySelectProps["onChange"] = (value) => {
+    dispatch(profileAction.setField({ field: "currency", value }));
+  };
+
+  return (
+    <CurrencySelect
+      className={className}
+      label="Укажите валюту"
+      value={currency}
+      onChange={onChange}
+      readonly={readonly}
+    />
+  );
+};
