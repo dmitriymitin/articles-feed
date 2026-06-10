@@ -32,3 +32,13 @@
 //     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.\n ',
 // };
 // Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+import React from 'react';
+
+export const ModalStories = () => {
+  return (
+    <div>
+      ModalStories
+    </div>
+  );
+};

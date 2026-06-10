@@ -1,24 +1,37 @@
-import webpack from "webpack";
+import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
 
-import { BuildOptions } from "../types/config";
+import { BuildOptions } from '../types/config';
 
-export function buildBabelLoader(options: BuildOptions): webpack.RuleSetRule {
+interface BuildBabelLoaderProps extends BuildOptions {
+  isTsx?: boolean;
+}
+
+export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
+  const isProd = !isDev;
   return {
-    test: /\.(js|jsx|tsx)$/,
+    test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
-      loader: "babel-loader",
+      loader: 'babel-loader',
       options: {
-        presets: ["@babel/preset-env"],
+        cacheDirectory: true,
+        presets: ['@babel/preset-env'],
         plugins: [
           [
-            "i18next-extract",
+            '@babel/plugin-transform-typescript',
             {
-              locales: ["ru", "en"],
-              keyAsDefaultValue: true,
+              isTsx,
             },
           ],
-        ],
+          '@babel/plugin-transform-runtime',
+          isTsx && isProd && [
+            babelRemovePropsPlugin,
+            {
+              props: ['data-testid'],
+            },
+          ],
+          isDev && require.resolve('react-refresh/babel'),
+        ].filter(Boolean),
       },
     },
   };

@@ -20,7 +20,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   // Если не используем тс - нужен babel-loader
   const typescriptLoader = buildTypescriptLoader(options)
 
-
   return [
     fileLoader,
     svgLoader,
