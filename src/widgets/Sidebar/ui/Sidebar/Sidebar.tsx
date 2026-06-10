@@ -20,7 +20,6 @@ export const Sidebar = (props: SidebarProps) => {
     setCollapsed((prev) => !prev);
   };
 
-  // test
   const cls = cn(s.Sidebar, {
     [s.collapsed]: collapsed,
   });

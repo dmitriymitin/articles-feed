@@ -4,7 +4,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
-import { profileAction } from "../../model/slice/profileSlice";
+import { profileActions } from "../../model/slice/profileSlice";
 
 import {
   CurrencySelect,
@@ -24,7 +24,7 @@ export const EditableProfileCurrencySelect = (props: EditableProfileCurrencySele
   const readonly = useSelector(getProfileReadonly);
 
   const onChange: CurrencySelectProps["onChange"] = (value) => {
-    dispatch(profileAction.setField({ field: "currency", value }));
+    dispatch(profileActions.setField({ field: "currency", value }));
   };
 
   return (

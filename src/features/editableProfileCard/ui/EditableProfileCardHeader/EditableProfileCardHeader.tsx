@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
-import { profileAction } from "../../model/slice/profileSlice";
+import { profileActions } from "../../model/slice/profileSlice";
 
 import s from "./EditableProfileCardHeader.module.scss";
 
@@ -17,7 +17,7 @@ export const EditableProfileCardHeader = () => {
   const readonly = useSelector(getProfileReadonly);
 
   const activateEdit = () => {
-    dispatch(profileAction.setReadonly(false));
+    dispatch(profileActions.setReadonly(false));
   }
 
   const saveEdit = () => {
@@ -25,8 +25,8 @@ export const EditableProfileCardHeader = () => {
   }
 
   const cancelEdit = () => {
-    dispatch(profileAction.resetForm());
-    dispatch(profileAction.setReadonly(true));
+    dispatch(profileActions.resetForm());
+    dispatch(profileActions.setReadonly(true));
   }
 
   return (

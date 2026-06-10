@@ -4,7 +4,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
-import { profileAction } from "../../model/slice/profileSlice";
+import { profileActions } from "../../model/slice/profileSlice";
 
 import { CountrySelect, CountrySelectProps } from "@/entities/Country";
 
@@ -20,7 +20,7 @@ export const EditableProfileCountrySelect = (props: EditableProfileCountrySelect
   const readonly = useSelector(getProfileReadonly)
 
   const onChange: CountrySelectProps['onChange'] = (value) => {
-    dispatch(profileAction.setField({ field: 'country', value }))
+    dispatch(profileActions.setField({ field: 'country', value }))
   }
 
   return (

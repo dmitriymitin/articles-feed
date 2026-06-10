@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 
 import { ReducersList } from "@/app/providers/StoreProvider";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { profileReducer } from "../../model/slice/profileSlice";
@@ -11,6 +11,7 @@ import { profileReducer } from "../../model/slice/profileSlice";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 import { EditableProfileCardView } from "../EditableProfileCardView/EditableProfileCardView";
 import { EditableProfileCardViewWrapper } from "../EditableProfileCardViewWrapper/EditableProfileCardViewWrapper";
+import { EditableProfileValidateErrors } from "../EditableProfileValidateErrors/EditableProfileValidateErrors";
 
 import { Profile } from "@/entities/Profile";
 
@@ -23,17 +24,18 @@ interface EditableProfileCardProps {
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
-  const { id = "1" } = props;
+  const { id } = props;
 
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(fetchProfileData(id));
-  }, [id])
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers}>
       <EditableProfileCardHeader />
+      <EditableProfileValidateErrors />
       <EditableProfileCardViewWrapper>
         <EditableProfileCardView />
       </EditableProfileCardViewWrapper>

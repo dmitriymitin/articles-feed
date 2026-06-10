@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
-import { profileAction } from "../../model/slice/profileSlice";
+import { profileActions } from "../../model/slice/profileSlice";
 import {
   ProfileSchemaForm,
 } from "../../model/types/editableProfileCardSchema";
@@ -28,7 +28,7 @@ export const EditableProfileInput = (
 
   const onChangeField = (value: string) => {
     dispatch(
-      profileAction.setField({
+      profileActions.setField({
         field,
         value: type === "number" ? Number(value) : value,
       })
