@@ -4,6 +4,8 @@ export { getUserAuthData } from "./model/selector/getUserAuthData/getUserAuthDat
 
 export { userReducer, userActions } from "./model/slice/userSlice";
 
+export { getUserInited } from './model/selector/getUserInited/getUserInited';
+
 export type { User, UserSchema } from "./model/types/user";
 
 export { UserRole } from './model/consts/userConsts';

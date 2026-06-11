@@ -1,4 +1,5 @@
 import React, { PropsWithChildren, Suspense, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { AppRouter } from "@/app/providers/router";
 import { useTheme } from "@/app/providers/ThemeProvider";
@@ -9,9 +10,11 @@ import { Sidebar } from "@/widgets/Sidebar";
 import { cn } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
+import { PageLoader } from "../widgets/PageLoader";
+
 import "./styles/index.scss";
 
-import { userActions } from "@/entities/User";
+import { getUserInited, userActions  } from "@/entities/User";
 
 const AppWrapper = ({ children }: PropsWithChildren) => {
   const { theme } = useTheme();
@@ -21,10 +24,19 @@ const AppWrapper = ({ children }: PropsWithChildren) => {
 
 export const App = () => {
   const dispatch = useAppDispatch();
+  const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
-  }, [dispatch]);
+    if (!inited) {
+      dispatch(userActions.initAuthData());
+    }
+  }, [inited]);
+
+  if (!inited) {
+    return (
+      <PageLoader />
+    );
+  }
 
   return (
     <AppWrapper>
