@@ -1,12 +1,16 @@
 import {
-    AppRoutes,
-    getRouteAbout,
-    getRouteMain,
-    getRouteProfile,
-} from '@/shared/const/router';
+  AppRoutes,
+  getRouteAbout,
+  getRouteArticleDetails,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+} from "@/shared/const/router";
 import { AppRoutesProps } from '@/shared/types/router';
 
 import { AboutPage } from '@/pages/AboutPage';
+import { ArticleDetailsPage } from "@/pages/ArticleDetailsPage";
+import { ArticlesPage } from "@/pages/ArticlesPage";
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -29,16 +33,16 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <ProfilePage />,
         authOnly: true,
     },
-    // [AppRoutes.ARTICLES]: {
-    //     path: getRouteArticles(),
-    //     element: <ArticlesPage />,
-    //     authOnly: true,
-    // },
-    // [AppRoutes.ARTICLE_DETAILS]: {
-    //     path: getRouteArticleDetails(':id'),
-    //     element: <ArticleDetailsPage />,
-    //     authOnly: true,
-    // },
+    [AppRoutes.ARTICLES]: {
+        path: getRouteArticles(),
+        element: <ArticlesPage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLE_DETAILS]: {
+        path: getRouteArticleDetails(':id'),
+        element: <ArticleDetailsPage />,
+        authOnly: true,
+    },
     // [AppRoutes.ARTICLE_CREATE]: {
     //     path: getRouteArticleCreate(),
     //     element: <ArticleEditPage />,
