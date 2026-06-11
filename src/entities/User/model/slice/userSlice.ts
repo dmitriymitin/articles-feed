@@ -4,7 +4,8 @@ import { StateSchema } from "@/app/providers/StoreProvider";
 
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 
-import { User, UserSchema } from "../types/user";
+import { User } from "../types/user";
+import { UserSchema } from "../types/userSchema";
 
 const initialStateUserSlice: UserSchema = {
   authData: undefined,

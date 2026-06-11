@@ -30,7 +30,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchProfileData(id));
-  });
+  }, []);
 
   return (
     <DynamicModuleLoader reducers={reducers}>

@@ -5,19 +5,8 @@ import { ProfileSchema } from '../types/editableProfileCardSchema';
 
 import { profileActions, profileReducer } from './profileSlice';
 
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
+import { profileTestData } from "@/entities/Profile/testing";
 
-const data = {
-    id: '123',
-    username: 'admin',
-    age: 22,
-    country: Country.Ukraine,
-    lastname: 'ulbi tv',
-    first: 'asd',
-    city: 'asf',
-    currency: Currency.USD,
-};
 
 describe('profileSlice.test', () => {
     test('test set readonly', () => {
@@ -32,7 +21,7 @@ describe('profileSlice.test', () => {
 
     test('test reset form', () => {
         const state: DeepPartial<ProfileSchema> = {
-            data,
+            data: profileTestData,
             form: { username: '' },
         };
 
@@ -40,8 +29,8 @@ describe('profileSlice.test', () => {
             profileReducer(state as ProfileSchema, profileActions.resetForm()),
         ).toEqual({
             validateErrors: undefined,
-            data,
-            form: data,
+            data: profileTestData,
+            form: profileTestData,
         });
     });
 
@@ -71,7 +60,7 @@ describe('profileSlice.test', () => {
         });
     });
 
-    test('test update profile service fullfiled', () => {
+    test('test update profile service fulfilled', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: true,
         };
@@ -79,15 +68,15 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as ProfileSchema,
-                updateProfileData.fulfilled(data, ''),
+                updateProfileData.fulfilled(profileTestData, ''),
             ),
         ).toEqual({
             isLoading: false,
             validateErrors: undefined,
             readonly: true,
             validateError: undefined,
-            form: data,
-            data,
+            form: profileTestData,
+            data: profileTestData,
         });
     });
 });

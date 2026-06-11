@@ -1,9 +1,14 @@
 import React from 'react';
+import { useParams } from "react-router-dom";
+
+import { ArticleDetails } from "@/entities/Article";
 
 const ArticleDetailsPage = () => {
+  const { id } = useParams<{ id: string }>();
+
   return (
     <div>
-      ArticleDetailsPage
+      <ArticleDetails id={id!} />
     </div>
   );
 };

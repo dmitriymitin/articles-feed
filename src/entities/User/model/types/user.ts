@@ -5,9 +5,3 @@ export interface User {
   username: string;
   roles?: UserRole[];
 }
-
-export interface UserSchema {
-  authData?: User;
-
-  _inited: boolean;
-}

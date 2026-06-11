@@ -10,7 +10,6 @@ import {
 } from "@reduxjs/toolkit";
 
 import { LoginSchema } from "@/features/AuthByUsername";
-// import { ArticleDetailsSchema } from "@/entities/Article";
 // import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 // import { AddCommentFormSchema } from "@/features/addCommentForm";
 // import { ArticlesPageSchema } from "@/pages/ArticlesPage";
@@ -18,6 +17,7 @@ import { LoginSchema } from "@/features/AuthByUsername";
 // import { rtkApi } from "@/shared/api/rtkApi";
 import { ProfileSchema } from "@/features/editableProfileCard";
 
+import { ArticleDetailsSchema } from "@/entities/Article";
 import { CounterSchema } from "@/entities/Counter";
 import { UserSchema } from "@/entities/User";
 
@@ -34,7 +34,7 @@ export interface StateSchema {
    */
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
-  // articleDetails?: ArticleDetailsSchema;
+  articleDetails?: ArticleDetailsSchema;
   // addCommentForm?: AddCommentFormSchema;
   // articlesPage?: ArticlesPageSchema;
   // articleDetailsPage?: ArticleDetailsPageSchema;

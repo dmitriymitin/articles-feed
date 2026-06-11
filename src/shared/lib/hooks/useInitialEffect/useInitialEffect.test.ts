@@ -17,7 +17,7 @@ describe('useInitialEffect', () => {
     const callback = jest.fn();
     (global as any).__PROJECT__ = 'frontend';
 
-    renderHook(() => useInitialEffect(callback));
+    renderHook(() => useInitialEffect(callback, []));
 
     expect(callback).toHaveBeenCalledTimes(1);
   });
@@ -26,7 +26,7 @@ describe('useInitialEffect', () => {
     const callback = jest.fn();
     (global as any).__PROJECT__ = 'storybook';
 
-    renderHook(() => useInitialEffect(callback));
+    renderHook(() => useInitialEffect(callback, []));
 
     expect(callback).not.toHaveBeenCalled();
   });
@@ -35,7 +35,7 @@ describe('useInitialEffect', () => {
     const callback = jest.fn();
     (global as any).__PROJECT__ = 'jest';
 
-    renderHook(() => useInitialEffect(callback));
+    renderHook(() => useInitialEffect(callback, []));
 
     expect(callback).not.toHaveBeenCalled();
   });
@@ -44,7 +44,7 @@ describe('useInitialEffect', () => {
     const callback = jest.fn();
     (global as any).__PROJECT__ = 'frontend';
 
-    const { rerender } = renderHook(() => useInitialEffect(callback));
+    const { rerender } = renderHook(() => useInitialEffect(callback, []));
 
     rerender();
 
