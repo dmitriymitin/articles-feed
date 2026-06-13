@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 
 import CopyIcon from '@/shared/assets/icons/copy-20-20.svg';
 
@@ -13,12 +13,12 @@ interface CodeProps {
     text: string;
 }
 
-export const Code = memo((props: CodeProps) => {
+const _Code = (props: CodeProps) => {
   const { className, text } = props;
 
-  const onCopy = useCallback(() => {
+  const onCopy = () => {
     navigator.clipboard.writeText(text);
-  }, [text]);
+  }
 
   return (
     <pre className={cn(s.Code, className)}>
@@ -28,4 +28,6 @@ export const Code = memo((props: CodeProps) => {
       <code>{text}</code>
     </pre>
   );
-});
+};
+
+export const Code = memo(_Code)

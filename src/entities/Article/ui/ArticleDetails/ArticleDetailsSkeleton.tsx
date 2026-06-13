@@ -1,8 +1,7 @@
 import React from "react";
 
+import { Flex } from "@/shared/ui/Flex";
 import { Skeleton } from "@/shared/ui/Skeleton";
-
-import { Flex } from "../../../../shared/ui/Flex";
 
 import s from './ArticleDetails.module.scss'
 

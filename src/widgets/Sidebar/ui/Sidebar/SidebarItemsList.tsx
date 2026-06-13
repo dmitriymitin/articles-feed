@@ -1,3 +1,5 @@
+import { Flex } from "@/shared/ui/Flex";
+
 import { useSidebarItems } from "../../model/selectors/useSidebarItems";
 
 import { SidebarItem } from "../SidebarItem/SidebarItem";
@@ -14,10 +16,10 @@ export const SidebarItemsList = (props: SidebarItemsListProps) => {
   const sidebarItemsList = useSidebarItems();
 
   return (
-    <div className={s.items}>
+    <Flex role='navigation' vertical gap='8' className={s.items}>
       {sidebarItemsList.map((item) => (
         <SidebarItem item={item} collapsed={collapsed} key={item.path} />
       ))}
-    </div>
+    </Flex>
   );
 };

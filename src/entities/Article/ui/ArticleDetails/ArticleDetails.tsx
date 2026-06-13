@@ -4,6 +4,7 @@ import { ReducersList } from "@/app/providers/StoreProvider";
 
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Flex } from "@/shared/ui/Flex";
+import { Icon } from "@/shared/ui/Icon";
 import { Text } from "@/shared/ui/Text";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -11,8 +12,6 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-
-import { Icon } from "../../../../shared/ui/Icon";
 
 import {
   getArticleDetailsData,

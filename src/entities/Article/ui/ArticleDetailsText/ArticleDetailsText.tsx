@@ -24,7 +24,7 @@ export const ArticleDetailsText = (props: ArticleDetailsTextProps) => {
       )}
       {block.paragraphs.map((paragraph, index) => (
         <Text
-          key={paragraph}
+          key={index}
           text={paragraph}
           className={s.paragraph}
         />
