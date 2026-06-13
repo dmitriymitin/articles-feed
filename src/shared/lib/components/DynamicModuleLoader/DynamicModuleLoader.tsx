@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect } from "react";
+import { PropsWithChildren, useLayoutEffect } from "react";
 
 import { ReducersList, StateSchemaKey } from "@/app/providers/StoreProvider";
 
@@ -18,7 +18,7 @@ export const DynamicModuleLoader = (
   const store = useAppStore();
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const mountedReducers = store.reducerManager.getMountedReducers();
 
     Object.entries(reducers).forEach(([name, reducer]) => {
