@@ -1,8 +1,8 @@
+import { profileTestData } from "@/entities/Profile/testing";
+
 import { ValidateProfileError } from '../../consts/consts';
 
 import { validateProfileData } from './validateProfileData';
-
-import { profileTestData } from "@/entities/Profile/testing";
 
 describe('validateProfileData.test', () => {
     test('success', async () => {

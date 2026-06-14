@@ -5,11 +5,11 @@ import { Trans } from "@/shared/ui/Translate";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
+import { getUserAuthData } from "@/entities/User";
+
 import { SidebarItemType } from "../../model/types/sidebar";
 
 import s from "./SidebarItem.module.scss";
-
-import { getUserAuthData } from "@/entities/User";
 
 interface SidebarItemProps {
   item: SidebarItemType;

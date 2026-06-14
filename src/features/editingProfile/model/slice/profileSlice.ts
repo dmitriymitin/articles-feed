@@ -2,14 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { StateSchema } from "@/app/providers/StoreProvider";
 
+import { Profile } from "@/entities/Profile";
+
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 import {
   ProfileSchema,
   ProfileSchemaForm,
 } from "../types/editableProfileCardSchema";
-
-import { Profile } from "@/entities/Profile";
 
 const initialStateProfileSlice: ProfileSchema = {
   isLoading: false,

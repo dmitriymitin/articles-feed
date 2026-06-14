@@ -1,13 +1,19 @@
+import { PropsWithChildren } from "react";
 import { useSelector } from 'react-redux';
 
 import { Flex } from "@/shared/ui/Flex";
 import { Text } from "@/shared/ui/Text";
 
+import { CommentCard, CommentCardSkeleton } from "@/entities/Comment";
+
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments/comments";
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentsSlice";
 
-import { CommentCard, CommentCardSkeleton } from "@/entities/Comment";
-
+const CommentsWrapper = ({ children }: PropsWithChildren) => (
+  <Flex vertical gap="16" max>
+    {children}
+  </Flex>
+)
 
 export const ArticleDetailsComments = () => {
   const comments = useSelector(getArticleComments.selectAll);
@@ -15,11 +21,11 @@ export const ArticleDetailsComments = () => {
 
   if (commentsIsLoading) {
     return (
-      <Flex vertical gap="16" max>
+      <CommentsWrapper>
         <CommentCardSkeleton />
         <CommentCardSkeleton />
         <CommentCardSkeleton />
-      </Flex>
+      </CommentsWrapper>
     );
   }
 
@@ -32,10 +38,10 @@ export const ArticleDetailsComments = () => {
   }
 
   return (
-    <Flex vertical gap="16" max>
+    <CommentsWrapper>
       {comments.map((comment) =>
         <CommentCard key={comment.id} comment={comment}/>
       )}
-    </Flex>
+    </CommentsWrapper>
   );
 }

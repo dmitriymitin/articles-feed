@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
-
 import { commentTestData } from "@/entities/Comment/testing";
+
+import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
 
 describe('fetchCommentsByArticleId.test', () => {

@@ -2,11 +2,11 @@ import { useSelector } from "react-redux";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
+import { CountrySelect, CountrySelectProps } from "@/entities/Country";
+
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import { profileActions } from "../../model/slice/profileSlice";
-
-import { CountrySelect, CountrySelectProps } from "@/entities/Country";
 
 interface EditableProfileCountrySelectProps {
   className?: string;

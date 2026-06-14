@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import { Button } from "@/shared/ui/Button";
 
+import { cn } from "@/shared/lib/classNames/classNames";
+
 import { LangSwitcher } from "@/widgets/LangSwitcher";
 import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
-
-import { cn } from "@/shared/lib/classNames/classNames";
 
 import { SidebarItemsList } from "./SidebarItemsList";
 

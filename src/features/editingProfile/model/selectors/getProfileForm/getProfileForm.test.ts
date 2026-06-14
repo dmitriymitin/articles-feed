@@ -1,8 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-import { getProfileForm } from './getProfileForm';
-
 import { profileTestData } from "@/entities/Profile/testing";
+
+import { getProfileForm } from './getProfileForm';
 
 
 describe('getProfileForm.test', () => {

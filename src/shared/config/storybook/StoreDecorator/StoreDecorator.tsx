@@ -6,10 +6,11 @@ import {
   StoreProvider,
 } from "@/app/providers/StoreProvider";
 
+import { articleDetailsReducer } from '@/entities/Article/testing';
+
 import { loginReducer } from "@/features/authByUsername/testing";
 import { profileReducer } from "@/features/editingProfile/testing";
 
-import { articleDetailsReducer } from '@/entities/Article/testing';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 
 const defaultAsyncReducers: ReducersList = {

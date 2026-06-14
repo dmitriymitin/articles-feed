@@ -1,11 +1,11 @@
+import { profileTestData } from "@/entities/Profile/testing";
+
 import { ValidateProfileError } from '../../model/consts/consts';
 
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
 
 import { profileActions, profileReducer } from './profileSlice';
-
-import { profileTestData } from "@/entities/Profile/testing";
 
 
 describe('profileSlice.test', () => {

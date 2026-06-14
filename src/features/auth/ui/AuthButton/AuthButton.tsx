@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 
+import { getUserAuthData } from "@/entities/User";
+
 import { LoginButton } from "../LoginButton/LoginButton";
 import { LogoutButton } from "../LogoutButton/LogoutButton";
-
-import { getUserAuthData } from "@/entities/User";
 
 interface AuthButtonProps {
   className?: string;

@@ -4,17 +4,17 @@ import { useSelector } from "react-redux";
 import { AppRouter } from "@/app/providers/router";
 import { useTheme } from "@/app/providers/ThemeProvider";
 
-import { Navbar } from "@/widgets/Navbar";
-import { Sidebar } from "@/widgets/Sidebar";
-
 import { cn } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+
+import { getUserInited, userActions  } from "@/entities/User";
+
+import { Navbar } from "@/widgets/Navbar";
+import { Sidebar } from "@/widgets/Sidebar";
 
 import { PageLoader } from "../widgets/PageLoader";
 
 import "./styles/index.scss";
-
-import { getUserInited, userActions  } from "@/entities/User";
 
 const AppWrapper = ({ children }: PropsWithChildren) => {
   const { theme } = useTheme();

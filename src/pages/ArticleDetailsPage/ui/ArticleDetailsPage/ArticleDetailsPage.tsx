@@ -7,11 +7,11 @@ import { Flex } from "@/shared/ui/Flex";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
+import { ArticleDetails } from "@/entities/Article";
+
 import { articleDetailsPageReducer } from "../../model/slices";
 
 import { ArticleDetailsCommentsContainer } from "../ArticleDetailsCommentsContainer/ArticleDetailsCommentsContainer";
-
-import { ArticleDetails } from "@/entities/Article";
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,

@@ -1,10 +1,10 @@
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
+import { commentTestData } from "@/entities/Comment/testing";
+
 import { fetchCommentsByArticleId } from "../fetchCommentsByArticleId/fetchCommentsByArticleId";
 
 import { addCommentForArticle } from "./addCommentForArticle";
-
-import { commentTestData } from "@/entities/Comment/testing";
 
 jest.mock('../fetchCommentsByArticleId/fetchCommentsByArticleId', () => ({
     fetchCommentsByArticleId: jest.fn(),

@@ -1,10 +1,10 @@
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
+import { profileTestData } from "@/entities/Profile/testing";
+
 import { ValidateProfileError } from '../../consts/consts';
 
 import { updateProfileData } from './updateProfileData';
-
-import { profileTestData } from "@/entities/Profile/testing";
 
 
 describe('updateProfileData.test', () => {

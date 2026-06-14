@@ -1,9 +1,9 @@
+import { commentTestData } from "@/entities/Comment/testing";
+
 import { fetchCommentsByArticleId } from "../../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { ArticleDetailsCommentsSchema } from "../../types/ArticleDetailsCommentsSchema";
 
 import { articleDetailsCommentsReducer, commentsAdapter } from './articleDetailsCommentsSlice';
-
-import { commentTestData } from "@/entities/Comment/testing";
 
 describe('articleDetailsCommentsSlice.test', () => {
   test('test get article details comments pending', () => {

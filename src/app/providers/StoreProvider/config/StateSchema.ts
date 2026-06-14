@@ -9,6 +9,10 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 
+import { ArticleDetailsSchema } from "@/entities/Article";
+import { CounterSchema } from "@/entities/Counter";
+import { UserSchema } from "@/entities/User";
+
 // import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 import { LoginSchema } from "@/features/authByUsername";
 // import { ArticlesPageSchema } from "@/pages/ArticlesPage";
@@ -16,9 +20,6 @@ import { LoginSchema } from "@/features/authByUsername";
 // import { rtkApi } from "@/shared/api/rtkApi";
 import { ProfileSchema } from "@/features/editingProfile";
 
-import { ArticleDetailsSchema } from "@/entities/Article";
-import { CounterSchema } from "@/entities/Counter";
-import { UserSchema } from "@/entities/User";
 import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 
 export interface StateSchema {

@@ -4,17 +4,17 @@ import { Flex } from "@/shared/ui/Flex";
 import { Loader } from "@/shared/ui/Loader";
 import { Text } from "@/shared/ui/Text";
 
-import { AddCommentForm } from "@/features/addCommentForm";
-
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
+
+import { Article } from "@/entities/Article"
+
+import { AddCommentForm } from "@/features/addCommentForm";
 
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
-
-import { Article } from "@/entities/Article";
 
 interface ArticleDetailsCommentsContainerProps {
   articleId: Article['id'];

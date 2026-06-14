@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { fetchProfileData } from './fetchProfileData';
-
 import { profileTestData } from "@/entities/Profile/testing";
+
+import { fetchProfileData } from './fetchProfileData';
 
 
 describe('fetchProfileData.test', () => {

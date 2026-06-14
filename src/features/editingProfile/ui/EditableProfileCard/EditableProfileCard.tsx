@@ -5,6 +5,8 @@ import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 
+import { Profile } from "@/entities/Profile";
+
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { profileReducer } from "../../model/slice/profileSlice";
 
@@ -12,8 +14,6 @@ import { EditableProfileCardHeader } from "../EditableProfileCardHeader/Editable
 import { EditableProfileCardView } from "../EditableProfileCardView/EditableProfileCardView";
 import { EditableProfileCardViewWrapper } from "../EditableProfileCardViewWrapper/EditableProfileCardViewWrapper";
 import { EditableProfileValidateErrors } from "../EditableProfileValidateErrors/EditableProfileValidateErrors";
-
-import { Profile } from "@/entities/Profile";
 
 const reducers: ReducersList = {
   profile: profileReducer,

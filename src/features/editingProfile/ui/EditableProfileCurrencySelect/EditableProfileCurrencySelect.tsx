@@ -2,14 +2,14 @@ import  { useSelector } from "react-redux";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
-import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
-import { profileActions } from "../../model/slice/profileSlice";
-
 import {
   CurrencySelect,
   CurrencySelectProps,
 } from "@/entities/Currency";
+
+import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
+import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
+import { profileActions } from "../../model/slice/profileSlice";
 
 interface EditableProfileCurrencySelectProps {
   className?: string;
