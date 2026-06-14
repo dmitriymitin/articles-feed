@@ -21,7 +21,7 @@ const ArticleDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <Flex vertical gap='16' max>
         <ArticleDetails articleId={id!} />
         <ArticleDetailsCommentsContainer articleId={id!} />
