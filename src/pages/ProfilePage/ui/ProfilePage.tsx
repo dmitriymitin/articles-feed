@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import { EditableProfileCard } from "@/features/editableProfileCard";
+import { EditableProfileCard } from "@/features/editingProfile";
 
 import s from "./ProfilePage.module.scss";
 

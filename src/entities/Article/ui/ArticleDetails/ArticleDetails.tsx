@@ -32,11 +32,11 @@ const reducers: ReducersList = {
 };
 
 interface ArticleDetailsProps {
-  id: Article['id']
+  articleId: Article['id']
 }
 
 const _ArticleDetails = (props: ArticleDetailsProps) => {
-  const { id } = props
+  const { articleId } = props
 
   const dispatch = useAppDispatch();
 
@@ -45,10 +45,8 @@ const _ArticleDetails = (props: ArticleDetailsProps) => {
   const error = useSelector(getArticleDetailsError);
 
   useInitialEffect(() => {
-    if (id) {
-      dispatch(fetchArticleById(id))
-    }
-  }, [id])
+    dispatch(fetchArticleById(articleId))
+  }, [articleId])
 
   if (isLoading) {
     return <ArticleDetailsSkeleton />

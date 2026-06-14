@@ -11,7 +11,7 @@ import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
 
 export default {
-  title: 'features/editableProfileCard/EditableProfileCard',
+  title: 'features/editingProfile/EditableProfileCard',
   component: EditableProfileCard,
 } as ComponentMeta<typeof EditableProfileCard>;
 

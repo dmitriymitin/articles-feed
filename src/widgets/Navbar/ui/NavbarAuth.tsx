@@ -1,26 +1,22 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 
-import { Button } from "@/shared/ui/Button";
-import { Trans } from "@/shared/ui/Translate";
-
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { AuthButton } from "@/features/auth";
+import { LoginModal } from "@/features/authByUsername";
 
 import s from "./Navbar.module.scss";
 
-import { userActions } from "@/entities/User";
 
-interface NavbarAuthProps {}
+export const NavbarAuth = () => {
+  const [isAuthModal, setIsAuthModal] = useState(false);
 
-export const NavbarAuth = (props: NavbarAuthProps) => {
-  const dispatch = useAppDispatch();
-
-  const logout = () => {
-    dispatch(userActions.logout());
-  };
+  const onToggleModal = useCallback(() => {
+    setIsAuthModal((prev) => !prev);
+  }, []);
 
   return (
-    <Button className={s.links} theme="clearInverted" onClick={logout}>
-      <Trans>Выйти</Trans>
-    </Button>
+    <>
+      <AuthButton className={s.links} onLogin={onToggleModal} />
+      <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />
+    </>
   );
 };

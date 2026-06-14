@@ -9,17 +9,17 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 
-import { LoginSchema } from "@/features/AuthByUsername";
 // import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
-// import { AddCommentFormSchema } from "@/features/addCommentForm";
+import { LoginSchema } from "@/features/authByUsername";
 // import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 // import { UISchema } from "@/features/UI";
 // import { rtkApi } from "@/shared/api/rtkApi";
-import { ProfileSchema } from "@/features/editableProfileCard";
+import { ProfileSchema } from "@/features/editingProfile";
 
 import { ArticleDetailsSchema } from "@/entities/Article";
 import { CounterSchema } from "@/entities/Counter";
 import { UserSchema } from "@/entities/User";
+import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -35,9 +35,8 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  // addCommentForm?: AddCommentFormSchema;
   // articlesPage?: ArticlesPageSchema;
-  // articleDetailsPage?: ArticleDetailsPageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
