@@ -5,7 +5,6 @@ import { EditableProfileCardHeaderActions } from "../EditableProfileCardHeaderAc
 import s from "./EditableProfileCardHeader.module.scss";
 
 export const EditableProfileCardHeader = () => {
-
   return (
     <div className={s.EditableProfileCardHeader}>
       <Text title="Профиль" />

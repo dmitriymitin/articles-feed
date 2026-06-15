@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 
+import { Button } from "@/shared/ui/Button";
+import { Trans } from "@/shared/ui/Translate";
+
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 import { getUserAuthData } from "@/entities/User";
 
-import { Button } from "../../../../shared/ui/Button";
-import { Trans } from "../../../../shared/ui/Translate";
-
-import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
+import { getProfileId } from "../../model/selectors/getProfileId/getProfileId";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
 import { profileActions } from "../../model/slice/profileSlice";
@@ -20,8 +20,8 @@ export const EditableProfileCardHeaderActions = () => {
   const readonly = useSelector(getProfileReadonly);
 
   const authData = useSelector(getUserAuthData);
-  const profileData = useSelector(getProfileData);
-  const canEdit = authData?.id === profileData?.id;
+  const profileId = useSelector(getProfileId);
+  const canEdit = authData?.id === profileId;
 
   const activateEdit = () => {
     dispatch(profileActions.setReadonly(false));
