@@ -6,7 +6,7 @@ import { Profile } from "@/entities/Profile";
 
 export const fetchProfileData = createAsyncThunk<
   Profile,
-  string,
+  Profile['id'],
   ThunkConfig<string>
 >("profile/fetchProfileData", async (profileId, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;

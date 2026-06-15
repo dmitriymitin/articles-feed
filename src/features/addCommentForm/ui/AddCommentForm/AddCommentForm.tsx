@@ -15,7 +15,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     const { onSendComment } = props;
     const [comment, setComment] = useState<string>('')
 
-    const onSendHandler = () => {
+    const sendComment = () => {
         onSendComment(comment);
         setComment('');
     };
@@ -38,7 +38,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
           <Button
             data-testid="AddCommentForm.Button"
             theme='outline'
-            onClick={onSendHandler}
+            onClick={sendComment}
           >
               <Trans>Отправить</Trans>
           </Button>

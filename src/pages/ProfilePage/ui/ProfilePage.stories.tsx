@@ -21,7 +21,7 @@ export default {
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => (
-  <ProfilePage {...args} />
+  <ProfilePage />
 );
 
 export const Normal = Template.bind({});

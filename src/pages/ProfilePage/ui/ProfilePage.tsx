@@ -4,9 +4,7 @@ import { EditableProfileCard } from "@/features/editingProfile";
 
 import s from "./ProfilePage.module.scss";
 
-interface ProfilePageProps {}
-
-const ProfilePage = (props: ProfilePageProps) => {
+const ProfilePage = () => {
   const { id } = useParams<{ id: string }>();
 
   return (

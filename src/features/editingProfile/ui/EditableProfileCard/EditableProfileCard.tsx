@@ -1,4 +1,3 @@
-
 import { ReducersList } from "@/app/providers/StoreProvider";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -30,7 +29,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchProfileData(id));
-  }, []);
+  }, [id]);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
