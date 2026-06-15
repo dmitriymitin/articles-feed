@@ -1,23 +1,23 @@
 import React from 'react';
 
-import { Image } from "@/shared/ui/Image";
+import { AppImage } from "@/shared/ui/AppImage";
 import { Text } from "@/shared/ui/Text";
 
 import { ArticleImageBlock } from "../../model/types/article";
 
-import s from './ArticleDetailsImage.module.scss'
+import s from './ArticleImageBlockComponent.module.scss'
 
-interface ArticleDetailsImageProps {
+interface ArticleImageBlockComponentProps {
   className?: string;
   block: ArticleImageBlock;
 }
 
-export const ArticleDetailsImage = (props: ArticleDetailsImageProps) => {
+export const ArticleImageBlockComponent = (props: ArticleImageBlockComponentProps) => {
   const { className, block } = props;
 
   return (
     <div className={className}>
-      <Image src={block.src} alt={block.title} className={s.img} />
+      <AppImage src={block.src} alt={block.title} className={s.img} />
       {block.title && (
         <Text
           text={block.title}

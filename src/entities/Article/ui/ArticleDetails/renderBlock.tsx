@@ -1,19 +1,19 @@
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import { ArticleBlock } from '../../model/types/article';
 
-import { ArticleDetailsCode } from '../ArticleDetailsCode/ArticleDetailsCode';
-import { ArticleDetailsImage } from '../ArticleDetailsImage/ArticleDetailsImage';
-import { ArticleDetailsText } from '../ArticleDetailsText/ArticleDetailsText';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 
 export const renderArticleBlock = (block: ArticleBlock) => {
   switch (block.type) {
     case ArticleBlockType.CODE:
-      return <ArticleDetailsCode key={block.id} block={block} />;
+      return <ArticleCodeBlockComponent key={block.id} block={block} />;
     case ArticleBlockType.IMAGE:
-      return <ArticleDetailsImage key={block.id} block={block} />;
+      return <ArticleImageBlockComponent key={block.id} block={block} />;
     case ArticleBlockType.TEXT:
-      return <ArticleDetailsText key={block.id} block={block} />;
+      return <ArticleTextBlockComponent key={block.id} block={block} />;
     default:
       return null;
   }

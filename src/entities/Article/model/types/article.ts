@@ -32,7 +32,7 @@ export type ArticleBlock =
 export interface Article {
   id: string;
   title: string;
-  user: Pick<User, 'id' | 'username'>;
+  user: Pick<User, 'id' | 'username' | 'avatar'>;
   subtitle: string;
   img: string;
   views: number;

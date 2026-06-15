@@ -6,18 +6,18 @@ import { cn } from "@/shared/lib/classNames/classNames";
 
 import { ArticleCodeBlock } from "../../model/types/article";
 
-import s from './ArticleDetailsCode.module.scss'
+import s from './ArticleCodeBlockComponent.module.scss'
 
-interface ArticleDetailsCodeProps {
+interface ArticleCodeBlockComponentProps {
   className?: string;
   block: ArticleCodeBlock;
 }
 
-export const ArticleDetailsCode = (props: ArticleDetailsCodeProps) => {
+export const ArticleCodeBlockComponent = (props: ArticleCodeBlockComponentProps) => {
   const { className, block } = props;
 
   return (
-    <div className={cn(s.ArticleDetailsCode, className)}>
+    <div className={cn(s.ArticleCodeBlockComponent, className)}>
       <Code text={block.code} />
     </div>
   );

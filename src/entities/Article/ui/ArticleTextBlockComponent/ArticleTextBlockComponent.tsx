@@ -4,14 +4,14 @@ import { Text } from "@/shared/ui/Text";
 
 import { ArticleTextBlock } from "../../model/types/article";
 
-import s from "./ArticleDetailsText.module.scss"
+import s from "./ArticleTextBlockComponent.module.scss"
 
-interface ArticleDetailsTextProps {
+interface ArticleTextBlockComponentProps {
   className?: string;
   block: ArticleTextBlock;
 }
 
-export const ArticleDetailsText = (props: ArticleDetailsTextProps) => {
+export const ArticleTextBlockComponent = (props: ArticleTextBlockComponentProps) => {
   const { className, block } = props;
 
   return (

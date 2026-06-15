@@ -18,7 +18,7 @@ const _AppLink = (props: AppLinkProps) => {
   const cls = cn(s.AppLink, s?.[theme], className);
 
   return (
-    <Link className={cls} {...restProps}>
+    <Link className={cls}  {...restProps}>
       {children}
     </Link>
   );

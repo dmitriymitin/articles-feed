@@ -1,0 +1,53 @@
+import React from 'react';
+
+import { AppImage } from "@/shared/ui/AppImage";
+import { AppLink, AppLinkProps } from "@/shared/ui/AppLink";
+import { Card } from "@/shared/ui/Card";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { Text } from "@/shared/ui/Text";
+
+import { cn } from "@/shared/lib/classNames/classNames";
+import { getRouteArticleDetails } from "@/shared/const/router";
+
+import { Article } from "../../model/types/article";
+
+import { ArticleListItemTypes } from "../ArticleListItemTypes/ArticleListItemTypes";
+import { ArticleListItemViews } from "../ArticleListItemViews/ArticleListItemViews";
+
+import s from './ArticleListItemSmall.module.scss'
+
+interface ArticleListItemSmallProps {
+  article: Pick<Article, 'id' | 'title' | 'img' | 'createdAt' | 'type' | 'views'>;
+  className?: string;
+  target?: AppLinkProps['target'];
+}
+
+export const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {
+  const { article, className, target } = props;
+
+  return (
+    <AppLink
+      data-testid="ArticleListItem"
+      target={target}
+      to={getRouteArticleDetails(article.id)}
+      className={cn(s.ArticleListItemSmall, className)}
+    >
+      <Card className={s.card}>
+        <div className={s.imageWrapper}>
+          <AppImage
+            fallback={<Skeleton width={200} height={200} />}
+            alt={article.title}
+            src={article.img}
+            className={s.img}
+          />
+          <Text text={article.createdAt} className={s.date} />
+        </div>
+        <div className={s.infoWrapper}>
+          <ArticleListItemTypes type={article.type} />
+          <ArticleListItemViews views={article.views} />
+        </div>
+        <Text text={article.title} className={s.title} />
+      </Card>
+    </AppLink>
+  );
+};

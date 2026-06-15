@@ -15,7 +15,7 @@ type TextSize = "size_s" | "size_m" | "size_l";
 interface TextProps {
   className?: string;
   title?: string;
-  text?: string;
+  text?: string | number;
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
