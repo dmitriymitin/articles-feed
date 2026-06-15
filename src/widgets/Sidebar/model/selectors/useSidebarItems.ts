@@ -16,7 +16,7 @@ import { getUserAuthData } from "@/entities/User";
 import { SidebarItemType } from "../types/sidebar";
 
 export const useSidebarItems = () => {
-  const userData = useSelector(getUserAuthData);
+  const authData = useSelector(getUserAuthData);
 
   const sidebarItemsList: SidebarItemType[] = [
     {
@@ -31,12 +31,12 @@ export const useSidebarItems = () => {
     }
   ];
 
-  if (userData) {
+  if (authData) {
     sidebarItemsList.push(
       {
         text: "Профиль",
         Icon: ProfileIcon,
-        path: getRouteProfile(userData.id),
+        path: getRouteProfile(authData.id),
         authOnly: true,
       },
       {
