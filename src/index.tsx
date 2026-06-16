@@ -1,3 +1,4 @@
+import { NuqsAdapter } from 'nuqs/adapters/react-router/v6'
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -26,7 +27,9 @@ root.render(
       <ErrorBoundary>
         <ForceUpdateProvider>
           <ThemeProvider>
-            <App />
+            <NuqsAdapter>
+              <App />
+            </NuqsAdapter>
           </ThemeProvider>
         </ForceUpdateProvider>
       </ErrorBoundary>

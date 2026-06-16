@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, ReactNode } from "react";
 
 import { cn } from "../../lib/classNames/classNames";
 
@@ -8,14 +8,14 @@ import s from './Select.module.scss';
 
 export interface SelectOption<T extends string> {
     value: T;
-    content: string;
+    content: ReactNode;
 }
 
 export interface SelectProps<T extends string> {
     className?: string;
     label?: string;
     options: SelectOption<T>[];
-    value?: T;
+    value?: T | null;
     onChange?: (value: T) => void;
     readonly?: boolean;
 }
@@ -39,7 +39,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             <select
                 className={s.select}
                 disabled={readonly}
-                value={value}
+                value={value || undefined}
                 onChange={onChangeHandler}
             >
                 {

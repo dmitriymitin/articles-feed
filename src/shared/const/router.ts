@@ -1,3 +1,9 @@
+import { parseAsString, parseAsStringEnum } from "nuqs";
+
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
+
+import { SortOrder, sortOrders } from "../types/sort";
+
 export enum AppRoutes {
   MAIN = 'main',
   // SETTINGS = 'settings',
@@ -36,3 +42,23 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
   // [getRouteAdmin()]: AppRoutes.ADMIN_PANEL,
   // [getRouteForbidden()]: AppRoutes.FORBIDDEN,
 };
+
+export const articlesPageSearchParams = {
+  search: parseAsString.withDefault(''),
+
+  order: parseAsStringEnum<SortOrder>(
+    [...sortOrders],
+  ).withDefault('asc'),
+
+  sort: parseAsStringEnum<ArticleSortField>(
+    Object.values(ArticleSortField),
+  ).withDefault(ArticleSortField.CREATED),
+
+  type: parseAsStringEnum<ArticleType>(
+    Object.values(ArticleType),
+  ).withDefault(ArticleType.ALL),
+
+  view: parseAsStringEnum<ArticleView>(
+    Object.values(ArticleView),
+  ).withDefault(ArticleView.SMALL),
+} as const

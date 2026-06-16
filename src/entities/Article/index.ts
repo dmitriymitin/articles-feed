@@ -9,6 +9,8 @@ export {
   ArticleType,
   ArticleSortField,
   ArticleBlockType,
+  articleTypeTabsItems,
+  articleSortSelectOptions,
 } from './model/consts/articleConsts';
 
 export { ArticleListItemBig } from './ui/ArticleListItemBig/ArticleListItemBig'

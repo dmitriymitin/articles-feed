@@ -27,6 +27,7 @@ export default {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^@/(.*)$': '<rootDir>/src/$1',
+        '^nuqs$': path.resolve(__dirname, '__mocks__/nuqs.ts'),
     },
     reporters: [
         'default',

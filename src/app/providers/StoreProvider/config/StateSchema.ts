@@ -15,12 +15,12 @@ import { UserSchema } from "@/entities/User";
 
 // import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 import { LoginSchema } from "@/features/authByUsername";
-// import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 // import { UISchema } from "@/features/UI";
 // import { rtkApi } from "@/shared/api/rtkApi";
 import { ProfileSchema } from "@/features/editingProfile";
 
 import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
+import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -36,7 +36,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  // articlesPage?: ArticlesPageSchema;
+  articlesPage?: ArticlesPageSchema;
   articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
