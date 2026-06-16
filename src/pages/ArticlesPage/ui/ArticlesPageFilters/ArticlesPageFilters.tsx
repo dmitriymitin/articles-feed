@@ -24,7 +24,7 @@ export const ArticlesPageFilters = () => {
       <Card className={s.search}>
         <ArticlesSearchFilter />
       </Card>
-      <ArticlesTypeFilter />
+      <ArticlesTypeFilter className={s.tabs} />
     </div>
   );
 };

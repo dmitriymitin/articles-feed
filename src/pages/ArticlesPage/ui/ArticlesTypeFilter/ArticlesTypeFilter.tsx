@@ -4,19 +4,26 @@ import { Tabs } from "@/shared/ui/Tabs";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
-import { articlesPageSearchParams } from "@/shared/const/router";
+import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
 import { ArticleType, articleTypeTabsItems } from "@/entities/Article";
 
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 
-export const ArticlesTypeFilter = () => {
+interface ArticlesTypeFilterProps {
+  className?: string;
+}
+
+export const ArticlesTypeFilter = (props: ArticlesTypeFilterProps) => {
+  const { className } = props;
+
   const dispatch = useAppDispatch();
 
   const [type, setType] = useAppQueryState(articlesPageSearchParams, 'type')
 
   return (
     <Tabs<ArticleType>
+      className={className}
       value={type}
       tabs={articleTypeTabsItems}
       onTabClick={(type) => {

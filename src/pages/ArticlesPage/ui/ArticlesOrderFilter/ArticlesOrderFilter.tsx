@@ -4,7 +4,7 @@ import { Select } from "@/shared/ui/Select";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
-import { articlesPageSearchParams } from "@/shared/const/router";
+import { articlesPageSearchParams } from "@/shared/const/searchParams";
 import { sortOrderOptions } from "@/shared/const/sort";
 
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";

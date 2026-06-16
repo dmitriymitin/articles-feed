@@ -11,7 +11,7 @@ import {
   getArticlesPageNum,
 } from "../../selectors/articlesPageSelectors";
 
-interface FetchArticlesListArgs {
+export interface FetchArticlesListArgs {
     replace?: boolean;
 
     sort?: ArticleSortField;

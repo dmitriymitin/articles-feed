@@ -6,7 +6,7 @@ import { Text } from "@/shared/ui/Text";
 import { cn } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { articlesPageSearchParams } from "@/shared/const/router";
+import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
 import { ArticleView } from "@/entities/Article";
 
@@ -16,7 +16,10 @@ import {
   getArticlesPageError,
   getArticlesPageIsLoading,
 } from "../../model/selectors/articlesPageSelectors";
-import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
+import {
+  fetchArticlesList,
+  FetchArticlesListArgs,
+} from "../../model/services/fetchArticlesList/fetchArticlesList";
 import {
   articlesPageActions,
   getArticles,
@@ -50,15 +53,19 @@ export const ArticleInfiniteList = (props: ArticleInfiniteListProps) => {
     const dispatch = useAppDispatch();
     const [searchParams] = useQueryStates(articlesPageSearchParams)
 
+    const fetchArticleArgs: FetchArticlesListArgs = {
+      sort: searchParams.sort,
+      search: searchParams.search,
+      type: searchParams.type,
+      order: searchParams.order,
+
+      replace: true,
+    }
+
     useInitialEffect(() => {
       dispatch(articlesPageActions.initState());
-      dispatch(fetchArticlesList(searchParams));
-    }, [
-      searchParams.sort,
-      searchParams.type,
-      searchParams.order,
-      searchParams.search
-    ]);
+      dispatch(fetchArticlesList(fetchArticleArgs));
+    }, Object.values(fetchArticleArgs));
 
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);

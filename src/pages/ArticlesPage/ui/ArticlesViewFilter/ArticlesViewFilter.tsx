@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
-import { articlesPageSearchParams } from "@/shared/const/router";
+import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
 import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 
