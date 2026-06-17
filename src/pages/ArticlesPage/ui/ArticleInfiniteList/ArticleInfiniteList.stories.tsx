@@ -2,6 +2,12 @@ import React from 'react'
 
 import { ComponentMeta,ComponentStory } from '@storybook/react';
 
+import { NuqsDecorator } from "@/shared/config/storybook/NuqsDecorator/NuqsDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+
+import { ArticleView } from "@/entities/Article";
+import { articlesDataTestEntities, articlesDataTestIds } from "@/entities/Article/testing";
+
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
@@ -16,5 +22,78 @@ const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
     <ArticleInfiniteList {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const SMALL = Template.bind({});
+SMALL.args = {};
+SMALL.decorators = [
+    NuqsDecorator({
+        searchParams: { view: ArticleView.SMALL }
+    }),
+    StoreDecorator({
+        articlesPage: {
+            entities: articlesDataTestEntities,
+            ids: articlesDataTestIds,
+            _inited: true,
+        }
+    }),
+];
+
+export const SMALL_LOADING = Template.bind({});
+SMALL_LOADING.args = {};
+SMALL_LOADING.decorators = [
+    NuqsDecorator({
+        searchParams: { view: ArticleView.SMALL }
+    }),
+    StoreDecorator({
+        articlesPage: {
+            entities: {},
+            ids: [],
+            isLoading: true,
+            _inited: true,
+        }
+    }),
+];
+
+export const BIG = Template.bind({});
+BIG.args = {};
+BIG.decorators = [
+    NuqsDecorator({
+        searchParams: { view: ArticleView.BIG }
+    }),
+    StoreDecorator({
+        articlesPage: {
+            entities: articlesDataTestEntities,
+            ids: articlesDataTestIds,
+            _inited: true,
+        }
+    }),
+];
+
+export const BIG_LOADING = Template.bind({});
+BIG_LOADING.args = {};
+BIG_LOADING.decorators = [
+    NuqsDecorator({
+        searchParams: { view: ArticleView.BIG }
+    }),
+    StoreDecorator({
+        articlesPage: {
+            entities: {},
+            ids: [],
+            isLoading: true,
+            _inited: true,
+        }
+    }),
+];
+
+export const Error = Template.bind({});
+Error.args = {};
+Error.decorators = [
+    NuqsDecorator({}),
+    StoreDecorator({
+        articlesPage: {
+            entities: {},
+            ids: [],
+            error: 'error',
+            _inited: true,
+        }
+    }),
+];

@@ -13,7 +13,7 @@ import {
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
-const articlesAdapter = createEntityAdapter<Article>({
+export const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
@@ -55,6 +55,7 @@ const articlesPageSlice = createSlice({
             })
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
+                state.error = undefined;
 
                 if (action.meta.arg?.replace) {
                     articlesAdapter.setAll(state, action.payload);

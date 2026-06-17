@@ -9,7 +9,7 @@ import { Article, ArticleSortField, ArticleType } from "@/entities/Article";
 import {
   getArticlesPageLimit,
   getArticlesPageNum,
-} from "../../selectors/articlesPageSelectors";
+} from "../../selectors/articlesPage";
 
 export interface FetchArticlesListArgs {
     replace?: boolean;

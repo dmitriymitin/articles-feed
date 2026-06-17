@@ -4,9 +4,7 @@ import { ReducersList } from "@/app/providers/StoreProvider";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
-import {
-  articlesPageReducer,
-} from "../../model/slices/articlesPageSlice";
+import { articlesPageReducer } from "../../model/slices/articlesPageSlice";
 
 import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";

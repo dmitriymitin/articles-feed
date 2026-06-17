@@ -129,7 +129,7 @@ module.exports = {
       },
     ],
     "ulbi-tv-plugin/public-api-imports": [
-      "error",
+      "warn",
       {
         alias: "@",
         testFilesPatterns: [

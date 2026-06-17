@@ -5,17 +5,16 @@ import { Text } from "@/shared/ui/Text";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
 import { ArticleView } from "@/entities/Article";
 
-import { useAppQueryState } from "../../../../shared/lib/hooks/useAppQueryState/useAppQueryState";
-
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
-} from "../../model/selectors/articlesPageSelectors";
+} from "../../model/selectors/articlesPage";
 import {
   fetchArticlesList,
   FetchArticlesListArgs,

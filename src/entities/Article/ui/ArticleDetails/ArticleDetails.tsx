@@ -20,10 +20,11 @@ import {
 } from "../../model/selectors/articleDetails";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
-import { Article } from "../../model/types/article";
 
-import { ArticleDetailsSkeleton } from "./ArticleDetailsSkeleton";
-import { renderArticleBlock } from "./renderBlock";
+import { Article } from '../..';
+
+import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
+import { renderArticleBlock } from './renderBlock';
 
 import s from './ArticleDetails.module.scss'
 

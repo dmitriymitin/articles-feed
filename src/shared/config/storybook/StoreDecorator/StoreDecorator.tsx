@@ -12,12 +12,14 @@ import { loginReducer } from "@/features/authByUsername/testing";
 import { profileReducer } from "@/features/editingProfile/testing";
 
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articlesPageReducer } from "@/pages/ArticlesPage/testing";
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   articleDetailsPage: articleDetailsPageReducer,
+  articlesPage: articlesPageReducer
 };
 
 export const StoreDecorator =

@@ -1,7 +1,4 @@
-
-import {
-    Button
-} from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 
 import { cn } from "@/shared/lib/classNames/classNames";
