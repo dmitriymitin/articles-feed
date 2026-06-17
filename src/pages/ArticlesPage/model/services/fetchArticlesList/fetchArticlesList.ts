@@ -6,10 +6,7 @@ import { SortOrder } from "@/shared/types/sort";
 
 import { Article, ArticleSortField, ArticleType } from "@/entities/Article";
 
-import {
-  getArticlesPageLimit,
-  getArticlesPageNum,
-} from "../../selectors/articlesPage";
+import { getArticlesPageLimit, getArticlesPageNum } from "../../selectors/articlesPage";
 
 export interface FetchArticlesListArgs {
     replace?: boolean;
