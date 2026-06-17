@@ -3,9 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 import {
-    getArticlesPageHasMore,
-    getArticlesPageNum,
-} from '../../selectors/articlesPage';
+  getArticlesPageError,
+  getArticlesPageHasMore,
+  getArticlesPageNum,
+} from "../../selectors/articlesPage";
 import { articlesPageActions } from '../../slices/articlesPageSlice';
 
 import {
@@ -19,10 +20,12 @@ export const fetchNextArticlesPage = createAsyncThunk<
     ThunkConfig<string>
 >('articlesPage/fetchNextArticlesPage', async (args, thunkApi) => {
     const { getState, dispatch } = thunkApi;
+
     const hasMore = getArticlesPageHasMore(getState());
+    const error = getArticlesPageError(getState());
     const page = getArticlesPageNum(getState());
 
-    if (hasMore) {
+    if (hasMore && !error) {
         dispatch(articlesPageActions.setPage(page + 1));
         dispatch(fetchArticlesList(args));
     }

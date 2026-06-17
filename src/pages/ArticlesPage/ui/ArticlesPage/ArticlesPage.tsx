@@ -4,6 +4,8 @@ import { ReducersList } from "@/app/providers/StoreProvider";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
+import { Page } from "@/widgets/Page";
+
 import { articlesPageReducer } from "../../model/slices/articlesPageSlice";
 
 import { ArticleInfiniteListContainer } from '../ArticleInfiniteListContainer/ArticleInfiniteListContainer';
@@ -25,9 +27,11 @@ const _ArticlesPage = () => {
 };
 
 const ArticlesPage: typeof _ArticlesPage = () => (
-  <DynamicModuleLoader reducers={reducers}>
-    <_ArticlesPage />
-  </DynamicModuleLoader>
+  <Page>
+    <DynamicModuleLoader reducers={reducers}>
+      <_ArticlesPage />
+    </DynamicModuleLoader>
+  </Page>
 )
 
 export default ArticlesPage;

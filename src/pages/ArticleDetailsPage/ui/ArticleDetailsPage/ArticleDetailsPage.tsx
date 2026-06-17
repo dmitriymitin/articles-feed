@@ -9,6 +9,8 @@ import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader
 
 import { ArticleDetails } from "@/entities/Article";
 
+import { Page } from '@/widgets/Page';
+
 import { articleDetailsPageReducer } from "../../model/slices";
 
 import { ArticleDetailsCommentsContainer } from "../ArticleDetailsCommentsContainer/ArticleDetailsCommentsContainer";
@@ -22,13 +24,15 @@ const ArticleDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
-      <Flex vertical gap='16' max>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails articleId={id!} />
-        <ArticleDetailsCommentsContainer articleId={id!} />
-      </Flex>
-    </DynamicModuleLoader>
+    <Page>
+      <DynamicModuleLoader reducers={reducers}>
+        <Flex vertical gap='16' max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails articleId={id!} />
+          <ArticleDetailsCommentsContainer articleId={id!} />
+        </Flex>
+      </DynamicModuleLoader>
+    </Page>
   );
 };
 

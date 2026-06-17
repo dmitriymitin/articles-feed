@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import { EditableProfileCard } from "@/features/editingProfile";
+import { Page } from "@/widgets/Page";
 
 import s from "./ProfilePage.module.scss";
 
@@ -8,9 +9,9 @@ const ProfilePage = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <div className={s.ProfilePage}>
+    <Page data-testid="ProfilePage" className={s.ProfilePage}>
       <EditableProfileCard id={id!} />
-    </div>
+    </Page>
   );
 };
 
