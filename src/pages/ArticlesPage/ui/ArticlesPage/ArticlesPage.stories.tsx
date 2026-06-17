@@ -20,7 +20,7 @@ export default {
   },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+const Template: ComponentStory<typeof ArticlesPage> = () => (
   <ArticlesPage />
 );
 
@@ -32,7 +32,6 @@ Normal.decorators = [
     articlesPage: {
       entities: articlesDataTestEntities,
       ids: articlesDataTestIds,
-      _inited: true,
     }
   }),
 ];
@@ -46,7 +45,6 @@ Loading.decorators = [
       entities: {},
       ids: [],
       isLoading: true,
-      _inited: true,
     }
   }),
 ];
@@ -61,7 +59,6 @@ Error.decorators = [
       ids: [],
       isLoading: false,
       error: 'error',
-      _inited: true,
     }
   }),
 ];

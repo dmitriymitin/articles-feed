@@ -32,13 +32,8 @@ const articlesPageSlice = createSlice({
         page: 1,
         limit: 9,
         hasMore: true,
-
-        _inited: false,
     }),
     reducers: {
-        initState: (state) => {
-            state._inited = true;
-        },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
@@ -56,6 +51,7 @@ const articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.error = undefined;
+                state.hasMore = action.payload.length >= state.limit;
 
                 if (action.meta.arg?.replace) {
                     articlesAdapter.setAll(state, action.payload);

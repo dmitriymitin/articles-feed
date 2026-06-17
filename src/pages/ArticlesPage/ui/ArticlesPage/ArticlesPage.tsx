@@ -6,7 +6,7 @@ import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader
 
 import { articlesPageReducer } from "../../model/slices/articlesPageSlice";
 
-import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
+import { ArticleInfiniteListContainer } from '../ArticleInfiniteListContainer/ArticleInfiniteListContainer';
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
 import s from './ArticlesPage.module.scss'
@@ -19,7 +19,7 @@ const _ArticlesPage = () => {
   return (
     <div className={s.ArticlesPage}>
       <ArticlesPageFilters />
-      <ArticleInfiniteList className={s.list} />
+      <ArticleInfiniteListContainer className={s.list} />
     </div>
   );
 };

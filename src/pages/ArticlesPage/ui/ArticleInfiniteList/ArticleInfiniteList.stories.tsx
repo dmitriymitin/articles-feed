@@ -19,7 +19,7 @@ export default {
 } as ComponentMeta<typeof ArticleInfiniteList>;
 
 const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
-    <ArticleInfiniteList {...args} />
+    <ArticleInfiniteList />
 );
 
 export const SMALL = Template.bind({});
@@ -32,7 +32,6 @@ SMALL.decorators = [
         articlesPage: {
             entities: articlesDataTestEntities,
             ids: articlesDataTestIds,
-            _inited: true,
         }
     }),
 ];
@@ -48,7 +47,6 @@ SMALL_LOADING.decorators = [
             entities: {},
             ids: [],
             isLoading: true,
-            _inited: true,
         }
     }),
 ];
@@ -63,7 +61,6 @@ BIG.decorators = [
         articlesPage: {
             entities: articlesDataTestEntities,
             ids: articlesDataTestIds,
-            _inited: true,
         }
     }),
 ];
@@ -79,7 +76,6 @@ BIG_LOADING.decorators = [
             entities: {},
             ids: [],
             isLoading: true,
-            _inited: true,
         }
     }),
 ];
@@ -93,7 +89,6 @@ Error.decorators = [
             entities: {},
             ids: [],
             error: 'error',
-            _inited: true,
         }
     }),
 ];

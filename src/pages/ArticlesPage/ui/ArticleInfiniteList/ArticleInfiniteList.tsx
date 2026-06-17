@@ -1,98 +1,43 @@
-import { useQueryStates } from "nuqs";
+import { memo } from "react";
 import { useSelector } from "react-redux";
 
 import { Text } from "@/shared/ui/Text";
 
-import { cn } from "@/shared/lib/classNames/classNames";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
-import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
 import { ArticleView } from "@/entities/Article";
 
-import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
-} from "../../model/selectors/articlesPage";
-import {
-  fetchArticlesList,
-  FetchArticlesListArgs,
-} from "../../model/services/fetchArticlesList/fetchArticlesList";
-import {
-  articlesPageActions,
-  getArticles,
-} from "../../model/slices/articlesPageSlice";
+import { getArticlesPageError, getArticlesPageIsLoading } from "../../model/selectors/articlesPage";
+import { getArticles } from "../../model/slices/articlesPageSlice";
 
 import { renderArticleListItem } from "./renderArticleItem";
 import { renderArticleListItemSkeleton } from "./renderArticleItemSkeleton";
 
-import s from "./ArticleInfiniteList.module.scss";
 
-const ArticleListWrapper = ({ children, className }) => {
-  const [view] = useAppQueryState(articlesPageSearchParams, 'view')
-
-  return (
-    <div
-      className={cn(s[view!], className)}
-      data-testid="ArticleListWrapper"
-    >
-      {children}
-    </div>
-  )
-}
-
-interface ArticleInfiniteListProps {
-    className?: string;
-}
-
-export const ArticleInfiniteList = (props: ArticleInfiniteListProps) => {
-    const { className } = props;
-
-    const dispatch = useAppDispatch();
-    const [searchParams] = useQueryStates(articlesPageSearchParams)
-
-    const fetchArticleArgs: FetchArticlesListArgs = {
-      sort: searchParams.sort,
-      search: searchParams.search,
-      type: searchParams.type,
-      order: searchParams.order,
-
-      replace: true,
-    }
-
-    useInitialEffect(() => {
-      dispatch(articlesPageActions.initState());
-      dispatch(fetchArticlesList(fetchArticleArgs));
-    }, Object.values(fetchArticleArgs));
+const _ArticleInfiniteList = () => {
+    const [searchView] = useAppQueryState(articlesPageSearchParams, 'view')
+    const view = searchView!
 
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
 
-    if (isLoading) {
-        return (
-          <ArticleListWrapper className={className}>
-              {
-                  new Array(searchParams.view === ArticleView.SMALL ? 9 : 3)
-                    .fill(0)
-                    .map((_, index) => renderArticleListItemSkeleton(searchParams.view, index))
-              }
-          </ArticleListWrapper>
-        )
-    }
-
-    if (error) {
-        return <Text theme='error' text='Ошибка при загрузке статей' />;
-    }
-
-    if (!articles.length) {
+    if (!isLoading && !error && !articles.length) {
         return <Text size='size_l' title='Статьи не найдены' />;
     }
 
     return (
-      <ArticleListWrapper className={className}>
-          {articles.map((article) => renderArticleListItem(searchParams.view, article))}
-      </ArticleListWrapper>
+      <>
+        {articles.map((article) => renderArticleListItem(view, article))}
+        {
+          isLoading && new Array(view === ArticleView.SMALL ? 9 : 3)
+            .fill(0)
+            .map((_, index) => renderArticleListItemSkeleton(view, index))
+        }
+        {error && <Text theme='error' text='Ошибка при загрузке статей' />}
+      </>
     );
 };
+
+export const ArticleInfiniteList = memo(_ArticleInfiniteList)

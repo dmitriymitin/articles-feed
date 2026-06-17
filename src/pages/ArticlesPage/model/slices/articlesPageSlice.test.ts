@@ -21,27 +21,9 @@ describe('articlesPageSlice.test', () => {
         page: 1,
         limit: 9,
         hasMore: false,
-        _inited: true
       },
     )
   }
-
-  test("test init article page", () => {
-    const state = {
-      ...getState(),
-      _inited: false
-    };
-
-    expect(
-      articlesPageReducer(
-        state,
-        articlesPageActions.initState()
-      )
-    ).toEqual({
-      ...state,
-      _inited: true
-    });
-  });
 
   test("test set page article page", () => {
     const state = getState();

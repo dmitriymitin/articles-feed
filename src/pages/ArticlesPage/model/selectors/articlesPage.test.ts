@@ -3,7 +3,6 @@ import { StateSchema } from '@/app/providers/StoreProvider'
 import {
   getArticlesPageError,
   getArticlesPageHasMore,
-  getArticlesPageInited,
   getArticlesPageIsLoading,
   getArticlesPageLimit,
   getArticlesPageNum,
@@ -34,19 +33,6 @@ describe('articleDetails.test', () => {
   test('should work with empty state has more', () => {
     const state: DeepPartial<StateSchema> = {};
     expect(getArticlesPageHasMore(state as StateSchema)).toEqual(undefined);
-  });
-
-  test('should return inited', () => {
-    const state: DeepPartial<StateSchema> = {
-      articlesPage: {
-        _inited: true,
-      },
-    };
-    expect(getArticlesPageInited(state as StateSchema)).toEqual(true);
-  });
-  test('should work with empty state inited', () => {
-    const state: DeepPartial<StateSchema> = {};
-    expect(getArticlesPageInited(state as StateSchema)).toEqual(undefined);
   });
 
   test('should return isLoading', () => {
