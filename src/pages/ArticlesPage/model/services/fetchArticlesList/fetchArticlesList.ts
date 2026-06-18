@@ -17,7 +17,7 @@ export interface FetchArticlesListArgs {
     type?: ArticleType;
 }
 
-export const fetchArticlesList = createAsyncThunk<
+export const  fetchArticlesList = createAsyncThunk<
     Article[],
     FetchArticlesListArgs | undefined,
     ThunkConfig<string>

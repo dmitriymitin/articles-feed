@@ -7,11 +7,9 @@ import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitial
 import { useInView } from "@/shared/lib/hooks/useInView/useInView";
 import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
-import {
-  fetchArticlesList,
-  FetchArticlesListArgs,
-} from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList, FetchArticlesListArgs } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
@@ -37,6 +35,7 @@ export const ArticleInfiniteListContainer = (props: ArticleInfiniteListContainer
   }
 
   const loadFirstArticles = () => {
+    dispatch(articlesPageActions.setPage(1));
     dispatch(fetchArticlesList({ ...fetchArticleArgs, replace: true }))
   }
 

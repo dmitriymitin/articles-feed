@@ -36,6 +36,7 @@ module.exports = {
         extensions: [".js", ".jsx", ".tsx"],
       },
     ],
+    "no-unused-expressions": "warn",
     "react/destructuring-assignment": "warn",
     "object-curly-spacing": ["error", "always"],
     "import/no-unresolved": "off",

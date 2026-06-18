@@ -19,10 +19,10 @@ export const DynamicModuleLoader = (
   const dispatch = useAppDispatch();
 
   useLayoutEffect(() => {
-    const mountedReducers = store.reducerManager.getMountedReducers();
+    const mountedReducers = store.reducerManager.getReducerMap();
 
     Object.entries(reducers).forEach(([name, reducer]) => {
-      const mounted = mountedReducers[name as StateSchemaKey];
+      const mounted = Boolean(mountedReducers[name as StateSchemaKey]);
       // Добавляем новый редюсер только если его нет
       if (!mounted) {
         store.reducerManager.add(name as StateSchemaKey, reducer);
@@ -38,11 +38,9 @@ export const DynamicModuleLoader = (
         });
       }
     };
-    // eslint-disable-next-line
   }, []);
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>{children}</>
   );
 };
