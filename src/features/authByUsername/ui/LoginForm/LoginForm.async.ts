@@ -1,5 +1,7 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
-export const LoginFormAsync = lazy(
+import LoginForm from './LoginForm';
+
+export const LoginFormAsync = lazy<typeof LoginForm>(
     () => import('./LoginForm'),
 );

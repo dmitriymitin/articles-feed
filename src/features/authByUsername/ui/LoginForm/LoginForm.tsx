@@ -25,7 +25,12 @@ const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = () => {
+export interface LoginFormProps {
+  onLogin: () => void;
+}
+
+const LoginForm = (props: LoginFormProps) => {
+  const { onLogin } = props
   const dispatch = useAppDispatch();
   const store = useAppStore();
   const navigate = useNavigate();
@@ -39,6 +44,7 @@ const LoginForm = () => {
     const error = getLoginError(store.getState());
     if (!error) {
       navigate(getRouteAbout())
+      onLogin()
     }
   };
 
@@ -55,8 +61,8 @@ const LoginForm = () => {
 
 const MemoLoginForm = memo(LoginForm);
 
-export default () => (
+export default (props: LoginFormProps) => (
   <DynamicModuleLoader reducers={initialReducers}>
-    <MemoLoginForm />
+    <MemoLoginForm {...props} />
   </DynamicModuleLoader>
 )
