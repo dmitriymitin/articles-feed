@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { HTMLAttributeAnchorTarget } from "react";
 
 import { AppImage } from "@/shared/ui/AppImage";
-import { AppLink, AppLinkProps } from "@/shared/ui/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import { Card } from "@/shared/ui/Card";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { Text } from "@/shared/ui/Text";
@@ -19,7 +19,7 @@ import s from './ArticleListItemSmall.module.scss'
 interface ArticleListItemSmallProps {
   article: Pick<Article, 'id' | 'title' | 'img' | 'createdAt' | 'type' | 'views'>;
   className?: string;
-  target?: AppLinkProps['target'];
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {

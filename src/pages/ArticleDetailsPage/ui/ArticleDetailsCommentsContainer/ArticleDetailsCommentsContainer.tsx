@@ -22,6 +22,7 @@ interface ArticleDetailsCommentsContainerProps {
 
 export const ArticleDetailsCommentsContainer = (props: ArticleDetailsCommentsContainerProps) => {
   const { articleId } = props;
+
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {

@@ -1,13 +1,24 @@
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
+import { AppLink } from "@/shared/ui/AppLink";
 import { Button } from '@/shared/ui/Button';
 import { Flex } from "@/shared/ui/Flex";
 import { Trans } from "@/shared/ui/Translate";
 
-import { getRouteArticles } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
 
-export const ArticleDetailsPageHeader = () => {
-  const navigate = useNavigate();
+import { Article } from "@/entities/Article";
+
+import { getCanEditArticle } from '../../model/selectors/article/article';
+
+interface ArticleDetailsPageHeaderProps {
+  articleId: Article['id']
+}
+
+export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
+  const { articleId } = props;
+
+  const canEdit = useSelector(getCanEditArticle);
 
   return (
     <Flex
@@ -15,9 +26,18 @@ export const ArticleDetailsPageHeader = () => {
       align="center"
       justify="between"
     >
-      <Button theme='outline' onClick={() => navigate(getRouteArticles())}>
-        <Trans>Назад к списку</Trans>
-      </Button>
+      <AppLink to={getRouteArticles()}>
+        <Button theme='outline' tabIndex={-1}>
+          <Trans>Назад к списку</Trans>
+        </Button>
+      </AppLink>
+      {canEdit && (
+        <AppLink to={getRouteArticleEdit(articleId)}>
+          <Button theme='outline' tabIndex={-1}>
+            <Trans>Редактировать</Trans>
+          </Button>
+        </AppLink>
+      )}
     </Flex>
   );
 }

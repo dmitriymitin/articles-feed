@@ -4,6 +4,8 @@ export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
 
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
+export { getArticleDetailsData } from "@/entities/Article/model/selectors/articleDetails";
+
 export {
   ArticleView,
   ArticleType,

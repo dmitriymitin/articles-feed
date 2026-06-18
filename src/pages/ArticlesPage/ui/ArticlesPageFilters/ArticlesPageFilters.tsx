@@ -15,7 +15,7 @@ export const ArticlesPageFilters = () => {
   return (
     <div>
       <Flex align='center' justify='between'>
-        <Flex align='center'>
+        <Flex align='center' gap='4'>
           <ArticlesSortFilter />
           <ArticlesOrderFilter className={s.order} />
         </Flex>

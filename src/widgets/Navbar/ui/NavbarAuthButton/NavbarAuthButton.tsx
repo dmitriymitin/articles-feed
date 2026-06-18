@@ -1,12 +1,11 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState } from 'react';
 
 import { AuthButton } from "@/features/auth";
 import { LoginModal } from "@/features/authByUsername";
 
-import s from "./Navbar.module.scss";
+import s from '../Navbar/Navbar.module.scss';
 
-
-export const NavbarAuth = () => {
+export const NavbarAuthButton = () => {
   const [isAuthModal, setIsAuthModal] = useState(false);
 
   const onToggleModal = useCallback(() => {

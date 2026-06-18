@@ -1,7 +1,7 @@
 import React from "react";
 
 import { AppImage } from "@/shared/ui/AppImage";
-import { AppLink, AppLinkProps } from "@/shared/ui/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { Button } from "@/shared/ui/Button";
 import { Card } from "@/shared/ui/Card";
@@ -23,11 +23,10 @@ import s from './ArticleListItemBig.module.scss'
 interface ArticleListItemBigProps {
   article: Pick<Article, 'id' | 'img' | 'blocks' | 'user' | 'createdAt' | 'title' | 'views' | 'type'>;
   className?: string;
-  target?: AppLinkProps['target'];
 }
 
 export const ArticleListItemBig = (props: ArticleListItemBigProps) => {
-  const { article, className, target } = props
+  const { article, className } = props
 
   const textBlock = article.blocks.find(
     (block) => block.type === ArticleBlockType.TEXT,
@@ -62,11 +61,8 @@ export const ArticleListItemBig = (props: ArticleListItemBigProps) => {
           />
         )}
         <div className={s.footer}>
-          <AppLink
-            target={target}
-            to={getRouteArticleDetails(article.id)}
-          >
-            <Button theme='outline'>
+          <AppLink to={getRouteArticleDetails(article.id)}>
+            <Button tabIndex={-1} theme='outline'>
               <Trans>Читать далее...</Trans>
             </Button>
           </AppLink>
