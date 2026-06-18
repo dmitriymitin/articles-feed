@@ -14,9 +14,9 @@ import { UserSchema } from "@/entities/User";
 
 // import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 import { LoginSchema } from "@/features/authByUsername";
-// import { UISchema } from "@/features/UI";
 // import { rtkApi } from "@/shared/api/rtkApi";
 import { ProfileSchema } from "@/features/editingProfile";
+import { UISchema } from "@/widgets/Page";
 
 import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
@@ -24,7 +24,7 @@ import { ArticlesPageSchema } from "@/pages/ArticlesPage";
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
-  // ui: UISchema;
+  ui: UISchema;
   // [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   /**
