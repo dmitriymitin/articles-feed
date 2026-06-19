@@ -8,7 +8,7 @@ export const EditableProfileCardHeader = () => {
   return (
     <div className={s.EditableProfileCardHeader}>
       <Text title="Профиль" />
-     <EditableProfileCardHeaderActions />
+      <EditableProfileCardHeaderActions />
     </div>
   );
 };
