@@ -24,9 +24,7 @@ const ArticleDetailsRecommendationsOld = () => {
   const dispatch = useAppDispatch();
 
   const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const recommendationsIsLoading = useSelector(
-    getArticleRecommendationsIsLoading
-  );
+  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
 
   console.log("recommendations", recommendations);
   console.log("recommendationsIsLoading", recommendationsIsLoading);
