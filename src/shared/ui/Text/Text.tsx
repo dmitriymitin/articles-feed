@@ -1,4 +1,4 @@
-import { memo } from "react";
+import React, { memo } from "react";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
@@ -19,6 +19,7 @@ interface TextProps {
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
+  as?: keyof React.JSX.IntrinsicElements;
 
   "data-testid"?: string;
 }
@@ -39,10 +40,11 @@ export const _Text = (props: TextProps) => {
     theme = "primary",
     align = "left",
     size = "size_m",
+    as,
     "data-testid": dataTestId = "Text",
   } = props;
 
-  const HeaderTag = mapSizeToHeaderTag[size];
+  const HeaderTag = as || mapSizeToHeaderTag[size] || 'div';
 
   const classes = cn(s.Text, s[theme], s[align], s[size], className);
 

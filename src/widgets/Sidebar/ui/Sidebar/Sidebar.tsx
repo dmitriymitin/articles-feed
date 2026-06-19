@@ -33,7 +33,7 @@ export const Sidebar = (props: SidebarProps) => {
   );
 
   return (
-    <aside data-testid="sidebar" className={cls}>
+    <section data-testid="sidebar" className={cls}>
       <Button
         data-testid="sidebar-toggle"
         onClick={onToggle}
@@ -53,6 +53,6 @@ export const Sidebar = (props: SidebarProps) => {
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className={s.lang} />
       </div>
-    </aside>
+    </section>
   );
 };
