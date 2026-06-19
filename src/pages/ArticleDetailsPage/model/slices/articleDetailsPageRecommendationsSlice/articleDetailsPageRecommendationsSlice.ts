@@ -18,6 +18,7 @@ export const getArticleRecommendations =
             recommendationsAdapter.getInitialState(),
     );
 
+/** @deprecated */
 const articleDetailsPageRecommendationsSlice = createSlice({
     name: 'articleDetailsPageRecommendationsSlice',
     initialState:

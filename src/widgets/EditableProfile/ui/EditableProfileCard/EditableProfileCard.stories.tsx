@@ -11,7 +11,7 @@ import { ValidateProfileError } from "../../model/consts/consts";
 import { EditableProfileCard } from "./EditableProfileCard";
 
 export default {
-  title: 'features/editingProfile/EditableProfileCard',
+  title: 'widgets/EditableProfileCard',
   component: EditableProfileCard,
 } as ComponentMeta<typeof EditableProfileCard>;
 

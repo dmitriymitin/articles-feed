@@ -9,7 +9,7 @@ import {
 import { articleDetailsReducer } from '@/entities/Article/testing';
 
 import { loginReducer } from "@/features/authByUsername/testing";
-import { profileReducer } from "@/features/editingProfile/testing";
+import { profileReducer } from "@/widgets/EditableProfile/testing";
 
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { articlesPageReducer } from "@/pages/ArticlesPage/testing";

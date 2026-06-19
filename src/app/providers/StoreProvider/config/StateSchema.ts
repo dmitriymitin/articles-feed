@@ -13,7 +13,7 @@ import { CounterSchema } from "@/entities/Counter";
 import { UserSchema } from "@/entities/User";
 
 import { LoginSchema } from "@/features/authByUsername";
-import { ProfileSchema } from "@/features/editingProfile";
+import { ProfileSchema } from "@/widgets/EditableProfile";
 import { UISchema } from "@/widgets/Page";
 
 import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";

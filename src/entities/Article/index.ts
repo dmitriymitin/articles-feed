@@ -15,6 +15,8 @@ export {
   articleSortSelectOptions,
 } from './model/consts/articleConsts';
 
+export { articleRecommendationsListLimit } from './model/consts/articleRecomadationsConst'
+
 export { ArticleListItemBig } from './ui/ArticleListItemBig/ArticleListItemBig'
 export { ArticleListItemBigSkeleton } from './ui/ArticleListItemBig/ArticleListItemBigSkeleton'
 

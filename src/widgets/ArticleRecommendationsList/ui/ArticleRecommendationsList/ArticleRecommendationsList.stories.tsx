@@ -4,13 +4,9 @@ import { ComponentMeta,ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import {
-  articleTestData1,
-  articleTestData2,
-  articleTestData3,
-} from "@/entities/Article/testing";
+import { recommendationsStoryMockFetch } from "@/entities/Article/mock";
 
-import ArticleRecommendationsList, { articleRecommendationsListLimit } from "./ArticleRecommendationsList";
+import ArticleRecommendationsList from "./ArticleRecommendationsList";
 
 export default {
     title: 'widgets/ArticleRecommendationsList',
@@ -28,16 +24,5 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/articles?_limit=${articleRecommendationsListLimit}`,
-            method: 'GET',
-            status: 200,
-            response: [
-                articleTestData1,
-                articleTestData2,
-                articleTestData3,
-            ],
-        },
-    ],
+    mockData: [ recommendationsStoryMockFetch ],
 };

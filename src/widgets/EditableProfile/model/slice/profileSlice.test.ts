@@ -1,7 +1,6 @@
 import { profileTestData } from "@/entities/Profile/testing";
 
-import { ValidateProfileError } from '../../model/consts/consts';
-
+import { ValidateProfileError } from '../consts/consts';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
 

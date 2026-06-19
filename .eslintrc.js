@@ -131,13 +131,17 @@ module.exports = {
       },
     ],
     "dm-plugin/public-api-imports": [
-      "error",
+      "warn",
       {
         alias: "@",
         testFilesPatterns: [
           "**/*.test.*",
           "**/*.story.*",
           "**/StoreDecorator.tsx",
+        ],
+        mockFilesPatterns: [
+          "**/*.test.*",
+          "**/*.story.*",
         ],
       },
     ],

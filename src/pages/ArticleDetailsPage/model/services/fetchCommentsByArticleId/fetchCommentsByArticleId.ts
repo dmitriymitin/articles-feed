@@ -5,6 +5,11 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article } from "@/entities/Article";
 import { Comment } from '@/entities/Comment';
 
+
+/**
+ * Устарел, перехал на ртк в отдельный компонент
+ * @deprecated
+ */
 export const fetchCommentsByArticleId = createAsyncThunk<
     Comment[],
     Required<Article['id']>,

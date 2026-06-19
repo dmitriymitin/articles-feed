@@ -4,6 +4,10 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 import { Article } from '@/entities/Article';
 
+/**
+ * Устарел, перехал на ртк в отдельный компонент
+ * @deprecated
+ */
 export const fetchArticleRecommendations = createAsyncThunk<
     Article[],
     void,

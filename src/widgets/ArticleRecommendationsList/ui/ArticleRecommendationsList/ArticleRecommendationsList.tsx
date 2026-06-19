@@ -6,11 +6,10 @@ import { Text } from '@/shared/ui/Text';
 import {
   ArticleListItemSmall,
   ArticleListItemSmallSkeleton,
+  articleRecommendationsListLimit,
 } from "@/entities/Article";
 
 import { useArticleRecommendationsListQuery } from '../../api/aritcleRecommendationsApi';
-
-export const articleRecommendationsListLimit = 4
 
 const ArticleRecommendationsList =  () => {
   const { t } = useTranslation();
