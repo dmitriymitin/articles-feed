@@ -1,7 +1,7 @@
 import { articleDetailsTestData } from "../../testing";
 
-import { ArticleDetailsSchema } from '../..';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 import { articleDetailsReducer } from './articleDetailsSlice';
 

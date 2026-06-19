@@ -5,8 +5,8 @@ import {
   articleTestData2,
 } from "@/entities/Article/testing";
 
-import { ArticlesPageSchema } from '../..';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
 import { articlesAdapter, articlesPageActions,articlesPageReducer } from './articlesPageSlice';
 

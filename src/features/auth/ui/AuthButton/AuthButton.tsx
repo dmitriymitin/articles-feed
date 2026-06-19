@@ -6,7 +6,7 @@ import { Trans } from "@/shared/ui/Translate";
 
 import { getUserAuthData } from "@/entities/User";
 
-import { useLogout } from '../..';
+import { useLogout } from '../../model/hooks/useLogout';
 
 interface AuthButtonProps {
   className?: string;

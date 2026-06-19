@@ -1,6 +1,6 @@
 import { ListBoxItem } from "@/shared/ui/Popups/components/ListBox/ListBox";
 
-import { Currency } from '../..';
+import { Currency } from '../../model/types/currency';
 
 export const currencyListOptions: ListBoxItem<Currency>[] = [
   { value: Currency.RUB, content: Currency.RUB },

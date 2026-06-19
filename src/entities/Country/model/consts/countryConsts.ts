@@ -1,6 +1,6 @@
 import { ListBoxItem } from "@/shared/ui/Popups/components/ListBox/ListBox";
 
-import { Country } from '../..';
+import { Country } from '../../model/types/country';
 
 export const countryListOptions: ListBoxItem<Country>[] = [
   { value: Country.Armenia, content: Country.Armenia },
