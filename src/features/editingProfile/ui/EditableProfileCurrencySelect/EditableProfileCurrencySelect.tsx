@@ -1,10 +1,12 @@
 import  { useSelector } from "react-redux";
 
+import { ListBox } from "@/shared/ui/Popups";
+
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 import {
-  CurrencySelect,
-  CurrencySelectProps,
+  Currency,
+  currencyListOptions,
 } from "@/entities/Currency";
 
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
@@ -23,17 +25,28 @@ export const EditableProfileCurrencySelect = (props: EditableProfileCurrencySele
   const currency = useSelector(getProfileFormField("currency"));
   const readonly = useSelector(getProfileReadonly);
 
-  const onChange: CurrencySelectProps["onChange"] = (value) => {
-    dispatch(profileActions.setField({ field: "currency", value }));
-  };
-
   return (
-    <CurrencySelect
-      className={className}
-      label="Укажите валюту"
+    <ListBox<Currency>
       value={currency}
-      onChange={onChange}
+      options={currencyListOptions}
       readonly={readonly}
+      className={className}
+      defaultValue='Укажите валюту'
+      label='Укажите валюту'
+      direction='top right'
+      onChange={(currency) => {
+        dispatch(profileActions.setField({ field: 'currency', value: currency }))
+      }}
     />
   );
 };
+
+// <Select
+//   className={className}
+//   label="Укажите валюту"
+//   value={currency}
+//   onChange={(currency) => {
+//         dispatch(profileActions.setField({ field: 'currency', value: currency }))
+//       }}
+//   readonly={readonly}
+// />

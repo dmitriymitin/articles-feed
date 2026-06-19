@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 
+import { ListBox } from "@/shared/ui/Popups";
+
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { CountrySelect, CountrySelectProps } from "@/entities/Country";
+import { Country, countryListOptions  } from "@/entities/Country";
 
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
@@ -19,17 +21,29 @@ export const EditableProfileCountrySelect = (props: EditableProfileCountrySelect
   const country = useSelector(getProfileFormField('country'))
   const readonly = useSelector(getProfileReadonly)
 
-  const onChange: CountrySelectProps['onChange'] = (value) => {
-    dispatch(profileActions.setField({ field: 'country', value }))
-  }
-
   return (
-    <CountrySelect
-      className={className}
-      label='Укажите страну'
+    <ListBox<Country>
       value={country}
-      onChange={onChange}
+      options={countryListOptions}
       readonly={readonly}
+      className={className}
+      defaultValue='Укажите страну'
+      label='Укажите страну'
+      direction='top right'
+      onChange={(country) => {
+        dispatch(profileActions.setField({ field: 'country', value: country }))
+      }}
     />
   );
 };
+
+// <Select
+//   label={label}
+//   readonly={readonly}
+//   options={options}
+//   value={value}
+//   onChange={(country) => {
+//         dispatch(profileActions.setField({ field: 'country', value: country }))
+//       }}
+//   className={className}
+// />

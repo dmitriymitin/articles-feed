@@ -5,11 +5,11 @@ import { MutableRefObject, useCallback, useRef } from 'react';
  * @param callback
  * @param delay - задержка в мс
  */
-export function useDebounce(callback: (...args: unknown[]) => void, delay: number) {
+export function useDebounce(callback: (...args: any[]) => void, delay: number) {
     const timer = useRef() as MutableRefObject<any>;
 
     return useCallback(
-        (...args: unknown[]) => {
+        (...args: any[]) => {
             if (timer.current) {
                 clearTimeout(timer.current);
             }
