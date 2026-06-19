@@ -33,8 +33,8 @@ Normal.decorators = [
       form: {
         username: 'admin',
         age: 22,
-        country: Country.Ukraine,
-        lastname: 'ulbi tv',
+        country: Country.Armenia,
+        lastname: 'dm',
         first: 'asd',
         city: 'asf',
         currency: Currency.USD,
@@ -53,8 +53,8 @@ Dark.decorators = [
       form: {
         username: 'admin',
         age: 22,
-        country: Country.Ukraine,
-        lastname: 'ulbi tv',
+        country: Country.Armenia,
+        lastname: 'dm',
         first: 'asd',
         city: 'asf',
         currency: Currency.USD,

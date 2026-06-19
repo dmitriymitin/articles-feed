@@ -24,7 +24,7 @@ module.exports = {
     "@typescript-eslint",
     "i18next",
     "react-hooks",
-    "ulbi-tv-plugin",
+    "dm-plugin",
     "unused-imports",
     "simple-import-sort",
   ],
@@ -117,21 +117,21 @@ module.exports = {
     "no-undef": "off",
     "react/no-array-index-key": "off",
     "arrow-body-style": "off",
-    "ulbi-tv-plugin/path-checker": [
+    "dm-plugin/path-checker": [
       "error",
       {
         alias: "@",
       },
     ],
-    "ulbi-tv-plugin/layer-imports": [
+    "dm-plugin/layer-imports": [
       "error",
       {
         alias: "@",
         ignoreImportPatterns: ["**/StoreProvider", "**/testing"],
       },
     ],
-    "ulbi-tv-plugin/public-api-imports": [
-      "warn",
+    "dm-plugin/public-api-imports": [
+      "error",
       {
         alias: "@",
         testFilesPatterns: [

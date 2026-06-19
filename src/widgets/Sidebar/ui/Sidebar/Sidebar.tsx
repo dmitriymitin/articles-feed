@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from "react"
 
 import { Button } from "@/shared/ui/Button";
 import { Flex } from "@/shared/ui/Flex";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
+import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { LangSwitcher } from "@/widgets/LangSwitcher";
-import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
 
 import { useSidebarItems } from "../../model/selectors/useSidebarItems";
 

@@ -32,7 +32,7 @@ export const articleTestData1: Article = {
   type: [ArticleType.IT],
   user: {
     id: '1',
-    username: 'Ulbi tv',
+    username: 'DM',
   },
   blocks: [
     {
@@ -72,7 +72,7 @@ export const articleTestData2: Article = {
   type: [ArticleType.IT],
   user: {
     id: '1',
-    username: 'Ulbi tv',
+    username: 'DM',
   },
   blocks: [
     {
@@ -112,7 +112,7 @@ export const articleTestData3: Article = {
   type: [ArticleType.IT],
   user: {
     id: '1',
-    username: 'Ulbi tv',
+    username: 'DM',
   },
   blocks: [
     {

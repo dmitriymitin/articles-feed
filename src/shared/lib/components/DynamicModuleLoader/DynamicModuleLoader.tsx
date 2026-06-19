@@ -2,7 +2,7 @@ import { PropsWithChildren, useLayoutEffect } from "react";
 
 import { ReducersList, StateSchemaKey } from "@/app/providers/StoreProvider";
 
-import { useAppDispatch } from "../../hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
 import { useAppStore } from "../../hooks/useAppStore/useAppStore";
 
 interface DynamicModuleLoaderProps {

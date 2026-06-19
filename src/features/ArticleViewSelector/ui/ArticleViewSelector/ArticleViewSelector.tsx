@@ -5,7 +5,7 @@ import { cn } from "@/shared/lib/classNames/classNames";
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg';
 
-import { ArticleView } from '@/entities/Article';
+import { ArticleView } from "@/entities/Article";
 
 import s from './ArticleViewSelector.module.scss';
 

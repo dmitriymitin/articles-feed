@@ -4,11 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import {
-    ArticleBlockType,
-    ArticleType,
-} from '../../model/consts/articleConsts';
-import { Article } from '../../model/types/article';
+import { Article, ArticleBlockType, ArticleType } from '../..';
 
 import { ArticleDetails } from './ArticleDetails';
 
@@ -34,7 +30,7 @@ const article: Article = {
     type: [ArticleType.IT],
     user: {
         id: '1',
-        username: 'Ulbi tv',
+        username: 'DM',
     },
     blocks: [
         {

@@ -9,7 +9,6 @@ const options: SelectProps['options'] = [
   { value: Country.Russia, content: Country.Russia },
   { value: Country.Belarus, content: Country.Belarus },
   { value: Country.Kazakhstan, content: Country.Kazakhstan },
-  { value: Country.Ukraine, content: Country.Ukraine },
 ];
 
 export interface CountrySelectProps extends Pick<SelectProps, 'value' | 'className' | 'onChange' | 'readonly' | 'label'> {
