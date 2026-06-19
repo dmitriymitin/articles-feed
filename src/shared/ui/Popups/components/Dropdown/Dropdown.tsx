@@ -17,6 +17,7 @@ export interface DropdownItem {
     content?: ReactNode;
     onClick?: () => void;
     href?: string;
+    hide?: boolean;
 }
 
 interface DropdownProps {
@@ -27,53 +28,52 @@ interface DropdownProps {
 }
 
 export function Dropdown(props: DropdownProps) {
-    const { className, trigger, items, direction = 'bottom right' } = props;
+  const { className, trigger, items, direction = "bottom right" } = props;
 
-    return (
-        <Menu
-            as="div"
-            className={cn(s.Dropdown, className, popupCls.popup,)}
-        >
-            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
-            <Menu.Items className={cn(s.menu, mapDirectionClass[direction])}>
-                {items.map((item, index) => {
-                    const content = ({ active }: { active: boolean }) => (
-                        <button
-                            type="button"
-                            disabled={item.disabled}
-                            onClick={item.onClick}
-                            className={cn(s.item, {
-                                [popupCls.active]: active,
-                            })}
-                        >
-                            {item.content}
-                        </button>
-                    );
-
-                    if (item.href) {
-                        return (
-                            <Menu.Item
-                                as={AppLink}
-                                to={item.href}
-                                disabled={item.disabled}
-                                key={`dropdown-key-${index}`}
-                            >
-                                {content}
-                            </Menu.Item>
-                        );
-                    }
-
-                    return (
-                        <Menu.Item
-                            key={`dropdown-key-${index}`}
-                            as={Fragment}
-                            disabled={item.disabled}
-                        >
-                            {content}
-                        </Menu.Item>
-                    );
+  return (
+    <Menu as="div" className={cn(s.Dropdown, className, popupCls.popup)}>
+      <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+      <Menu.Items className={cn(s.menu, mapDirectionClass[direction])}>
+        {items
+          .filter((item) => !item?.hide)
+          .map((item, index) => {
+            const content = ({ active }: { active: boolean }) => (
+              <button
+                type="button"
+                disabled={item.disabled}
+                onClick={item.onClick}
+                className={cn(s.item, {
+                  [popupCls.active]: active,
                 })}
-            </Menu.Items>
-        </Menu>
-    );
+              >
+                {item.content}
+              </button>
+            );
+
+            if (item.href) {
+              return (
+                <Menu.Item
+                  as={AppLink}
+                  to={item.href}
+                  disabled={item.disabled}
+                  key={`dropdown-key-${index}`}
+                >
+                  {content}
+                </Menu.Item>
+              );
+            }
+
+            return (
+              <Menu.Item
+                key={`dropdown-key-${index}`}
+                as={Fragment}
+                disabled={item.disabled}
+              >
+                {content}
+              </Menu.Item>
+            );
+          })}
+      </Menu.Items>
+    </Menu>
+  );
 }

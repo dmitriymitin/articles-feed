@@ -1,28 +1,43 @@
-import { CSSProperties, memo } from "react";
+import { CSSProperties, ReactElement, useMemo } from "react";
 
-import { cn } from "../../lib/classNames/classNames";
+import { cn } from "@/shared/lib/classNames/classNames";
 
-import { AppImage } from "../AppImage";
+import { AppImage } from '../AppImage';
+import { Skeleton } from '../Skeleton';
 
-import s from './Avatar.module.scss';
+import s from './Avatar.module.scss'
 
 interface AvatarProps {
     className?: string;
     src?: string;
-    alt: string;
     size?: number;
+    alt?: string;
+    fallbackInverted?: boolean;
+    errorFallback?: ReactElement
 }
 
-const _Avatar = (props: AvatarProps) => {
-  const { className, src, size = 100, alt } = props;
+export const Avatar = ({
+  className,
+  src,
+  size = 100,
+  alt,
+  fallbackInverted,
+  errorFallback,
+}: AvatarProps) => {
+  const styles = useMemo<CSSProperties>(
+    () => ({
+      width: size,
+      height: size,
+    }),
+    [size]
+  );
 
-  const styles: CSSProperties = {
-    width: size,
-    height: size,
-  };
+  const fallback = <Skeleton width={size} height={size} border="50%" />;
 
   return (
     <AppImage
+      fallback={fallback}
+      errorFallback={errorFallback}
       src={src}
       alt={alt}
       style={styles}
@@ -30,5 +45,3 @@ const _Avatar = (props: AvatarProps) => {
     />
   );
 };
-
-export const Avatar = memo(_Avatar)
