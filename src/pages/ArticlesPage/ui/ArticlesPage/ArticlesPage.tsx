@@ -17,7 +17,7 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
 };
 
-const _ArticlesPage = () => {
+const ArticlesPage = () => {
   return (
     <div className={s.ArticlesPage}>
       <ArticlesPageFilters />
@@ -26,12 +26,12 @@ const _ArticlesPage = () => {
   );
 };
 
-const ArticlesPage: typeof _ArticlesPage = () => (
-  <Page>
-    <DynamicModuleLoader reducers={reducers}>
-      <_ArticlesPage />
-    </DynamicModuleLoader>
-  </Page>
-)
-
-export default ArticlesPage;
+export default () => {
+  return (
+    <Page>
+      <DynamicModuleLoader reducers={reducers}>
+        <ArticlesPage />
+      </DynamicModuleLoader>
+    </Page>
+  )
+};
