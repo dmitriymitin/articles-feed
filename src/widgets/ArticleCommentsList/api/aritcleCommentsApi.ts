@@ -3,7 +3,7 @@ import { Comment } from '@/entities/Comment';
 
 import { rtkApi } from '@/shared/api/rtkApi'
 
-const commentsApi = rtkApi.injectEndpoints({
+export const commentsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getArticleCommentsList: build.query<Comment[], Article['id']>({
             query: (articleId) => ({
