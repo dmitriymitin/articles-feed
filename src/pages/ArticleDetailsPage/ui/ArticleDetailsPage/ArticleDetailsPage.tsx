@@ -13,11 +13,9 @@ import { Page } from '@/widgets/Page';
 
 import { articleDetailsPageReducer } from "../../model/slices";
 
-import { ArticleDetailsCommentsContainer } from "../ArticleDetailsCommentsContainer/ArticleDetailsCommentsContainer";
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import {
-  ArticleDetailsRecommendationContainer
-} from '../ArticleDetailsRecommendationContainer/ArticleDetailsRecommendationContainer';
+import { ArticleDetailsRecommendations } from '../ArticleDetailsRecommendations/ArticleDetailsRecommendations';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -32,8 +30,8 @@ const ArticleDetailsPage = () => {
         <Flex vertical gap='16' max>
           <ArticleDetailsPageHeader articleId={id!} />
           <ArticleDetails articleId={id!} />
-          <ArticleDetailsRecommendationContainer />
-          <ArticleDetailsCommentsContainer articleId={id!} />
+          <ArticleDetailsRecommendations />
+          <ArticleDetailsComments articleId={id!} />
         </Flex>
       </DynamicModuleLoader>
     </Page>

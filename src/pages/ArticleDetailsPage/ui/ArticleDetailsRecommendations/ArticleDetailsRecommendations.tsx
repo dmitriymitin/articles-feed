@@ -12,7 +12,7 @@ import { getArticleRecommendationsIsLoading } from '../../model/selectors/recomm
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationsSlice/articleDetailsPageRecommendationsSlice';
 
-export const ArticleDetailsRecommendationContainer = () => {
+export const ArticleDetailsRecommendations = () => {
   return (
     <Suspense fallback={<Loader />}>
       <ArticleRecommendationsList />
@@ -20,7 +20,7 @@ export const ArticleDetailsRecommendationContainer = () => {
   );
 };
 
-const ArticleDetailsRecommendationContainerDeprecated = () => {
+const ArticleDetailsRecommendationsOld = () => {
   const dispatch = useAppDispatch();
 
   const recommendations = useSelector(getArticleRecommendations.selectAll);

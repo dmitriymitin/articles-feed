@@ -1,47 +1,37 @@
-import { PropsWithChildren } from "react";
-import { useSelector } from 'react-redux';
+import React, { Suspense } from "react";
 
 import { Flex } from "@/shared/ui/Flex";
+import { Loader } from "@/shared/ui/Loader";
 import { Text } from "@/shared/ui/Text";
 
-import { CommentCard, CommentCardSkeleton } from "@/entities/Comment";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { getArticleCommentsIsLoading } from "../../model/selectors/comments/comments";
-import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentsSlice";
+import { Article } from "@/entities/Article";
 
-const CommentsWrapper = ({ children }: PropsWithChildren) => (
-  <Flex vertical gap="16" max>
-    {children}
-  </Flex>
-)
+import { AddArticleComment } from "@/features/addArticleComment";
+import { ArticleCommentsList, refetchArticleCommentsListQuery } from "@/widgets/ArticleCommentsList";
 
-export const ArticleDetailsComments = () => {
-  const comments = useSelector(getArticleComments.selectAll);
-  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+interface ArticleDetailsCommentsProps {
+  articleId: Article['id'];
+}
 
-  if (commentsIsLoading) {
-    return (
-      <CommentsWrapper>
-        <CommentCardSkeleton />
-        <CommentCardSkeleton />
-        <CommentCardSkeleton />
-      </CommentsWrapper>
-    );
-  }
+export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
+  const { articleId } = props;
+  const dispatch = useAppDispatch();
 
-  if (!comments?.length) {
-    return (
-      <Flex align='center' justify='center'>
-        <Text text='Комментарии отсутствуют' />
-      </Flex>
-    )
+  const onSendComment = () => {
+    dispatch(refetchArticleCommentsListQuery(articleId))
   }
 
   return (
-    <CommentsWrapper>
-      {comments.map((comment) =>
-        <CommentCard key={comment.id} comment={comment}/>
-      )}
-    </CommentsWrapper>
+    <Flex vertical gap="16" max>
+      <Text size='size_l' title='Комментарии'/>
+      <Suspense fallback={<Loader />}>
+        <AddArticleComment articleId={articleId} onSendComment={onSendComment} />
+      </Suspense>
+      <Suspense fallback={<Loader />}>
+        <ArticleCommentsList articleId={articleId} />
+      </Suspense>
+    </Flex>
   );
-}
+};
