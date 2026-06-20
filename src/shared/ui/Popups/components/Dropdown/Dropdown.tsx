@@ -17,7 +17,7 @@ export interface DropdownItem {
     content?: ReactNode;
     onClick?: () => void;
     href?: string;
-    hide?: boolean;
+    show?: boolean;
 }
 
 interface DropdownProps {
@@ -35,7 +35,7 @@ export function Dropdown(props: DropdownProps) {
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
       <Menu.Items className={cn(s.menu, mapDirectionClass[direction])}>
         {items
-          .filter((item) => !item?.hide)
+          .filter((item) => item?.show ?? true)
           .map((item, index) => {
             const content = ({ active }: { active: boolean }) => (
               <button

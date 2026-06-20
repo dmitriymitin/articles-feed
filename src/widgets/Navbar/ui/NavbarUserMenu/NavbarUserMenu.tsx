@@ -33,12 +33,11 @@ export const NavbarUserMenu = () => {
     return <></>;
   }
 
-  const isAdminPanelAvailable = isAdmin || isManager;
   const items: DropdownItem[] = [
     {
       content: <Trans>Админка</Trans>,
       href: getRouteAdmin(),
-      hide: !isAdminPanelAvailable
+      show: isAdmin || isManager
     },
     {
       content: <Trans>Настройки</Trans>,

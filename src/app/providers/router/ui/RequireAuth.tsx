@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 
@@ -19,7 +18,7 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
     const location = useLocation();
     const userRoles = useSelector(getUserRoles);
 
-    const hasRequiredRoles = useMemo(() => {
+    const checkHasRequiredRoles = () => {
         if (!roles) {
             return true;
         }
@@ -28,7 +27,9 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
             const hasRole = userRoles?.includes(requiredRole);
             return hasRole;
         });
-    }, [roles, userRoles]);
+    }
+
+    const hasRequiredRoles = checkHasRequiredRoles()
 
     if (!auth) {
         return (
