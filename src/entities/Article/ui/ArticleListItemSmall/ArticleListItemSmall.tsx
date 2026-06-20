@@ -3,6 +3,7 @@ import React, { HTMLAttributeAnchorTarget } from "react";
 import { AppImage } from "@/shared/ui/AppImage";
 import { AppLink } from "@/shared/ui/AppLink";
 import { Card } from "@/shared/ui/Card";
+import { Flex } from "@/shared/ui/Flex";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { Text } from "@/shared/ui/Text";
 
@@ -42,10 +43,10 @@ export const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {
           />
           <Text text={article.createdAt} className={s.date} />
         </div>
-        <div className={s.infoWrapper}>
+        <Flex justify='between' className={s.infoWrapper}>
           <ArticleListItemTypes type={article.type} />
           <ArticleListItemViews views={article.views} />
-        </div>
+        </Flex>
         <Text text={article.title} className={s.title} />
       </Card>
     </AppLink>
