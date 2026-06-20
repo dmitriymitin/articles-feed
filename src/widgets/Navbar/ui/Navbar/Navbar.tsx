@@ -9,17 +9,15 @@ import { getRouteArticleCreate } from "@/shared/const/router";
 
 import { getUserAuthData } from "@/entities/User";
 
-import { NavbarAuthButton } from '../NavbarAuthButton/NavbarAuthButton';
-import { NavbarShowNotificationsButton } from '../NavbarShowNotificationsButton/NavbarShowNotificationsButton';
-import { NavbarUserMenu } from '../NavbarUserMenu/NavbarUserMenu';
+import { NavbarAuthButton } from "../NavbarAuthButton/NavbarAuthButton";
+import { NavbarShowNotificationsButton } from "../NavbarShowNotificationsButton/NavbarShowNotificationsButton";
+import { NavbarUserMenu } from "../NavbarUserMenu/NavbarUserMenu";
 
 import s from "./Navbar.module.scss";
 
 const NavbarWrapper = ({ children }) => (
-  <header className={s.Navbar}>
-    {children}
-  </header>
-)
+  <header className={s.Navbar}>{children}</header>
+);
 
 export const Navbar = () => {
   const authData = useSelector(getUserAuthData);
@@ -29,26 +27,25 @@ export const Navbar = () => {
       <NavbarWrapper>
         <NavbarAuthButton />
       </NavbarWrapper>
-    )
+    );
   }
 
   return (
     <NavbarWrapper>
-      <Text
-        className={s.appName}
-        title="DM App"
-        theme='inverted'
-      />
+      <Text className={s.appName} title="DM App" theme="inverted" />
       <AppLink
         to={getRouteArticleCreate()}
-        theme='secondary'
+        theme="secondary"
         className={s.createBtn}
       >
         Создать статью
       </AppLink>
-      <Flex gap='16' className={s.actions}>
+      <Flex gap="16" className={s.actions} align="center">
         <NavbarShowNotificationsButton />
-        <NavbarUserMenu profileId={authData.id} profileAvatar={authData.avatar} />
+        <NavbarUserMenu
+          profileId={authData.id}
+          profileAvatar={authData.avatar}
+        />
       </Flex>
     </NavbarWrapper>
   );
