@@ -14,24 +14,26 @@ import {
 } from '@/shared/const/router';
 import UserIcon from "@/shared/assets/icons/user-filled.svg";
 
+import { Profile } from "@/entities/Profile";
 import {
-  getUserAuthData,
   isUserAdmin,
   isUserManager,
 } from '@/entities/User';
 
 import { useLogout } from '@/features/auth';
 
-export const NavbarUserMenu = () => {
+interface NavbarUserMenuProps {
+  profileId: Profile['id']
+  profileAvatar: Profile['avatar']
+}
+
+export const NavbarUserMenu = (props: NavbarUserMenuProps) => {
+  const { profileId, profileAvatar } = props;
+
   const { logout } = useLogout()
 
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
-  const authData = useSelector(getUserAuthData);
-
-  if (!authData) {
-    return <></>;
-  }
 
   const items: DropdownItem[] = [
     {
@@ -45,7 +47,7 @@ export const NavbarUserMenu = () => {
     },
     {
       content: <Trans>Профиль</Trans>,
-      href: getRouteProfile(authData.id),
+      href: getRouteProfile(profileId),
     },
     {
       content: <Trans>Выйти</Trans>,
@@ -61,7 +63,7 @@ export const NavbarUserMenu = () => {
         <Avatar
           fallbackInverted
           size={30}
-          src={authData.avatar}
+          src={profileAvatar}
           errorFallback={(
             <Icon
               inverted

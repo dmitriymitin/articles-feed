@@ -8,14 +8,14 @@ import s from '../Navbar/Navbar.module.scss';
 export const NavbarAuthButton = () => {
   const [isAuthModal, setIsAuthModal] = useState(false);
 
-  const onToggleModal = useCallback(() => {
+  const toggleModal = useCallback(() => {
     setIsAuthModal((prev) => !prev);
   }, []);
 
   return (
     <>
-      <AuthButton className={s.links} onLogin={onToggleModal} />
-      <LoginModal isOpen={isAuthModal} onClose={onToggleModal} />
+      <AuthButton className={s.links} onLogin={toggleModal} />
+      <LoginModal isOpen={isAuthModal} onClose={toggleModal} />
     </>
   );
 };

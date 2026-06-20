@@ -1,17 +1,17 @@
 import { createTestRtkQueryStore } from "@/shared/lib/tests/createTestRtkQueryStore/createTestTrkQueryStore";
 
-import { commentTestData } from "@/entities/Comment/testing";
+import { notificationTestData } from "../testing";
 
-import { getArticleCommentsList } from './aritcleCommentsApi';
+import { getNotifications } from './notificationApi'
 
 import 'whatwg-fetch'
 
-describe('getArticleCommentsList', () => {
+describe('getNotifications', () => {
     test('success', async () => {
-        const commentsData = [commentTestData]
+        const notificationsData = [notificationTestData]
 
         global.fetch = jest.fn().mockResolvedValue(
-          new Response(JSON.stringify(commentsData), {
+          new Response(JSON.stringify(notificationsData), {
               status: 200,
               headers: {
                   'Content-Type': 'application/json',
@@ -20,11 +20,11 @@ describe('getArticleCommentsList', () => {
         );
         const store = createTestRtkQueryStore();
         const result = await store.dispatch(
-          getArticleCommentsList.initiate('1'),
+          getNotifications.initiate(null),
         );
 
         expect(result.status).toBe('fulfilled');
-        expect(result.data).toEqual(commentsData);
+        expect(result.data).toEqual(notificationsData);
     });
 
     test('error', async () => {
@@ -36,7 +36,7 @@ describe('getArticleCommentsList', () => {
 
         const store = createTestRtkQueryStore();
         const result = await store.dispatch(
-          getArticleCommentsList.initiate('1'),
+          getNotifications.initiate(null),
         );
 
         expect(result.status).toBe('rejected');

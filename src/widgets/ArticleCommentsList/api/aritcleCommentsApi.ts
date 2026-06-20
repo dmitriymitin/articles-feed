@@ -3,7 +3,7 @@ import { Comment } from '@/entities/Comment';
 
 import { rtkApi } from '@/shared/api/rtkApi'
 
-export const commentsApi = rtkApi.injectEndpoints({
+const commentsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getArticleCommentsList: build.query<Comment[], Article['id']>({
             query: (articleId) => ({
@@ -17,8 +17,10 @@ export const commentsApi = rtkApi.injectEndpoints({
     }),
 });
 
+export const { getArticleCommentsList } = commentsApi.endpoints
+
 export const refetchArticleCommentsListQuery = (articleId: Article['id']) => {
-    return commentsApi.endpoints.getArticleCommentsList.initiate(articleId, { forceRefetch: true });
+    return getArticleCommentsList.initiate(articleId, { forceRefetch: true });
 }
 
 export const useArticleCommentsListQuery =

@@ -2,7 +2,7 @@ import { createTestRtkQueryStore } from "@/shared/lib/tests/createTestRtkQuerySt
 
 import { articleTestData1 } from "@/entities/Article/testing";
 
-import { recommendationsApi } from './aritcleRecommendationsApi';
+import { getArticleRecommendationsList } from './aritcleRecommendationsApi';
 
 import 'whatwg-fetch'
 
@@ -20,7 +20,7 @@ describe('getArticleRecommendationsList', () => {
         );
         const store = createTestRtkQueryStore();
         const result = await store.dispatch(
-          recommendationsApi.endpoints.getArticleRecommendationsList.initiate(3),
+          getArticleRecommendationsList.initiate(3),
         );
 
         expect(result.status).toBe('fulfilled');
@@ -36,7 +36,7 @@ describe('getArticleRecommendationsList', () => {
 
         const store = createTestRtkQueryStore();
         const result = await store.dispatch(
-          recommendationsApi.endpoints.getArticleRecommendationsList.initiate(3),
+          getArticleRecommendationsList.initiate(3),
         );
 
         expect(result.status).toBe('rejected');

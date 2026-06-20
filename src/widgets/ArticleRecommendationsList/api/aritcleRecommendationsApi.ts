@@ -2,7 +2,7 @@ import { Article } from '@/entities/Article';
 
 import { rtkApi } from '@/shared/api/rtkApi'
 
-export const recommendationsApi = rtkApi.injectEndpoints({
+const recommendationsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getArticleRecommendationsList: build.query<Article[], number>({
             query: (limit) => ({
@@ -15,6 +15,8 @@ export const recommendationsApi = rtkApi.injectEndpoints({
         }),
     }),
 });
+
+export const { getArticleRecommendationsList } = recommendationsApi.endpoints
 
 export const useArticleRecommendationsListQuery =
     recommendationsApi.useGetArticleRecommendationsListQuery;
