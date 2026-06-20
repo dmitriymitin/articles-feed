@@ -1,6 +1,6 @@
 import { Profile } from "@/entities/Profile";
 
-import { ValidateProfileError } from "../consts/consts";
+import { ValidateProfileError } from "../consts/editableProfileConsts";
 
 export type ProfileSchemaForm = Pick<
   Profile,

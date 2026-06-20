@@ -6,7 +6,7 @@ import avatar from '@/shared/assets/tests/storybook.jpg'
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
 
-import { ValidateProfileError } from "../../model/consts/consts";
+import { ValidateProfileError } from "../../model/consts/editableProfileConsts";
 
 import { EditableProfileCard } from "./EditableProfileCard";
 

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { Text } from "@/shared/ui/Text";
 
-import { ValidateProfileError } from "../../model/consts/consts";
+import { ValidateProfileError } from "../../model/consts/editableProfileConsts";
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 
 const validateProfileErrorText = {

@@ -1,4 +1,4 @@
-import { ValidateProfileError } from '../../consts/consts';
+import { ValidateProfileError } from '../../consts/editableProfileConsts';
 import {
   ProfileSchemaForm,
 } from "../../types/editableProfileCardSchema";

@@ -1,3 +1,1 @@
-export { Country } from "./model/types/country";
-
-export { countryListOptions } from './model/consts/countryConsts'
+export { countryListOptions, Country } from './model/consts/countryConsts'

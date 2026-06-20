@@ -4,7 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 import { Profile } from '@/entities/Profile';
 
-import { ValidateProfileError } from '../../consts/consts';
+import { ValidateProfileError } from '../../consts/editableProfileConsts';
 import { getProfileData } from "../../selectors/getProfileData/getProfileData";
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 

@@ -1,6 +1,11 @@
 import { ListBoxItem } from "@/shared/ui/Popups/components/ListBox/ListBox";
 
-import { Country } from '../../model/types/country';
+export enum Country {
+  Russia = 'Russia',
+  Belarus = 'Belarus',
+  Kazakhstan = 'Kazahstan',
+  Armenia = 'Armenia',
+}
 
 export const countryListOptions: ListBoxItem<Country>[] = [
   { value: Country.Armenia, content: Country.Armenia },
