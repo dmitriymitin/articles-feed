@@ -42,7 +42,11 @@ export const EditableProfileCardHeaderActions = () => {
 
   if (readonly) {
     return (
-      <Button onClick={activateEdit} className={s.editBtn}>
+      <Button
+        onClick={activateEdit}
+        className={s.editBtn}
+        data-testid="EditableProfileCardHeader.EditButton"
+      >
         <Trans>Редактировать</Trans>
       </Button>
     )
@@ -50,10 +54,18 @@ export const EditableProfileCardHeaderActions = () => {
 
   return (
     <>
-      <Button onClick={saveEdit} className={s.saveBtn}>
+      <Button
+        onClick={saveEdit}
+        className={s.saveBtn}
+        data-testid="EditableProfileCardHeader.SaveButton"
+      >
         <Trans>Сохранить</Trans>
       </Button>
-      <Button onClick={cancelEdit} theme='outline_red'>
+      <Button
+        onClick={cancelEdit}
+        theme='outline_red'
+        data-testid="EditableProfileCardHeader.CancelButton"
+      >
         <Trans>Отменить</Trans>
       </Button>
     </>

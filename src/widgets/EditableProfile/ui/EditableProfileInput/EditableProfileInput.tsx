@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Input, InputProps } from "@/shared/ui/Input";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { TestProps } from "@/shared/types/tests";
 
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
@@ -12,7 +13,7 @@ import {
 } from "../../model/types/editableProfileCardSchema";
 
 interface EditableProfileInputProps
-  extends Pick<InputProps, "placeholder" | 'className' | 'type'> {
+  extends Pick<InputProps, "placeholder" | 'className' | 'type'>, TestProps {
   field: keyof Pick<ProfileSchemaForm, 'age' | 'first' | 'lastname' | 'city' | 'username' | "avatar">;
 }
 
@@ -44,6 +45,7 @@ export const EditableProfileInput = (
       value={fieldValue}
       placeholder={placeholder}
       readonly={readonly}
+      data-testid={props?.['data-testid']}
     />
   );
 };

@@ -28,6 +28,7 @@ export const EditableProfileValidateErrors = () => {
             key={err}
             theme="error"
             text={validateProfileErrorText[err]}
+            data-testid="EditableProfileValidateErrors.Error"
           />
         ))
       }

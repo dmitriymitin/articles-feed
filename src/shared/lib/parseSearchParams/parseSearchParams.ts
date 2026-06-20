@@ -10,7 +10,6 @@ export function parseSearchParams<
   search = window.location.search,
 ): inferParserType<Parsers> {
   const searchParams = new URLSearchParams(search)
-  console.log('searchParams', Array.from(searchParams.entries()))
 
   return Object.fromEntries(
     Object.entries(parsers).map(([key, parser]) => [

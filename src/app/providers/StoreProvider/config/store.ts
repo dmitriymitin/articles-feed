@@ -15,9 +15,9 @@ import { rtkApi } from '@/shared/api/rtkApi'
 
 export function createReduxStore(
   initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
-  // navigate?: (to: any, options?: NavigateOptions) => void,
+  asyncReducers?: ReducersMapObject<StateSchema>
 ) {
+
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
@@ -30,7 +30,6 @@ export function createReduxStore(
 
   const extraArg: ThunkExtraArg = {
     api: $api,
-    // navigate,
   };
 
   const store = configureStore({

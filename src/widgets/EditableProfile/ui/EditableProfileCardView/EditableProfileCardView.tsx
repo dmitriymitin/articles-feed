@@ -45,11 +45,13 @@ export const EditableProfileCardView = () => {
         field="first"
         placeholder="Ваше имя"
         className={s.input}
+        data-testid='EditableProfileCardView.first'
       />
       <EditableProfileInput
         field="lastname"
         placeholder="Ваша фамилия"
         className={s.input}
+        data-testid='EditableProfileCardView.lastname'
       />
       <EditableProfileInput
         field="age"
