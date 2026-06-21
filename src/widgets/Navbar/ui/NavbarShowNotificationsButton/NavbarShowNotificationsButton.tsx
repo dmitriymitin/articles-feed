@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
-import { BrowserView, MobileView } from "react-device-detect";
 
 import { Button } from "@/shared/ui/Button";
+import { BrowserView, MobileView } from "@/shared/ui/DeviceDetect";
 import { Drawer } from "@/shared/ui/Drawer";
 import { Icon } from "@/shared/ui/Icon";
 import { Popover } from "@/shared/ui/Popups";
