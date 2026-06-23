@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useParams } from "react-router-dom";
 
 import { ReducersList } from "@/app/providers/StoreProvider";
@@ -9,13 +9,14 @@ import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader
 
 import { ArticleDetails } from "@/entities/Article";
 
-import { Page } from '@/widgets/Page';
+import { ArticleRating } from "@/features/rateArticle";
+import { Page } from "@/widgets/Page";
 
 import { articleDetailsPageReducer } from "../../model/slices";
 
-import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import { ArticleDetailsRecommendations } from '../ArticleDetailsRecommendations/ArticleDetailsRecommendations';
+import { ArticleDetailsRecommendations } from "../ArticleDetailsRecommendations/ArticleDetailsRecommendations";
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -27,9 +28,10 @@ const ArticleDetailsPage = () => {
   return (
     <Page>
       <DynamicModuleLoader reducers={reducers}>
-        <Flex vertical gap='16' max>
+        <Flex vertical gap="16" max>
           <ArticleDetailsPageHeader articleId={id!} />
           <ArticleDetails articleId={id!} />
+          <ArticleRating articleId={id!} />
           <ArticleDetailsRecommendations />
           <ArticleDetailsComments articleId={id!} />
         </Flex>
@@ -38,4 +40,4 @@ const ArticleDetailsPage = () => {
   );
 };
 
-export default ArticleDetailsPage
+export default ArticleDetailsPage;
