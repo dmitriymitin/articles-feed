@@ -1,9 +1,3 @@
-## Демо проекта
-
-[Посмотреть проект](https://news-feed-prod.netlify.app/)
-- login - admin
-- password - 123
-
 ## Запуск проекта
 
 ```
