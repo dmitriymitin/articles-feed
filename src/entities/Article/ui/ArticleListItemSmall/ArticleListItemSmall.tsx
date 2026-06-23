@@ -15,15 +15,18 @@ import { Article } from "../../model/types/article";
 import { ArticleListItemTypes } from "../ArticleListItemTypes/ArticleListItemTypes";
 import { ArticleListItemViews } from "../ArticleListItemViews/ArticleListItemViews";
 
-import s from './ArticleListItemSmall.module.scss'
+import s from "./ArticleListItemSmall.module.scss";
 
 interface ArticleListItemSmallProps {
-  article: Pick<Article, 'id' | 'title' | 'img' | 'createdAt' | 'type' | 'views'>;
+  article: Pick<
+    Article,
+    "id" | "title" | "img" | "createdAt" | "type" | "views"
+  >;
   className?: string;
   target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {
+const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {
   const { article, className, target } = props;
 
   return (
@@ -43,7 +46,7 @@ export const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {
           />
           <Text text={article.createdAt} className={s.date} />
         </div>
-        <Flex justify='between' className={s.infoWrapper}>
+        <Flex justify="between" className={s.infoWrapper}>
           <ArticleListItemTypes type={article.type} />
           <ArticleListItemViews views={article.views} />
         </Flex>
@@ -52,3 +55,5 @@ export const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {
     </AppLink>
   );
 };
+
+export default ArticleListItemSmall;

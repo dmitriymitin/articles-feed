@@ -18,36 +18,37 @@ import { ArticleListItemTypes } from "../ArticleListItemTypes/ArticleListItemTyp
 import { ArticleListItemViews } from "../ArticleListItemViews/ArticleListItemViews";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 
-import s from './ArticleListItemBig.module.scss'
+import s from "./ArticleListItemBig.module.scss";
 
 interface ArticleListItemBigProps {
-  article: Pick<Article, 'id' | 'img' | 'blocks' | 'user' | 'createdAt' | 'title' | 'views' | 'type'>;
+  article: Pick<
+    Article,
+    "id" | "img" | "blocks" | "user" | "createdAt" | "title" | "views" | "type"
+  >;
   className?: string;
 }
 
-export const ArticleListItemBig = (props: ArticleListItemBigProps) => {
-  const { article, className } = props
+const ArticleListItemBig = (props: ArticleListItemBigProps) => {
+  const { article, className } = props;
 
   const textBlock = article.blocks.find(
-    (block) => block.type === ArticleBlockType.TEXT,
+    (block) => block.type === ArticleBlockType.TEXT
   ) as ArticleTextBlock;
 
   return (
-    <div
-      data-testid="ArticleListItemBig"
-      className={className}
-     >
+    <div data-testid="ArticleListItemBig" className={className}>
       <Card>
         <div className={s.header}>
-          <Avatar size={30} src={article.user.avatar} alt={article.user.username} />
-          <Text
-            text={article.user.username}
-            className={s.username}
+          <Avatar
+            size={30}
+            src={article.user.avatar}
+            alt={article.user.username}
           />
+          <Text text={article.user.username} className={s.username} />
           <Text text={article.createdAt} className={s.date} />
         </div>
         <Text title={article.title} className={s.title} />
-         <ArticleListItemTypes type={article.type} />
+        <ArticleListItemTypes type={article.type} />
         <AppImage
           fallback={<Skeleton width="100%" height={250} />}
           src={article.img}
@@ -62,7 +63,7 @@ export const ArticleListItemBig = (props: ArticleListItemBigProps) => {
         )}
         <div className={s.footer}>
           <AppLink to={getRouteArticleDetails(article.id)}>
-            <Button tabIndex={-1} theme='outline'>
+            <Button tabIndex={-1} theme="outline">
               <Trans>Читать далее...</Trans>
             </Button>
           </AppLink>
@@ -72,3 +73,5 @@ export const ArticleListItemBig = (props: ArticleListItemBigProps) => {
     </div>
   );
 };
+
+export default ArticleListItemBig;

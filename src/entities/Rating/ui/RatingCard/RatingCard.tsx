@@ -44,12 +44,12 @@ export const RatingCard = (props: RatingCardProps) => {
     }
   };
 
-  const acceptHandle = () => {
+  const accept = () => {
     setIsModalOpen(false);
     onAccept?.(starsCount, feedback);
   };
 
-  const cancelHandle = () => {
+  const cancel = () => {
     setIsModalOpen(false);
     onCancel?.(starsCount);
   };
@@ -83,12 +83,12 @@ export const RatingCard = (props: RatingCardProps) => {
             <Flex align="center" max gap="16" justify="end">
               <Button
                 data-testid="RatingCard.Close"
-                onClick={cancelHandle}
+                onClick={cancel}
                 theme="outline_red"
               >
                 <Trans>Закрыть</Trans>
               </Button>
-              <Button data-testid="RatingCard.Send" onClick={acceptHandle}>
+              <Button data-testid="RatingCard.Send" onClick={accept}>
                 <Trans>Отправить</Trans>
               </Button>
             </Flex>
@@ -96,10 +96,10 @@ export const RatingCard = (props: RatingCardProps) => {
         </Modal>
       </BrowserView>
       <MobileView>
-        <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
+        <Drawer isOpen={isModalOpen} lazy onClose={cancel}>
           <Flex vertical gap="32">
             {modalContent}
-            <Button fullWidth onClick={acceptHandle} size="l">
+            <Button fullWidth onClick={accept} size="l">
               <Trans>Отправить</Trans>
             </Button>
           </Flex>

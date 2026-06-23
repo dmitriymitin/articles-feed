@@ -20,7 +20,7 @@ const ArticleRating = (props: ArticleRatingProps) => {
   const { className, articleId } = props;
   const userData = useSelector(getUserAuthData)!;
 
-  const { data, isLoading } = useArticleRatingQuery({
+  const { data, isLoading, error } = useArticleRatingQuery({
     articleId,
     userId: userData.id,
   });
@@ -47,7 +47,11 @@ const ArticleRating = (props: ArticleRatingProps) => {
     return <Skeleton width="100%" height={120} />;
   }
 
-  const rating = data?.[0];
+  if (error || !data) {
+    return <></>;
+  }
+
+  const rating = data[0];
 
   return (
     <RatingCard

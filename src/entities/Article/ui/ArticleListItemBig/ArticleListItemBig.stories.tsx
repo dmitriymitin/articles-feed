@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { articleTestData1 } from "../../testing";
 
-import { ArticleListItemBig } from './ArticleListItemBig';
-import { ArticleListItemBigSkeleton } from './ArticleListItemBigSkeleton';
+import ArticleListItemBig from "./ArticleListItemBig";
+import { ArticleListItemBigSkeleton } from "./ArticleListItemBigSkeleton";
 
 export default {
-  title: 'entities/Article/ArticleListItemBig',
+  title: "entities/Article/ArticleListItemBig",
   component: ArticleListItemBig,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 } as ComponentMeta<typeof ArticleListItemBig>;
 
@@ -19,9 +19,9 @@ const Template: ComponentStory<typeof ArticleListItemBig> = (args) => (
   <ArticleListItemBig {...args} />
 );
 
-const TemplateSkeleton: ComponentStory<typeof ArticleListItemBigSkeleton> = (args) => (
-  <ArticleListItemBigSkeleton {...args} />
-);
+const TemplateSkeleton: ComponentStory<typeof ArticleListItemBigSkeleton> = (
+  args
+) => <ArticleListItemBigSkeleton {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
