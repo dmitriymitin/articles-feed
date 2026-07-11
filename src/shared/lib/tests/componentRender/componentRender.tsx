@@ -1,16 +1,19 @@
-import { ReactNode } from 'react';
-import { I18nextProvider } from 'react-i18next';
-import { MemoryRouter } from 'react-router-dom';
+import { ReactNode } from "react";
+import { I18nextProvider } from "react-i18next";
+import { MemoryRouter } from "react-router-dom";
 
-import { ReducersMapObject } from '@reduxjs/toolkit';
-import { render } from '@testing-library/react';
+import { ReducersMapObject } from "@reduxjs/toolkit";
+import { render } from "@testing-library/react";
 
-import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { Theme, ThemeProvider } from "@/app/providers/ThemeProvider";
+import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
+// eslint-disable-next-line dm-plugin/layer-imports
+import { ThemeProvider } from "@/app/providers/ThemeProvider";
 
-import i18nForTests from '@/shared/config/i18n/i18nForTests';
+import { Theme } from "@/shared/const/theme";
+import i18nForTests from "@/shared/config/i18n/i18nForTests";
 
-import '@/app/styles/index.scss';
+// eslint-disable-next-line dm-plugin/layer-imports
+import "@/app/styles/index.scss";
 
 export interface ComponentRenderOptions {
   route?: string;
@@ -27,7 +30,7 @@ interface TestProviderProps {
 export function TestProvider(props: TestProviderProps) {
   const { children, options = {} } = props;
   const {
-    route = '/',
+    route = "/",
     initialState,
     asyncReducers,
     theme = Theme.LIGHT,
@@ -35,10 +38,7 @@ export function TestProvider(props: TestProviderProps) {
 
   return (
     <MemoryRouter initialEntries={[route]}>
-      <StoreProvider
-        asyncReducers={asyncReducers}
-        initialState={initialState}
-      >
+      <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
         <I18nextProvider i18n={i18nForTests}>
           <ThemeProvider initialTheme={theme}>
             <div className={`app ${theme}`}>{children}</div>
@@ -51,7 +51,7 @@ export function TestProvider(props: TestProviderProps) {
 
 export function componentRender(
   component: ReactNode,
-  options: ComponentRenderOptions = {},
+  options: ComponentRenderOptions = {}
 ) {
   return render(<TestProvider options={options}>{component}</TestProvider>);
 }

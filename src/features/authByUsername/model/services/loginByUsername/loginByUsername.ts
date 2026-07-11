@@ -1,7 +1,6 @@
-
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { ThunkConfig } from "@/app/providers/StoreProvider/config/StateSchema";
+import { ThunkConfig } from "@/app/providers/StoreProvider";
 
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 
@@ -18,7 +17,7 @@ export const loginByUsername = createAsyncThunk<
   LoginByUsernameProps,
   ThunkConfig<string>
 >("login/loginByUserName", async (authData, thunkAPI) => {
-  const { extra, dispatch, rejectWithValue } = thunkAPI
+  const { extra, dispatch, rejectWithValue } = thunkAPI;
   const { username, password } = authData;
 
   try {

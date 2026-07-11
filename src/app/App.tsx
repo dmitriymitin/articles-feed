@@ -1,18 +1,18 @@
 import React, { PropsWithChildren, Suspense, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { AppRouter } from "@/app/providers/router";
-import { useTheme } from "@/app/providers/ThemeProvider";
-
 import { cn } from "@/shared/lib/classNames/classNames";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 
-import { getUserInited, userActions  } from "@/entities/User";
+import { getUserInited, userActions } from "@/entities/User";
 
 import { Navbar } from "@/widgets/Navbar";
 import { Sidebar } from "@/widgets/Sidebar";
 
 import { PageLoader } from "../widgets/PageLoader";
+
+import { AppRouter } from "./providers/router";
 
 import "./styles/index.scss";
 
@@ -33,9 +33,7 @@ export const App = () => {
   }, [inited]);
 
   if (!inited) {
-    return (
-      <PageLoader />
-    );
+    return <PageLoader />;
   }
 
   return (

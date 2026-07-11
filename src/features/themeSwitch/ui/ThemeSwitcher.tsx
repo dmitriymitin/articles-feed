@@ -1,10 +1,10 @@
 import { memo } from "react";
 
-import { Theme, useTheme } from "@/app/providers/ThemeProvider";
-
 import { Button } from "@/shared/ui/Button";
 
 import { cn } from "@/shared/lib/classNames/classNames";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
+import { Theme } from "@/shared/const/theme";
 import DarkIcon from "@/shared/assets/icons/theme-dark.svg";
 import LightIcon from "@/shared/assets/icons/theme-light.svg";
 

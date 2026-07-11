@@ -1,28 +1,25 @@
-import React from 'react';
+import React from "react";
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Theme } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/shared/const/theme";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Country } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
 
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
-
-import ProfilePage from './ProfilePage';
+import ProfilePage from "./ProfilePage";
 
 export default {
-  title: 'pages/ProfilePage',
+  title: "pages/ProfilePage",
   component: ProfilePage,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => (
-  <ProfilePage />
-);
+const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
@@ -31,12 +28,12 @@ Normal.decorators = [
     profile: {
       readonly: true,
       form: {
-        username: 'admin',
+        username: "admin",
         age: 22,
         country: Country.Armenia,
-        lastname: 'dm',
-        first: 'asd',
-        city: 'asf',
+        lastname: "dm",
+        first: "asd",
+        city: "asf",
         currency: Currency.USD,
       },
     },
@@ -51,12 +48,12 @@ Dark.decorators = [
     profile: {
       readonly: true,
       form: {
-        username: 'admin',
+        username: "admin",
         age: 22,
         country: Country.Armenia,
-        lastname: 'dm',
-        first: 'asd',
-        city: 'asf',
+        lastname: "dm",
+        first: "asd",
+        city: "asf",
         currency: Currency.USD,
       },
     },

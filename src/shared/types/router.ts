@@ -1,6 +1,7 @@
-import { RouteProps } from 'react-router-dom';
+import { RouteProps } from "react-router-dom";
 
-import { UserRole } from '@/entities/User';
+// eslint-disable-next-line dm-plugin/layer-imports
+import { UserRole } from "@/entities/User";
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;

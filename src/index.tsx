@@ -1,4 +1,4 @@
-import { NuqsAdapter } from 'nuqs/adapters/react-router/v6'
+import { NuqsAdapter } from "nuqs/adapters/react-router/v6";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -36,3 +36,4 @@ root.render(
     </StoreProvider>
   </BrowserRouter>
 );
+export { Theme } from "@/shared/const/theme";

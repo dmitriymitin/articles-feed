@@ -1,9 +1,8 @@
 import React from "react";
 
-import { ComponentMeta,ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Theme } from "@/app/providers/ThemeProvider";
-
+import { Theme } from "@/shared/const/theme";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
@@ -17,7 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof AuthButton>;
 
-const Template: ComponentStory<typeof AuthButton> = (args) => <AuthButton {...args} />;
+const Template: ComponentStory<typeof AuthButton> = (args) => (
+  <AuthButton {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};

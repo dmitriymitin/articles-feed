@@ -127,7 +127,7 @@ module.exports = {
       "error",
       {
         alias: "@",
-        ignoreImportPatterns: ["**/StoreProvider", "**/testing"],
+        ignoreImportPatterns: ["**/StoreProvider", "**/testing", "**/mock"],
       },
     ],
     "dm-plugin/public-api-imports": [
@@ -139,10 +139,7 @@ module.exports = {
           "**/*.story.*",
           "**/StoreDecorator.tsx",
         ],
-        mockFilesPatterns: [
-          "**/*.test.*",
-          "**/*.story.*",
-        ],
+        mockFilesPatterns: ["**/*.test.*", "**/*.story.*"],
       },
     ],
     "react/jsx-max-props-per-line": ["error", { maximum: 4 }],
