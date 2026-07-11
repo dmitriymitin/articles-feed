@@ -3,55 +3,53 @@ import {
   articlesDataTestIds,
   articleTestData1,
   articleTestData2,
-} from "@/entities/Article/testing";
+} from "@/entities/Article/mock";
 
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
+import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
+import { ArticlesPageSchema } from "../types/articlesPageSchema";
 
-import { articlesAdapter, articlesPageActions,articlesPageReducer } from './articlesPageSlice';
+import {
+  articlesAdapter,
+  articlesPageActions,
+  articlesPageReducer,
+} from "./articlesPageSlice";
 
-describe('articlesPageSlice.test', () => {
+describe("articlesPageSlice.test", () => {
   const getState = () => {
-    return articlesAdapter.getInitialState<ArticlesPageSchema>(
-      {
-        isLoading: false,
-        error: 'error',
-        ids: articlesDataTestIds,
-        entities: articlesDataTestEntities,
-        page: 1,
-        limit: 9,
-        hasMore: false,
-      },
-    )
-  }
+    return articlesAdapter.getInitialState<ArticlesPageSchema>({
+      isLoading: false,
+      error: "error",
+      ids: articlesDataTestIds,
+      entities: articlesDataTestEntities,
+      page: 1,
+      limit: 9,
+      hasMore: false,
+    });
+  };
 
   test("test set page article page", () => {
     const state = getState();
 
-    expect(
-      articlesPageReducer(
-        state,
-        articlesPageActions.setPage(10)
-      )
-    ).toEqual({
-      ...state,
-      page: 10
-    });
+    expect(articlesPageReducer(state, articlesPageActions.setPage(10))).toEqual(
+      {
+        ...state,
+        page: 10,
+      }
+    );
   });
 
-  test('test article page pending with replace false', () => {
+  test("test article page pending with replace false", () => {
     const state = {
       ...getState(),
       isLoading: false,
-      error: undefined
-    }
+      error: undefined,
+    };
 
     expect(
       articlesPageReducer(state, {
-          type: fetchArticlesList.pending.type,
-          meta: { arg: { } },
-        }
-      ),
+        type: fetchArticlesList.pending.type,
+        meta: { arg: {} },
+      })
     ).toEqual({
       ...state,
       isLoading: true,
@@ -59,19 +57,18 @@ describe('articlesPageSlice.test', () => {
     });
   });
 
-  test('test article page pending with replace true', () => {
+  test("test article page pending with replace true", () => {
     const state = {
       ...getState(),
       isLoading: false,
-      error: undefined
-    }
+      error: undefined,
+    };
 
     expect(
       articlesPageReducer(state, {
-          type: fetchArticlesList.pending.type,
-          meta: { arg: { replace: true } },
-        }
-      ),
+        type: fetchArticlesList.pending.type,
+        meta: { arg: { replace: true } },
+      })
     ).toEqual({
       ...articlesAdapter.removeAll(state),
       isLoading: true,
@@ -79,38 +76,35 @@ describe('articlesPageSlice.test', () => {
     });
   });
 
-  test('test article page pending rejected', () => {
+  test("test article page pending rejected", () => {
     const state = {
       ...getState(),
       isLoading: true,
-      error: undefined
+      error: undefined,
     };
 
     expect(
       articlesPageReducer(state, {
         type: fetchArticlesList.rejected.type,
-        payload: 'error',
-      }),
+        payload: "error",
+      })
     ).toEqual({
       ...state,
       isLoading: false,
-      error: 'error',
+      error: "error",
     });
   });
 
-  test('test get articles article page fulfilled with false replace', () => {
-    const state = getState()
+  test("test get articles article page fulfilled with false replace", () => {
+    const state = getState();
 
-    const articleDates = [
-      articleTestData1,
-      articleTestData2
-    ]
+    const articleDates = [articleTestData1, articleTestData2];
 
     expect(
       articlesPageReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.fulfilled(articleDates, '', { replace: false }),
-      ),
+        fetchArticlesList.fulfilled(articleDates, "", { replace: false })
+      )
     ).toEqual({
       ...articlesAdapter.addMany(state, articleDates),
       isLoading: false,
@@ -118,19 +112,16 @@ describe('articlesPageSlice.test', () => {
     });
   });
 
-  test('test get articles article page fulfilled with true replace', () => {
-    const state = getState()
+  test("test get articles article page fulfilled with true replace", () => {
+    const state = getState();
 
-    const articleDates = [
-      articleTestData1,
-      articleTestData2
-    ]
+    const articleDates = [articleTestData1, articleTestData2];
 
     expect(
       articlesPageReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.fulfilled(articleDates, '', { replace: true }),
-      ),
+        fetchArticlesList.fulfilled(articleDates, "", { replace: true })
+      )
     ).toEqual({
       ...articlesAdapter.setAll(state, articleDates),
       isLoading: false,

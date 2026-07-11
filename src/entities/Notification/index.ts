@@ -1,3 +1,3 @@
-export { useNotifications } from "@/entities/Notification/api/notificationApi";
+export { useNotificationsQuery } from "./api/notificationApi";
 
-export { NotificationItem } from './ui/NotificationItem/NotificationItem'
+export { NotificationItem } from "./ui/NotificationItem/NotificationItem";

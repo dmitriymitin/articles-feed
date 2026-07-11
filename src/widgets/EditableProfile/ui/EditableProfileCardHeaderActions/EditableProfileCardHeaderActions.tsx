@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react";
 import { useSelector } from "react-redux";
 
 import { Button } from "@/shared/ui/Button";
-import { Trans } from "@/shared/ui/Translate";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
@@ -25,19 +24,19 @@ export const EditableProfileCardHeaderActions = () => {
 
   const activateEdit = () => {
     dispatch(profileActions.setReadonly(false));
-  }
+  };
 
   const saveEdit = () => {
     dispatch(updateProfileData());
-  }
+  };
 
   const cancelEdit = () => {
     dispatch(profileActions.resetForm());
     dispatch(profileActions.setReadonly(true));
-  }
+  };
 
   if (!canEdit) {
-    return <></>
+    return <></>;
   }
 
   if (readonly) {
@@ -47,9 +46,9 @@ export const EditableProfileCardHeaderActions = () => {
         className={s.editBtn}
         data-testid="EditableProfileCardHeader.EditButton"
       >
-        <Trans>Редактировать</Trans>
+        Редактировать
       </Button>
-    )
+    );
   }
 
   return (
@@ -59,14 +58,14 @@ export const EditableProfileCardHeaderActions = () => {
         className={s.saveBtn}
         data-testid="EditableProfileCardHeader.SaveButton"
       >
-        <Trans>Сохранить</Trans>
+        Сохранить
       </Button>
       <Button
         onClick={cancelEdit}
-        theme='outline_red'
+        theme="outline_red"
         data-testid="EditableProfileCardHeader.CancelButton"
       >
-        <Trans>Отменить</Trans>
+        Отменить
       </Button>
     </>
   );

@@ -1,16 +1,26 @@
-import {
-  commentTestData,
-  commentTestData2,
-  commentTestData3,
-} from './testing';
+import { Comment } from "./model/types/comment";
+
+export const commentTestData: Comment = {
+  id: "1",
+  text: "hello world",
+  user: { id: "1", username: "Vasya" },
+};
+
+export const commentTestData2: Comment = {
+  id: "2",
+  text: "hello world 2",
+  user: { id: "2", username: "Vasya2" },
+};
+
+export const commentTestData3: Comment = {
+  id: "3",
+  text: "hello world 3",
+  user: { id: "3", username: "Vasya3" },
+};
 
 export const commentsStoryMockFetch = {
   url: `${__API__}/comments?_expand=user`,
-  method: 'GET',
+  method: "GET",
   status: 200,
-  response: [
-    commentTestData,
-    commentTestData2,
-    commentTestData3,
-  ],
-}
+  response: [commentTestData, commentTestData2, commentTestData3],
+};

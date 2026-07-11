@@ -2,11 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { Button } from "@/shared/ui/Button";
-import { Trans } from "@/shared/ui/Translate";
 
 import { getUserAuthData } from "@/entities/User";
 
-import { useLogout } from '../../model/hooks/useLogout';
+import { useLogout } from "../../model/hooks/useLogout";
 
 interface AuthButtonProps {
   className?: string;
@@ -17,17 +16,17 @@ export const AuthButton = (props: AuthButtonProps) => {
   const { className, onLogin } = props;
   const authData = useSelector(getUserAuthData);
 
-  const { logout } = useLogout()
+  const { logout } = useLogout();
 
   return (
     <>
       {authData ? (
         <Button className={className} theme="clearInverted" onClick={logout}>
-          <Trans>Выйти</Trans>
+          Выйти
         </Button>
       ) : (
         <Button className={className} theme="clearInverted" onClick={onLogin}>
-          <Trans>Войти</Trans>
+          Войти
         </Button>
       )}
     </>

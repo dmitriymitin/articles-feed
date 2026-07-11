@@ -1,45 +1,45 @@
 import { createTestRtkQueryStore } from "@/shared/lib/tests/createTestRtkQueryStore/createTestTrkQueryStore";
 
-import { articleTestData1 } from "@/entities/Article/testing";
+import { articleTestData1 } from "@/entities/Article/mock";
 
-import { getArticleRecommendationsList } from './aritcleRecommendationsApi';
+import { getArticleRecommendationsList } from "./aritcleRecommendationsApi";
 
-import 'whatwg-fetch'
+import "whatwg-fetch";
 
-describe('getArticleRecommendationsList', () => {
-    test('success', async () => {
-        const articlesData = [articleTestData1]
+describe("getArticleRecommendationsList", () => {
+  test("success", async () => {
+    const articlesData = [articleTestData1];
 
-        global.fetch = jest.fn().mockResolvedValue(
-          new Response(JSON.stringify(articlesData), {
-              status: 200,
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-          }),
-        );
-        const store = createTestRtkQueryStore();
-        const result = await store.dispatch(
-          getArticleRecommendationsList.initiate(3),
-        );
+    global.fetch = jest.fn().mockResolvedValue(
+      new Response(JSON.stringify(articlesData), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    );
+    const store = createTestRtkQueryStore();
+    const result = await store.dispatch(
+      getArticleRecommendationsList.initiate(3)
+    );
 
-        expect(result.status).toBe('fulfilled');
-        expect(result.data).toEqual(articlesData);
-    });
+    expect(result.status).toBe("fulfilled");
+    expect(result.data).toEqual(articlesData);
+  });
 
-    test('error', async () => {
-        global.fetch = jest.fn().mockResolvedValue({
-            ok: false,
-            status: 403,
-            json: async () => ({}),
-        }) as jest.Mock;
+  test("error", async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+      status: 403,
+      json: async () => ({}),
+    }) as jest.Mock;
 
-        const store = createTestRtkQueryStore();
-        const result = await store.dispatch(
-          getArticleRecommendationsList.initiate(3),
-        );
+    const store = createTestRtkQueryStore();
+    const result = await store.dispatch(
+      getArticleRecommendationsList.initiate(3)
+    );
 
-        expect(result.status).toBe('rejected');
-        expect(result.error).toBeDefined();
-    });
+    expect(result.status).toBe("rejected");
+    expect(result.error).toBeDefined();
+  });
 });

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { NuqsDecorator } from "@/shared/config/storybook/NuqsDecorator/NuqsDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
@@ -8,21 +8,19 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDe
 import {
   articlesDataTestEntities,
   articlesDataTestIds,
-} from "@/entities/Article/testing";
+} from "@/entities/Article/mock";
 
-import ArticlesPage from './ArticlesPage';
+import ArticlesPage from "./ArticlesPage";
 
 export default {
-  title: 'pages/ArticlesPage/ArticlesPage',
+  title: "pages/ArticlesPage/ArticlesPage",
   component: ArticlesPage,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = () => (
-  <ArticlesPage />
-);
+const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
@@ -32,7 +30,7 @@ Normal.decorators = [
     articlesPage: {
       entities: articlesDataTestEntities,
       ids: articlesDataTestIds,
-    }
+    },
   }),
 ];
 
@@ -45,7 +43,7 @@ Loading.decorators = [
       entities: {},
       ids: [],
       isLoading: true,
-    }
+    },
   }),
 ];
 
@@ -58,7 +56,7 @@ Error.decorators = [
       entities: {},
       ids: [],
       isLoading: false,
-      error: 'error',
-    }
+      error: "error",
+    },
   }),
 ];

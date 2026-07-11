@@ -1,26 +1,32 @@
-import { commentTestData } from "@/entities/Comment/testing";
+import { commentTestData } from "@/entities/Comment/mock";
 
-import { ArticleDetailsCommentsSchema } from '../../..';
+import { ArticleDetailsCommentsSchema } from "../../..";
 import { fetchCommentsByArticleId } from "../../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 
-import { articleDetailsCommentsReducer, commentsAdapter } from './articleDetailsCommentsSlice';
+import {
+  articleDetailsCommentsReducer,
+  commentsAdapter,
+} from "./articleDetailsCommentsSlice";
 
-describe('articleDetailsCommentsSlice.test', () => {
-  test('test get article details comments pending', () => {
+describe("articleDetailsCommentsSlice.test", () => {
+  test("test get article details comments pending", () => {
     const state: DeepPartial<ArticleDetailsCommentsSchema> = {
       isLoading: false,
-      error: 'error',
+      error: "error",
     };
 
     expect(
-      articleDetailsCommentsReducer(state as ArticleDetailsCommentsSchema, fetchCommentsByArticleId.pending),
+      articleDetailsCommentsReducer(
+        state as ArticleDetailsCommentsSchema,
+        fetchCommentsByArticleId.pending
+      )
     ).toEqual({
       isLoading: true,
       error: undefined,
     });
   });
 
-  test('test get article details comments rejected', () => {
+  test("test get article details comments rejected", () => {
     const state: DeepPartial<ArticleDetailsCommentsSchema> = {
       isLoading: true,
       error: undefined,
@@ -29,35 +35,31 @@ describe('articleDetailsCommentsSlice.test', () => {
     expect(
       articleDetailsCommentsReducer(state as ArticleDetailsCommentsSchema, {
         type: fetchCommentsByArticleId.rejected.type,
-        payload: 'error',
-      }),
+        payload: "error",
+      })
     ).toEqual({
       isLoading: false,
-      error: 'error',
+      error: "error",
     });
   });
 
-  test('test get article details comments fulfilled', () => {
+  test("test get article details comments fulfilled", () => {
     const state = commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>(
-        {
-          isLoading: true,
-          error: undefined,
-          ids: ['2'],
-          entities: {  },
-        },
-      )
+      {
+        isLoading: true,
+        error: undefined,
+        ids: ["2"],
+        entities: {},
+      }
+    );
 
-
-    const commentsData = [
-      commentTestData,
-      commentTestData
-    ]
+    const commentsData = [commentTestData, commentTestData];
 
     expect(
       articleDetailsCommentsReducer(
         state as ArticleDetailsCommentsSchema,
-        fetchCommentsByArticleId.fulfilled(commentsData, '', ''),
-      ),
+        fetchCommentsByArticleId.fulfilled(commentsData, "", "")
+      )
     ).toEqual({
       ...commentsAdapter.setAll(state, commentsData),
       isLoading: false,

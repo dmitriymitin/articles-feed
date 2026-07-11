@@ -2,7 +2,7 @@ import React from "react";
 
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { articleTestData1 } from "../../testing";
+import { articleTestData1 } from "../../mock";
 
 import ArticleListItemBig from "./ArticleListItemBig";
 import { ArticleListItemBigSkeleton } from "./ArticleListItemBigSkeleton";

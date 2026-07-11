@@ -1,21 +1,20 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import { StateSchema } from "@/app/providers/StoreProvider";
 
-import { profileTestData } from "@/entities/Profile/testing";
+import { profileTestData } from "@/entities/Profile/mock";
 
-import { getProfileForm } from './getProfileForm';
+import { getProfileForm } from "./getProfileForm";
 
-
-describe('getProfileForm.test', () => {
-    test('should return error', () => {
-        const state: DeepPartial<StateSchema> = {
-            profile: {
-                form: profileTestData,
-            },
-        };
-        expect(getProfileForm(state as StateSchema)).toEqual(profileTestData);
-    });
-    test('should work with empty state', () => {
-        const state: DeepPartial<StateSchema> = {};
-        expect(getProfileForm(state as StateSchema)).toEqual(undefined);
-    });
+describe("getProfileForm.test", () => {
+  test("should return error", () => {
+    const state: DeepPartial<StateSchema> = {
+      profile: {
+        form: profileTestData,
+      },
+    };
+    expect(getProfileForm(state as StateSchema)).toEqual(profileTestData);
+  });
+  test("should work with empty state", () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getProfileForm(state as StateSchema)).toEqual(undefined);
+  });
 });

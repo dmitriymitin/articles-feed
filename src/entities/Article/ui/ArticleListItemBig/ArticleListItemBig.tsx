@@ -7,7 +7,6 @@ import { Button } from "@/shared/ui/Button";
 import { Card } from "@/shared/ui/Card";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { Text } from "@/shared/ui/Text";
-import { Trans } from "@/shared/ui/Translate";
 
 import { getRouteArticleDetails } from "@/shared/const/router";
 
@@ -64,7 +63,7 @@ const ArticleListItemBig = (props: ArticleListItemBigProps) => {
         <div className={s.footer}>
           <AppLink to={getRouteArticleDetails(article.id)}>
             <Button tabIndex={-1} theme="outline">
-              <Trans>Читать далее...</Trans>
+              Читать далее...
             </Button>
           </AppLink>
           <ArticleListItemViews views={article.views} className={s.views} />

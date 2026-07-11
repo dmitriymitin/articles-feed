@@ -1,26 +1,29 @@
-import { articleDetailsTestData } from "../../testing";
+import { articleDetailsTestData } from "../../mock";
 
-import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
-import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
+import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
+import { ArticleDetailsSchema } from "../types/articleDetailsSchema";
 
-import { articleDetailsReducer } from './articleDetailsSlice';
+import { articleDetailsReducer } from "./articleDetailsSlice";
 
-describe('articleDetailsSlice.test', () => {
-  test('test get article details service pending', () => {
+describe("articleDetailsSlice.test", () => {
+  test("test get article details service pending", () => {
     const state: DeepPartial<ArticleDetailsSchema> = {
       isLoading: false,
-      error: 'error',
+      error: "error",
     };
 
     expect(
-      articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.pending),
+      articleDetailsReducer(
+        state as ArticleDetailsSchema,
+        fetchArticleById.pending
+      )
     ).toEqual({
       isLoading: true,
       error: undefined,
     });
   });
 
-  test('test get article details service fulfilled', () => {
+  test("test get article details service fulfilled", () => {
     const state: DeepPartial<ArticleDetailsSchema> = {
       isLoading: true,
     };
@@ -28,12 +31,12 @@ describe('articleDetailsSlice.test', () => {
     expect(
       articleDetailsReducer(
         state as ArticleDetailsSchema,
-        fetchArticleById.fulfilled(articleDetailsTestData, '', ''),
-      ),
+        fetchArticleById.fulfilled(articleDetailsTestData, "", "")
+      )
     ).toEqual({
       isLoading: false,
       error: undefined,
-      data: articleDetailsTestData
+      data: articleDetailsTestData,
     });
   });
 });

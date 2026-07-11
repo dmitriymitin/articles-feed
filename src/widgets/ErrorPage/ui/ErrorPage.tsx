@@ -22,9 +22,7 @@ export const ErrorPage = (props: ErrorPageProps) => {
       <p>
         <Trans>Произошла непредвиденная ошибка</Trans>
       </p>
-      <Button onClick={reloadPage}>
-        <Trans>Обновить страницу</Trans>
-      </Button>
+      <Button onClick={reloadPage}>Обновить страницу</Button>
     </div>
   );
 };

@@ -1,12 +1,12 @@
-import { useState } from "react"
+import { useState } from "react";
 
 import { Button } from "@/shared/ui/Button";
 import { Flex } from "@/shared/ui/Flex";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
-import { ThemeSwitcher } from "@/features/ThemeSwitcher";
-import { LangSwitcher } from "@/widgets/LangSwitcher";
+import { LangSwitcher } from "@/features/langSwitch";
+import { ThemeSwitcher } from "@/features/themeSwitch";
 
 import { useSidebarItems } from "../../model/selectors/useSidebarItems";
 
@@ -25,12 +25,9 @@ export const Sidebar = (props: SidebarProps) => {
     setCollapsed((prev) => !prev);
   };
 
-  const cls = cn(
-    s.Sidebar,
-    {
-      [s.collapsed]: collapsed,
-    }
-  );
+  const cls = cn(s.Sidebar, {
+    [s.collapsed]: collapsed,
+  });
 
   return (
     <section data-testid="sidebar" className={cls}>
@@ -44,7 +41,7 @@ export const Sidebar = (props: SidebarProps) => {
       >
         {collapsed ? ">" : "<"}
       </Button>
-      <Flex role='navigation' vertical gap='8' className={s.items}>
+      <Flex role="navigation" vertical gap="8" className={s.items}>
         {sidebarItemsList.map((item) => (
           <SidebarItem key={item.path} item={item} collapsed={collapsed} />
         ))}

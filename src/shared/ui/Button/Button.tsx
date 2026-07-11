@@ -2,6 +2,8 @@ import { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
+import { Trans } from "../Translate";
+
 import s from "./Button.module.scss";
 
 export type ButtonTheme =
@@ -68,7 +70,7 @@ const _Button = (props: ButtonProps) => {
 
   return (
     <button type="button" className={cls} disabled={disabled} {...restProps}>
-      {children}
+      {typeof children === "string" ? <Trans>{children}</Trans> : children}
     </button>
   );
 };

@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 
 import { Button, ButtonProps } from "@/shared/ui/Button";
-import { Trans } from "@/shared/ui/Translate";
 
 import { getLoginLoading } from "../../model/selectors/getLoginLoading/getLoginLoading";
 
@@ -20,7 +19,7 @@ export const LoginFormSubmitBtn = (props: LoginFormSubmitBtnProps) => {
       onClick={onClick}
       className={className}
     >
-      <Trans>Войти</Trans>
+      Войти
     </Button>
   );
 };

@@ -1,19 +1,21 @@
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
-import { commentTestData } from "@/entities/Comment/testing";
+import { commentTestData } from "@/entities/Comment/mock";
 
 import { addArticleComment } from "./addArticleComment";
 
 describe("addArticleComment.test", () => {
   test("success add comment for article", async () => {
     const commentData = commentTestData;
-    const articleId = '1'
+    const articleId = "1";
 
-    const thunk = new TestAsyncThunk(addArticleComment, { user: { authData: { id: '1' } } });
+    const thunk = new TestAsyncThunk(addArticleComment, {
+      user: { authData: { id: "1" } },
+    });
     thunk.api.post.mockReturnValue(Promise.resolve({ data: commentData }));
     const result = await thunk.callThunk({
       comment: "some comment",
-      articleId
+      articleId,
     });
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
@@ -25,12 +27,13 @@ describe("addArticleComment.test", () => {
   });
 
   test("error add comment for article", async () => {
-
-    const thunk = new TestAsyncThunk(addArticleComment, { user: { authData: { id: '1' } } });
+    const thunk = new TestAsyncThunk(addArticleComment, {
+      user: { authData: { id: "1" } },
+    });
     thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk({
       comment: "some comment",
-      articleId: '1'
+      articleId: "1",
     });
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);

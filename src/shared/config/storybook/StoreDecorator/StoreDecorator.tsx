@@ -6,12 +6,12 @@ import {
   StoreProvider,
 } from "@/app/providers/StoreProvider";
 
-import { articleDetailsReducer } from '@/entities/Article/testing';
+import { articleDetailsReducer } from "@/entities/Article/mock";
 
 import { loginReducer } from "@/features/authByUsername/testing";
 import { profileReducer } from "@/widgets/EditableProfile/testing";
 
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/testing";
 import { articlesPageReducer } from "@/pages/ArticlesPage/testing";
 
 const defaultAsyncReducers: ReducersList = {
@@ -19,7 +19,7 @@ const defaultAsyncReducers: ReducersList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   articleDetailsPage: articleDetailsPageReducer,
-  articlesPage: articlesPageReducer
+  articlesPage: articlesPageReducer,
 };
 
 export const StoreDecorator =

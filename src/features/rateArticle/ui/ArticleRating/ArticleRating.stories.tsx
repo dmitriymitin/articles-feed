@@ -4,6 +4,8 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
+import { articlesStoryMockFetch } from "@/entities/Rating/mock";
+
 import ArticleRating from "./ArticleRating";
 
 export default {
@@ -30,18 +32,7 @@ Normal.decorators = [
   }),
 ];
 Normal.parameters = {
-  mockData: [
-    {
-      url: `${__API__}/article-ratings?userId=1&articleId=1`,
-      method: "GET",
-      status: 200,
-      response: [
-        {
-          rate: 4,
-        },
-      ],
-    },
-  ],
+  mockData: [articlesStoryMockFetch({ rate: 4 })],
 };
 
 export const WithoutRate = Template.bind({});
@@ -56,12 +47,5 @@ WithoutRate.decorators = [
   }),
 ];
 WithoutRate.parameters = {
-  mockData: [
-    {
-      url: `${__API__}/article-ratings?userId=1&articleId=1`,
-      method: "GET",
-      status: 200,
-      response: [],
-    },
-  ],
+  mockData: [articlesStoryMockFetch({ rate: 0 })],
 };

@@ -9,7 +9,6 @@ import { Input } from "@/shared/ui/Input";
 import { Modal } from "@/shared/ui/Modal";
 import { StarRating } from "@/shared/ui/StarRating";
 import { Text } from "@/shared/ui/Text";
-import { Trans } from "@/shared/ui/Translate";
 
 interface RatingCardProps {
   className?: string;
@@ -86,10 +85,10 @@ export const RatingCard = (props: RatingCardProps) => {
                 onClick={cancel}
                 theme="outline_red"
               >
-                <Trans>Закрыть</Trans>
+                Закрыть
               </Button>
               <Button data-testid="RatingCard.Send" onClick={accept}>
-                <Trans>Отправить</Trans>
+                Отправить
               </Button>
             </Flex>
           </Flex>
@@ -100,7 +99,7 @@ export const RatingCard = (props: RatingCardProps) => {
           <Flex vertical gap="32">
             {modalContent}
             <Button fullWidth onClick={accept} size="l">
-              <Trans>Отправить</Trans>
+              Отправить
             </Button>
           </Flex>
         </Drawer>
