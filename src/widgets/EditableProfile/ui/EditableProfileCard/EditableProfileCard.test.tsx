@@ -8,7 +8,7 @@ import {
 
 import { profileTestData } from "@/entities/Profile/mock";
 
-import { profileReducer } from "../../testing";
+import { profileReducer } from "../../model/slice/profileSlice";
 
 import { EditableProfileCard } from "./EditableProfileCard";
 

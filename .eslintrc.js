@@ -121,6 +121,7 @@ module.exports = {
       "error",
       {
         alias: "@",
+        forbiddenRelativeImports: ["testing"],
       },
     ],
     "dm-plugin/layer-imports": [
