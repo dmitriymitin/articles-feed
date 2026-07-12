@@ -1,7 +1,7 @@
 import { commentTestData } from "@/entities/Comment/mock";
 
-import { ArticleDetailsCommentsSchema } from "../../..";
 import { fetchCommentsByArticleId } from "../../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { ArticleDetailsCommentsSchema } from "../../types/ArticleDetailsCommentsSchema";
 
 import {
   articleDetailsCommentsReducer,

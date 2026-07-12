@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { BrowserView, MobileView } from "react-device-detect";
 
 import { Button } from "@/shared/ui/Button";
 import { Card } from "@/shared/ui/Card";
+import { BrowserView, MobileView } from "@/shared/ui/DeviceDetect";
 import { Drawer } from "@/shared/ui/Drawer";
 import { Flex } from "@/shared/ui/Flex";
 import { Input } from "@/shared/ui/Input";

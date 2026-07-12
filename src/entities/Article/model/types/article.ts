@@ -1,4 +1,4 @@
-import { User } from "@/entities/User";
+import { User } from "@/entities/User/@x/Article";
 
 import { ArticleBlockType, ArticleType } from "../consts/articleConsts";
 
@@ -32,7 +32,7 @@ export type ArticleBlock =
 export interface Article {
   id: string;
   title: string;
-  user: Pick<User, 'id' | 'username' | 'avatar'>;
+  user: Pick<User, "id" | "username" | "avatar">;
   subtitle: string;
   img: string;
   views: number;

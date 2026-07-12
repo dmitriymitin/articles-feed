@@ -29,7 +29,6 @@ interface ArticleListItemBigProps {
 
 const ArticleListItemBig = (props: ArticleListItemBigProps) => {
   const { article, className } = props;
-
   const textBlock = article.blocks.find(
     (block) => block.type === ArticleBlockType.TEXT
   ) as ArticleTextBlock;

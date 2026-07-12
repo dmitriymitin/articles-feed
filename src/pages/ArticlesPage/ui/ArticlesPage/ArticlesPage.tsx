@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import { ReducersList } from "@/app/providers/StoreProvider";
 
@@ -8,10 +8,10 @@ import { Page } from "@/widgets/Page";
 
 import { articlesPageReducer } from "../../model/slices/articlesPageSlice";
 
-import { ArticleInfiniteListContainer } from '../ArticleInfiniteListContainer/ArticleInfiniteListContainer';
+import { ArticleInfiniteListContainer } from "../ArticleInfiniteListContainer/ArticleInfiniteListContainer";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
-import s from './ArticlesPage.module.scss'
+import s from "./ArticlesPage.module.scss";
 
 const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
@@ -33,5 +33,5 @@ export default () => {
         <ArticlesPage />
       </DynamicModuleLoader>
     </Page>
-  )
+  );
 };

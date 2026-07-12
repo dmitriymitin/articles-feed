@@ -24,9 +24,9 @@ const AddArticleComment = (props: AddArticleCommentProps) => {
   const dispatch = useAppDispatch();
 
   const sendComment = async () => {
-    const responce = await dispatch(addArticleComment({ comment, articleId }));
+    const response = await dispatch(addArticleComment({ comment, articleId }));
 
-    if (responce.meta.requestStatus !== "rejected") {
+    if (response.meta.requestStatus !== "rejected") {
       setComment("");
       onSendComment();
     }

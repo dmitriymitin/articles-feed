@@ -8,9 +8,8 @@ import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { getUserInited, userActions } from "@/entities/User";
 
 import { Navbar } from "@/widgets/Navbar";
+import { PageLoader } from "@/widgets/PageLoader";
 import { Sidebar } from "@/widgets/Sidebar";
-
-import { PageLoader } from "../widgets/PageLoader";
 
 import { AppRouter } from "./providers/router";
 

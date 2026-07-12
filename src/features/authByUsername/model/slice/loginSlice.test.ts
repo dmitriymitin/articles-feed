@@ -1,5 +1,4 @@
-
-import { LoginSchema } from "../..";
+import { LoginSchema } from "../../model/types/LoginSchema";
 
 import { loginActions, loginReducer } from "./loginSlice";
 

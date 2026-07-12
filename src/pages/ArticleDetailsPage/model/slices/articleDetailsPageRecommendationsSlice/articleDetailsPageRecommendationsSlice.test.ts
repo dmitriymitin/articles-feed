@@ -1,6 +1,7 @@
 import { articleTestData1, articleTestData2 } from "@/entities/Article/mock";
 
-import { ArticleDetailsRecommendationsSchema } from "../../..";
+import { ArticleDetailsRecommendationsSchema } from "../../../model/types/ArticleDetailsRecommendationsSchema";
+
 import { fetchArticleRecommendations } from "../../services/fetchArticleRecommendations/fetchArticleRecommendations";
 
 import {

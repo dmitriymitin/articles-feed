@@ -131,15 +131,29 @@ module.exports = {
       },
     ],
     "dm-plugin/public-api-imports": [
-      "warn",
+      "error",
       {
         alias: "@",
-        testFilesPatterns: [
-          "**/*.test.*",
-          "**/*.story.*",
-          "**/StoreDecorator.tsx",
+        publicApiImports: [
+          {
+            testing: {
+              filePatterns: [
+                "**/*.test.*",
+                "**/*.stories.*",
+                "**/StoreDecorator.tsx",
+              ],
+            },
+          },
+          {
+            mock: {
+              filePatterns: [
+                "**/*.test.*",
+                "**/*.stories.*",
+                "**/StoreDecorator.tsx",
+              ],
+            },
+          },
         ],
-        mockFilesPatterns: ["**/*.test.*", "**/*.story.*"],
       },
     ],
     "react/jsx-max-props-per-line": ["error", { maximum: 4 }],
