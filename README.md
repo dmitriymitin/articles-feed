@@ -83,6 +83,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run lint:scss` - Проверка scss файлов style линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
 
+Подробнее о slint-plugin-dm-plugin - [github slint-plugin-dm-plugin](https://github.com/dmitriymitin/eslint-plugin-dm-plugin)
+
 ----
 ## Storybook
 
@@ -191,27 +193,34 @@ Clear.args = {
 
 ## Сущности (entities)
 
-- [Article](/src/entities/Article)
-- [Comment](/src/entities/Comment)
-- [Counter](/src/entities/Counter)
-- [Country](/src/entities/Country)
-- [Currency](/src/entities/Currency)
-- [Notification](/src/entities/Notification)
-- [Profile](/src/entities/Profile)
-- [Rating](/src/entities/Rating)
-- [User](/src/entities/User)
+- [Article](/src/entities/Article/README.md)
+- [Comment](/src/entities/Comment/README.md)
+- [Counter](/src/entities/Counter/README.md)
+- [Country](/src/entities/Country/README.md)
+- [Currency](/src/entities/Currency/README.md)
+- [Notification](/src/entities/Notification/README.md)
+- [Profile](/src/entities/Profile/README.md)
+- [Rating](/src/entities/Rating/README.md)
+- [User](/src/entities/User/README.md)
 
 ## Фичи (features)
 
-- [addCommentForm](/src/features/addArticleComment)
-- [articleEditForm](/src/features/articleEditForm)
-- [articleRating](/src/features/articleRating)
-- [articleRecommendationsList](/src/features/articleRecommendationsList)
-- [AuthByUsername](/src/features/AuthByUsername)
-- [avatarDropdown](/src/features/avatarDropdown)
-- [editableProfileCard](/src/features/editableProfileCard)
-- [LangSwitcher](/src/features/langSwitch)
-- [notificationButton](/src/features/notificationButton)
-- [profileRating](/src/features/profileRating)
-- [ThemeSwitcher](/src/features/themeSwitch)
-- [UI](/src/features/UI)
+- [addArticleComment](/src/features/addArticleComment/README.md)
+- [auth](/src/features/auth/README.md)
+- [authByUsername](/src/features/authByUsername/README.md)
+- [features](/src/features/features/README.md)
+- [langSwitch](/src/features/langSwitch/README.md)
+- [rateArticle](/src/features/rateArticle/README.md)
+- [selectArticleView](/src/features/selectArticleView/README.md)
+- [themeSwitch](/src/features/themeSwitch/README.md)
+
+## Виджеты (widgets)
+
+- [ArticleCommentsList](/src/widgets/ArticleCommentsList/README.md)
+- [ArticleRecommendationsList](/src/widgets/ArticleRecommendationsList/README.md)
+- [EditableProfile](/src/widgets/EditableProfile/README.md)
+- [ErrorPage](/src/widgets/ErrorPage/README.md)
+- [Navbar](/src/widgets/Navbar/README.md)
+- [Page](/src/widgets/Page/README.md)
+- [PageLoader](/src/widgets/PageLoader/README.md)
+- [Sidebar](/src/widgets/Sidebar/README.md)

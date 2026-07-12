@@ -4,6 +4,10 @@ type useInViewOptions = {
   delay?: number;
 };
 
+/**
+ * Следит за попаданием элемента во viewport через IntersectionObserver.
+ * Когда элемент видим, вызывает callback сразу и затем повторяет вызов с интервалом delay.
+ */
 export function useInView<T extends Element>(
   ref: RefObject<T>,
   callback: () => void,
@@ -39,7 +43,8 @@ export function useInView<T extends Element>(
       }, delay);
     };
 
-    const observer = new IntersectionObserver(([entry]) => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
         isVisibleRef.current = entry.isIntersecting;
         entry.isIntersecting ? start() : stop();
       },
@@ -57,6 +62,5 @@ export function useInView<T extends Element>(
       observer.disconnect();
       isVisibleRef.current = false;
     };
-
   }, [ref, delay]);
 }

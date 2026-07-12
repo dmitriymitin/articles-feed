@@ -7,10 +7,12 @@ interface UseModalProps {
 }
 
 /**
- * Переиспользуемый хук для модальных компонентов (drawer/modal)
- * @param animationDelay
- * @param isOpen
- * @param onClose
+ * Управляет состоянием открытия и закрытия modal/drawer компонентов.
+ * При закрытии выставляет isClosing, ждет animationDelay и затем вызывает onClose.
+ * Также закрывает модальное окно по Escape, когда isOpen === true.
+ * @param animationDelay - длительность анимации закрытия в миллисекундах
+ * @param isOpen - открыт ли компонент сейчас
+ * @param onClose - обработчик завершения закрытия
  */
 export function useModal({ animationDelay, isOpen, onClose }: UseModalProps) {
   const [isClosing, setIsClosing] = useState(false);

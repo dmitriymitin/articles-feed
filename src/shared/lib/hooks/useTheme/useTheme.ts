@@ -12,6 +12,10 @@ interface UseThemeResult {
   toggleTheme: () => void;
 }
 
+/**
+ * Возвращает текущую тему и функцию переключения темы.
+ * При переключении обновляет ThemeContext, className у body и значение в localStorage.
+ */
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 

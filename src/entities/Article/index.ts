@@ -1,11 +1,9 @@
+export { getArticleDetailsData } from "./model/selectors/articleDetails";
+
 export type { Article } from "./model/types/article";
-
-export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
-
 export type { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";
 
-export { getArticleDetailsData } from "@/entities/Article/model/selectors/articleDetails";
-
+export { articleRecommendationsListLimit } from "./model/consts/articleRecomadationsConst";
 export {
   ArticleView,
   ArticleType,
@@ -15,7 +13,7 @@ export {
   articleSortSelectOptions,
 } from "./model/consts/articleConsts";
 
-export { articleRecommendationsListLimit } from "./model/consts/articleRecomadationsConst";
+export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
 
 export { ArticleListItemBigAsync as ArticleListItemBig } from "./ui/ArticleListItemBig/ArticleListItemBig.async";
 export { ArticleListItemBigSkeleton } from "./ui/ArticleListItemBig/ArticleListItemBigSkeleton";

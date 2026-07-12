@@ -1,1 +1,1 @@
-export { currencyListOptions, Currency } from "./model/consts/currencyConsts";
+export { Currency, currencyListOptions } from "./model/consts/currencyConsts";

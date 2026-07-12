@@ -1,1 +1,1 @@
-export { countryListOptions, Country } from './model/consts/countryConsts'
+export { Country, countryListOptions } from "./model/consts/countryConsts";
