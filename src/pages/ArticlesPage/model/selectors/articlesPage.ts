@@ -1,11 +1,11 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import { StateSchema } from "@/app/providers/StoreProvider";
 
-import { buildSelector } from '@/shared/lib/store';
+import { buildSelector } from "@/shared/lib/store/buildSelector";
 
 export const getArticlesPageIsLoading = (state: StateSchema) =>
-    state.articlesPage?.isLoading || false;
+  state.articlesPage?.isLoading || false;
 export const getArticlesPageError = (state: StateSchema) =>
-    state.articlesPage?.error;
+  state.articlesPage?.error;
 export const getArticlesPageNum = (state: StateSchema) =>
   state.articlesPage?.page || 1;
 export const getArticlesPageLimit = (state: StateSchema) =>
@@ -14,5 +14,5 @@ export const getArticlesPageHasMore = (state: StateSchema) =>
   state.articlesPage?.hasMore;
 
 export const [useArticleItemById] = buildSelector(
-    (state, id: string) => state.articlesPage?.entities[id],
+  (state, id: string) => state.articlesPage?.entities[id]
 );
