@@ -4,7 +4,7 @@ import { ListBox } from "@/shared/ui/Popups";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { Country, countryListOptions  } from "@/entities/Country";
+import { Country, countryListOptions  } from "@/entities/country";
 
 import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";

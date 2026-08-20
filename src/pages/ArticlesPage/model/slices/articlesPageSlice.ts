@@ -8,7 +8,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 
 import {
     Article,
-} from '@/entities/Article';
+} from '@/entities/article';
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';

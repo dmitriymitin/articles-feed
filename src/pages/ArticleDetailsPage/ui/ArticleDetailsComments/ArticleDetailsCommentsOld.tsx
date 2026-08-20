@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Flex } from "@/shared/ui/Flex";
 import { Text } from "@/shared/ui/Text";
 
-import { CommentCard, CommentCardSkeleton } from "@/entities/Comment";
+import { CommentCard, CommentCardSkeleton } from "@/entities/comment";
 
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments/comments";
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentsSlice";

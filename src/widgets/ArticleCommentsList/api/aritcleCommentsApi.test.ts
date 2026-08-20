@@ -1,6 +1,6 @@
 import { createTestRtkQueryStore } from "@/shared/lib/tests/createTestRtkQueryStore/createTestTrkQueryStore";
 
-import { commentTestData } from "@/entities/Comment/mock";
+import { commentTestData } from "../../../entities/comment/mock";
 
 import { getArticleCommentsList } from "./aritcleCommentsApi";
 

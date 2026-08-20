@@ -4,7 +4,7 @@ import { ComponentMeta,ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { recommendationsStoryMockFetch } from "@/entities/Article/mock";
+import { recommendationsStoryMockFetch } from "../../../../entities/article/mock";
 
 import ArticleRecommendationsList from "./ArticleRecommendationsList";
 

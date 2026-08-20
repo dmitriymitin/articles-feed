@@ -5,7 +5,7 @@ import { Button } from "@/shared/ui/Button";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { getUserAuthData } from "@/entities/User";
+import { getUserAuthData } from "@/entities/user";
 
 import { getProfileId } from "../../model/selectors/getProfileId/getProfileId";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";

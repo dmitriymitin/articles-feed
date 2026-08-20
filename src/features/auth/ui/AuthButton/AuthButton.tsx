@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { Button } from "@/shared/ui/Button";
 
-import { getUserAuthData } from "@/entities/User";
+import { getUserAuthData } from "@/entities/user";
 
 import { useLogout } from "../../model/hooks/useLogout";
 

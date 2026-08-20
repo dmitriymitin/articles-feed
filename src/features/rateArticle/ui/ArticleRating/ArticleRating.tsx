@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 
 import { Skeleton } from "@/shared/ui/Skeleton";
 
-import { Article } from "@/entities/Article";
-import { RatingCard } from "@/entities/Rating";
-import { getUserAuthData } from "@/entities/User";
+import { Article } from "@/entities/article";
+import { RatingCard } from "@/entities/rating";
+import { getUserAuthData } from "@/entities/user";
 
 import {
   useArticleRatingMutation,

@@ -13,7 +13,7 @@ import {
 } from "@/shared/const/router";
 import { AppRoutesProps } from '@/shared/types/router';
 
-import { UserRole } from "@/entities/User";
+import { UserRole } from "@/entities/user";
 
 import { AboutPage } from '@/pages/AboutPage';
 import { AdminPanelPage } from "@/pages/AdminPanelPage";

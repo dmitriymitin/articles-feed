@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
-import { Article } from '@/entities/Article';
-import { Comment } from '@/entities/Comment';
-import { getUserAuthData } from '@/entities/User';
+import { Article } from '@/entities/article';
+import { Comment } from '@/entities/comment';
+import { getUserAuthData } from '@/entities/user';
 
 export const addArticleComment = createAsyncThunk<
     Comment,

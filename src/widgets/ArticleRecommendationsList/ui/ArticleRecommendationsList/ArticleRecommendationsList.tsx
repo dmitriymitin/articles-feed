@@ -9,7 +9,7 @@ import {
   ArticleListItemSmall,
   ArticleListItemSmallSkeleton,
   articleRecommendationsListLimit,
-} from "@/entities/Article";
+} from "@/entities/article";
 
 import { useArticleRecommendationsListQuery } from "../../api/aritcleRecommendationsApi";
 

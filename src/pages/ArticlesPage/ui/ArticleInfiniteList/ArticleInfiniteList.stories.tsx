@@ -5,11 +5,11 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { NuqsDecorator } from "@/shared/config/storybook/NuqsDecorator/NuqsDecorator";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
-import { ArticleView } from "@/entities/Article";
+import { ArticleView } from "@/entities/article";
 import {
   articlesDataTestEntities,
   articlesDataTestIds,
-} from "@/entities/Article/mock";
+} from "@/entities/article/mock";
 
 import { ArticleInfiniteList } from "./ArticleInfiniteList";
 

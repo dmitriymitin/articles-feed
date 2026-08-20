@@ -3,7 +3,7 @@ import {
   articlesDataTestIds,
   articleTestData1,
   articleTestData2,
-} from "@/entities/Article/mock";
+} from "@/entities/article/mock";
 
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";

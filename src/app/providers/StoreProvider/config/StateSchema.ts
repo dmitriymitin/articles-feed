@@ -8,9 +8,9 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 
-import { ArticleDetailsSchema } from "@/entities/Article";
-import { CounterSchema } from "@/entities/Counter";
-import { UserSchema } from "@/entities/User";
+import { ArticleDetailsSchema } from "@/entities/article";
+import { CounterSchema } from "@/entities/counter";
+import { UserSchema } from "@/entities/user";
 
 import { LoginSchema } from "@/features/authByUsername";
 import { ProfileSchema } from "@/widgets/EditableProfile";

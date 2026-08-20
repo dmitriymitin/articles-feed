@@ -3,7 +3,7 @@ import {
   ArticleListItemBig,
   ArticleListItemSmall,
   ArticleView,
-} from "@/entities/Article";
+} from "@/entities/article";
 
 import s from './ArticleInfiniteList.module.scss'
 

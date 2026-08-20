@@ -1,4 +1,4 @@
-import { Rating } from "@/entities/Rating";
+import { Rating } from "@/entities/rating";
 
 import { rtkApi } from "@/shared/api/rtkApi";
 

@@ -6,8 +6,8 @@ import { Theme } from "@/shared/const/theme";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/country";
+import { Currency } from "@/entities/currency";
 
 import ProfilePage from "./ProfilePage";
 

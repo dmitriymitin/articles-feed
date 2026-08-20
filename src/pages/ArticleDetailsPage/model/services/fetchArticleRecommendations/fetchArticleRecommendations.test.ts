@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
-import { articleTestData1, articleTestData2 } from "@/entities/Article/mock";
+import { articleTestData1, articleTestData2 } from "../../../../../entities/article/mock";
 
 import { fetchArticleRecommendations } from "./fetchArticleRecommendations";
 

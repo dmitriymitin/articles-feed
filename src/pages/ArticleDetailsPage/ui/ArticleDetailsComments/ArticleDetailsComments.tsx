@@ -6,7 +6,7 @@ import { Text } from "@/shared/ui/Text";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { Article } from "@/entities/Article";
+import { Article } from "@/entities/article";
 
 import { AddArticleComment } from "@/features/addArticleComment";
 import { ArticleCommentsList, refetchArticleCommentsListQuery } from "@/widgets/ArticleCommentsList";

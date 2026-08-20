@@ -6,7 +6,7 @@ import { Input } from "@/shared/ui/Input";
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { Article } from "@/entities/Article";
+import { Article } from "@/entities/article";
 
 import { addArticleComment } from "../../model/services/addArticleComment/addArticleComment";
 

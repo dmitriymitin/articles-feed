@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
 import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
-import { articleSortSelectOptions } from "@/entities/Article";
+import { articleSortSelectOptions } from "@/entities/article";
 
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 

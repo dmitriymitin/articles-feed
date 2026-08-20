@@ -1,6 +1,6 @@
 import { StateSchema } from "@/app/providers/StoreProvider";
 
-import { profileTestData } from "@/entities/Profile/mock";
+import { profileTestData } from "../../../../../entities/profile/mock";
 
 import { getProfileData } from "./getProfileData";
 

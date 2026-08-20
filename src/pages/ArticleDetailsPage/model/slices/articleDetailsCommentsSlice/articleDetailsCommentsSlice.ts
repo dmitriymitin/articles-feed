@@ -6,7 +6,7 @@ import {
 
 import { StateSchema } from "@/app/providers/StoreProvider";
 
-import { Comment } from "@/entities/Comment";
+import { Comment } from "@/entities/comment";
 
 import { fetchCommentsByArticleId } from "../../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { ArticleDetailsCommentsSchema } from "../../types/ArticleDetailsCommentsSchema";

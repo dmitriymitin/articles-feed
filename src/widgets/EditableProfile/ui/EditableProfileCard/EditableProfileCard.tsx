@@ -4,7 +4,7 @@ import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 
-import { Profile } from "@/entities/Profile";
+import { Profile } from "@/entities/profile";
 
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { profileReducer } from "../../model/slice/profileSlice";

@@ -6,7 +6,7 @@ import {
   ComponentRenderOptions,
 } from "@/shared/lib/tests/componentRender/componentRender";
 
-import { profileTestData } from "@/entities/Profile/mock";
+import { profileTestData } from "../../../../entities/profile/mock";
 
 import { profileReducer } from "../../model/slice/profileSlice";
 

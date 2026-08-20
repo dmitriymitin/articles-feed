@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
-import { Article } from "@/entities/Article";
-import { Comment } from '@/entities/Comment';
+import { Article } from "@/entities/article";
+import { Comment } from '@/entities/comment';
 
 
 /**

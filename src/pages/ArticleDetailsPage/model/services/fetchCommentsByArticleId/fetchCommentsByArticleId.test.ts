@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
-import { commentTestData } from "@/entities/Comment/mock";
+import { commentTestData } from "../../../../../entities/comment/mock";
 
 import { fetchCommentsByArticleId } from "./fetchCommentsByArticleId";
 

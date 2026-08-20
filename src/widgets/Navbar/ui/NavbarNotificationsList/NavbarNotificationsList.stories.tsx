@@ -4,7 +4,7 @@ import { ComponentMeta,ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { notificationsRequestMock } from "@/entities/Notification/mock";
+import { notificationsRequestMock } from "../../../../entities/notification/mock";
 
 import { NavbarNotificationsList } from "./NavbarNotificationsList";
 

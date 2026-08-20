@@ -1,4 +1,4 @@
-import { Profile } from "@/entities/Profile";
+import { Profile } from "@/entities/profile";
 
 import { ValidateProfileError } from "../consts/editableProfileConsts";
 

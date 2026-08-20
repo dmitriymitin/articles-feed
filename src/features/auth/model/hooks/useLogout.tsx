@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import { userActions } from "@/entities/User";
+import { userActions } from "@/entities/user";
 
 export const useLogout = () => {
   const dispatch = useAppDispatch();

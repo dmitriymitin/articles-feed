@@ -2,8 +2,8 @@ import { CombinedState, Reducer } from "redux";
 
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
 
-import { counterReducer } from "@/entities/Counter";
-import { userReducer } from "@/entities/User";
+import { counterReducer } from "@/entities/counter";
+import { userReducer } from "@/entities/user";
 
 import { uiReducer } from '@/widgets/Page';
 

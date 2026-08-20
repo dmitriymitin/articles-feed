@@ -1,7 +1,7 @@
 import { parseAsString, parseAsStringEnum } from "nuqs";
 
 // eslint-disable-next-line dm-plugin/layer-imports
-import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/article";
 
 import { SortOrder, sortOrders } from "../types/sort";
 

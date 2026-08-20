@@ -7,7 +7,7 @@ import { Text } from "@/shared/ui/Text";
 
 import { getRouteArticleCreate } from "@/shared/const/router";
 
-import { getUserAuthData } from "@/entities/User";
+import { getUserAuthData } from "@/entities/user";
 
 import { NavbarAuthButton } from "../NavbarAuthButton/NavbarAuthButton";
 import { NavbarShowNotificationsButton } from "../NavbarShowNotificationsButton/NavbarShowNotificationsButton";

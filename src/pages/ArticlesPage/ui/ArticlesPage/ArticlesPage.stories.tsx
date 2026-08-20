@@ -8,7 +8,7 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDe
 import {
   articlesDataTestEntities,
   articlesDataTestIds,
-} from "@/entities/Article/mock";
+} from "@/entities/article/mock";
 
 import ArticlesPage from "./ArticlesPage";
 

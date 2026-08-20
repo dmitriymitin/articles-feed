@@ -5,7 +5,7 @@ import { Trans } from "@/shared/ui/Translate";
 
 import { cn } from "@/shared/lib/classNames/classNames";
 
-import { getUserAuthData } from "@/entities/User";
+import { getUserAuthData } from "@/entities/user";
 
 import { SidebarItemType } from "../../model/types/sidebar";
 

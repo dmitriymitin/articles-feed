@@ -14,11 +14,11 @@ import {
 } from '@/shared/const/router';
 import UserIcon from "@/shared/assets/icons/user-filled.svg";
 
-import { Profile } from "@/entities/Profile";
+import { Profile } from "@/entities/profile";
 import {
   isUserAdmin,
   isUserManager,
-} from '@/entities/User';
+} from '@/entities/user';
 
 import { useLogout } from '@/features/auth';
 

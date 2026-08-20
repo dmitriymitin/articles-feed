@@ -1,5 +1,5 @@
-import { Article } from '@/entities/Article';
-import { Comment } from '@/entities/Comment';
+import { Article } from '@/entities/article';
+import { Comment } from '@/entities/comment';
 
 import { rtkApi } from '@/shared/api/rtkApi'
 

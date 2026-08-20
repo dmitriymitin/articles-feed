@@ -7,7 +7,7 @@ import { Flex } from "@/shared/ui/Flex";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
-import { ArticleDetails } from "@/entities/Article";
+import { ArticleDetails } from "@/entities/article";
 
 import { ArticleRating } from "@/features/rateArticle";
 import { Page } from "@/widgets/Page";

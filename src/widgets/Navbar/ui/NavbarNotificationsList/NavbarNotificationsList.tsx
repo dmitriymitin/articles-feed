@@ -9,7 +9,7 @@ import { cn } from "@/shared/lib/classNames/classNames";
 import {
   NotificationItem,
   useNotificationsQuery,
-} from "@/entities/Notification";
+} from "@/entities/notification";
 
 import s from "./NavbarNotificationsList.module.scss";
 

@@ -1,5 +1,5 @@
-import { Country } from "@/entities/Country/@x/Profile";
-import { Currency } from "@/entities/Currency/@x/Profile";
+import { Country } from "../country/@x/Profile";
+import { Currency } from "../currency/@x/Profile";
 
 import { Profile } from "./model/types/profile";
 

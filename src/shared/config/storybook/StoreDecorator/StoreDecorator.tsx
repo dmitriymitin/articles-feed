@@ -6,7 +6,7 @@ import {
   StoreProvider,
 } from "@/app/providers/StoreProvider";
 
-import { articleDetailsReducer } from "@/entities/Article/mock";
+import { articleDetailsReducer } from "@/entities/article/mock";
 
 import { loginReducer } from "@/features/authByUsername/testing";
 import { profileReducer } from "@/widgets/EditableProfile/testing";

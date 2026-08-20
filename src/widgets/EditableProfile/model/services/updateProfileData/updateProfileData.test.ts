@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
-import { profileTestData } from "@/entities/Profile/mock";
+import { profileTestData } from "../../../../../entities/profile/mock";
 
 import { ValidateProfileError } from "../../consts/editableProfileConsts";
 

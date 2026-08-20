@@ -6,7 +6,7 @@ import { Text } from "@/shared/ui/Text";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
 
-import { Article } from "@/entities/Article"
+import { Article } from "@/entities/article"
 
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 

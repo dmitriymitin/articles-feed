@@ -7,8 +7,8 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDe
 import {
   articleTestData1,
   recommendationsStoryMockFetch,
-} from "@/entities/Article/mock";
-import { commentsStoryMockFetch } from "@/entities/Comment/mock";
+} from "../../../../entities/article/mock";
+import { commentsStoryMockFetch } from "../../../../entities/comment/mock";
 
 import ArticleDetailsPage from "./ArticleDetailsPage";
 

@@ -6,7 +6,7 @@ import { Flex } from "@/shared/ui/Flex";
 
 import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
 
-import { Article } from "@/entities/Article";
+import { Article } from "@/entities/article";
 
 import { getCanEditArticle } from "../../model/selectors/article/article";
 

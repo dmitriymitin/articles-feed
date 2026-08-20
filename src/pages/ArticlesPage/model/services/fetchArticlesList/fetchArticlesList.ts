@@ -4,7 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 import { SortOrder } from "@/shared/types/sort";
 
-import { Article, ArticleSortField, ArticleType } from "@/entities/Article";
+import { Article, ArticleSortField, ArticleType } from "@/entities/article";
 
 import { getArticlesPageLimit, getArticlesPageNum } from "../../selectors/articlesPage";
 

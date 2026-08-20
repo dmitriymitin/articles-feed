@@ -199,15 +199,15 @@ Clear.args = {
 
 ## Сущности (entities)
 
-- [Article](/src/entities/Article/README.md)
-- [Comment](/src/entities/Comment/README.md)
-- [Counter](/src/entities/Counter/README.md)
-- [Country](/src/entities/Country/README.md)
-- [Currency](/src/entities/Currency/README.md)
-- [Notification](/src/entities/Notification/README.md)
-- [Profile](/src/entities/Profile/README.md)
-- [Rating](/src/entities/Rating/README.md)
-- [User](/src/entities/User/README.md)
+- [Article](/src/entities/article/README.md)
+- [Comment](/src/entities/comment/README.md)
+- [Counter](/src/entities/counter/README.md)
+- [Country](/src/entities/country/README.md)
+- [Currency](/src/entities/currency/README.md)
+- [Notification](/src/entities/notification/README.md)
+- [Profile](/src/entities/profile/README.md)
+- [Rating](/src/entities/rating/README.md)
+- [User](/src/entities/user/README.md)
 
 ## Фичи (features)
 

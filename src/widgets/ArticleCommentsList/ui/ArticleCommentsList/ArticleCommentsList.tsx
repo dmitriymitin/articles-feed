@@ -3,8 +3,8 @@ import React, { PropsWithChildren } from "react";
 import { Flex } from "@/shared/ui/Flex";
 import { Text } from "@/shared/ui/Text";
 
-import { Article } from "@/entities/Article";
-import { CommentCard, CommentCardSkeleton } from "@/entities/Comment";
+import { Article } from "@/entities/article";
+import { CommentCard, CommentCardSkeleton } from "@/entities/comment";
 
 import { useArticleCommentsListQuery } from "../../api/aritcleCommentsApi";
 

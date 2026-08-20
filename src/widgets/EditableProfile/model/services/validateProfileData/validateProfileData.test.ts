@@ -1,4 +1,4 @@
-import { profileTestData } from "@/entities/Profile/mock";
+import { profileTestData } from "../../../../../entities/profile/mock";
 
 import { ValidateProfileError } from "../../consts/editableProfileConsts";
 

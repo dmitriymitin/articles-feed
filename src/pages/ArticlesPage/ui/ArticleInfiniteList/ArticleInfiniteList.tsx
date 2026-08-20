@@ -7,7 +7,7 @@ import { Text } from "@/shared/ui/Text";
 import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
 import { articlesPageSearchParams } from "@/shared/const/searchParams";
 
-import { ArticleView } from "@/entities/Article";
+import { ArticleView } from "@/entities/article";
 
 import {
   getArticlesPageError,
