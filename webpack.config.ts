@@ -7,6 +7,7 @@ function getApiUrl(mode: BuildMode, apiUrl?: string) {
   if (apiUrl) {
     return apiUrl;
   }
+  
   if (mode === 'production') {
     return '/api';
   }
