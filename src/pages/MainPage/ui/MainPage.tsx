@@ -6,7 +6,7 @@ import { Page } from "@/widgets/Page";
 
 const MainPage = () => {
   return (
-    <Page>
+    <Page data-testid="MainPage">
       <Trans>Главная страница</Trans>
     </Page>
   );

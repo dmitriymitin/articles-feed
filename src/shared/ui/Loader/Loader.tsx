@@ -10,7 +10,7 @@ export const Loader = (props: LoaderProps) => {
   const { className } = props;
 
   return (
-    <div className={cn("lds-ellipsis", className)}>
+    <div className={cn("lds-ellipsis", className)} data-testid='Loader'>
       <div />
       <div />
       <div />
