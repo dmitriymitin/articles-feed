@@ -7,7 +7,7 @@ import { Page } from "@/widgets/Page";
 const MainPage = () => {
   return (
     <Page data-testid="MainPage">
-      <Trans>Главная страница !</Trans>
+      <Trans>Главная страница</Trans>
     </Page>
   );
 };

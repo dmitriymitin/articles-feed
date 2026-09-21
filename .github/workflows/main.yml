@@ -1,41 +1,139 @@
 name: linting, testing, building
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [ 17.x ]
 
     steps:
+      # Получаем код репозитория
       - uses: actions/checkout@v2
+
+      # Устанавливаем Node.js
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      # Устанавливаем зависимости
       - name: install modules
         run: npm ci --force
+
+      # Собираем production build
       - name: build production project
         run: npm run build:prod
         if: always()
+
+      # Проверяем TypeScript
       - name: linting typescript
         run: npm run lint:ts
         if: always()
+
+      # Проверяем SCSS
       - name: linting css
         run: npm run lint:scss
+
+      # Запускаем unit-тесты
       - name: unit testing
         if: always()
         run: npm run test:unit
+
+      # Собираем Storybook
       - name: build storybook
         run: npm run storybook:build
         if: always()
-#      - name: screenshot testing
-#        run: npm run test:ui:ci
-#        if: always()
+
+      # Screenshot testing
+  #      - name: screenshot testing
+  #        run: npm run test:ui:ci
+  #        if: always()
+
+
+  # ============================================================
+  # DEPLOY
+  # ============================================================
+  #
+  # Этот job запускается только если:
+  #
+  # 1. pipeline завершился успешно
+  # 2. произошел push в ветку main
+  #
+  # При pull_request deploy выполняться НЕ будет.
+  #
+  deploy:
+    runs-on: ubuntu-latest
+
+    # Ждем успешного завершения pipeline
+    needs: pipeline
+
+    # Деплоим только push в main.
+    # Pull Request не вызывает deploy.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      # ----------------------------------------------------------
+      # Настройка SSH
+      # ----------------------------------------------------------
+      #
+      # SSH_PRIVATE_KEY находится в:
+      #
+      # GitHub repository
+      #   -> Settings
+      #   -> Secrets and variables
+      #   -> Actions
+      #
+      # Secret:
+      #
+      # SSH_PRIVATE_KEY
+      #
+      # В него необходимо положить содержимое:
+      #
+      # ~/.ssh/github_actions_ci
+      #
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+
+          chmod 600 ~/.ssh/id_ed25519
+
+          # Добавляем сервер в known_hosts,
+          # чтобы SSH не спрашивал:
+          #
+          # Are you sure you want to continue connecting?
+          #
+          ssh-keyscan -H 161.104.59.19 >> ~/.ssh/known_hosts
+
+
+      # ----------------------------------------------------------
+      # Запуск deploy на сервере
+      # ----------------------------------------------------------
+      #
+      # GitHub Actions подключается:
+      #
+      # root@161.104.59.19
+      #
+      # После подключения переходит в директорию проекта
+      # и запускает:
+      #
+      # .deploy/deploy.sh
+      #
+      - name: Deploy
+        run: |
+          ssh root@161.104.59.19 '
+            cd articles-feed &&
+            bash .deploy/deploy.sh
+          '
 
 
 #name: linting, testing, building
