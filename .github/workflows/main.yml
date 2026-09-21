@@ -131,8 +131,8 @@ jobs:
       - name: Deploy
         run: |
           ssh root@161.104.59.19 '
-            cd articles-feed &&
-            bash .deploy/deploy.sh
+            cd /root/articles-feed &&
+            bash -x .deploy/deploy.sh
           '
 
 
