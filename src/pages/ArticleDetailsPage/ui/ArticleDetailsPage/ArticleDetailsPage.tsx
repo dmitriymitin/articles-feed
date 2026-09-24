@@ -1,11 +1,13 @@
-import React from "react";
+import React, { FC } from "react"
 import { useParams } from "react-router-dom";
 
 import { ReducersList } from "@/app/providers/StoreProvider";
 
+import { Card } from "@/shared/ui/Card";
 import { Flex } from "@/shared/ui/Flex";
 
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { ToggleFeatures } from "@/shared/lib/features";
 
 import { ArticleDetails } from "@/entities/article";
 
@@ -22,18 +24,26 @@ const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
-const ArticleDetailsPage = () => {
+const ArticleDetailsPage: FC = () => {
   const { id } = useParams<{ id: string }>();
+
+  if (!id) {
+    return null;
+  }
 
   return (
     <Page>
       <DynamicModuleLoader reducers={reducers}>
         <Flex vertical gap="16" max>
-          <ArticleDetailsPageHeader articleId={id!} />
-          <ArticleDetails articleId={id!} />
-          <ArticleRating articleId={id!} />
+          <ArticleDetailsPageHeader articleId={id} />
+          <ArticleDetails articleId={id} />
+          <ToggleFeatures
+            feature="isArticleRatingEnabled"
+            on={<ArticleRating articleId={id} />}
+            off={<Card>Оценка статей скоро появится!</Card>}
+          />
           <ArticleDetailsRecommendations />
-          <ArticleDetailsComments articleId={id!} />
+          <ArticleDetailsComments articleId={id} />
         </Flex>
       </DynamicModuleLoader>
     </Page>

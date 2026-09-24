@@ -2,6 +2,8 @@ import { HTMLAttributes, memo, ReactNode } from 'react';
 
 import { cn } from "../../lib/classNames/classNames";
 
+import { Trans } from "../Translate";
+
 import s from './Card.module.scss';
 
 type CardTheme =
@@ -15,7 +17,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     max?: boolean;
 }
 
-export const Card = memo((props: CardProps) => {
+const _Card = (props: CardProps) => {
     const {
         className,
         children,
@@ -25,11 +27,13 @@ export const Card = memo((props: CardProps) => {
     } = props;
 
     return (
-        <div
-            className={cn(s.Card, { [s.max]: max }, className, s[theme])}
-            {...otherProps}
-        >
-            {children}
-        </div>
+      <div
+        className={cn(s.Card, { [s.max]: max }, className, s[theme])}
+        {...otherProps}
+      >
+          {typeof children === "string" ? <Trans>{children}</Trans> : children}
+      </div>
     );
-});
+};
+
+export const Card = memo(_Card);

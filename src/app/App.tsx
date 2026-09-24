@@ -10,7 +10,7 @@ import { PageLoader } from "@/widgets/PageLoader";
 import { Sidebar } from "@/widgets/Sidebar";
 
 // eslint-disable-next-line dm-plugin/path-checker
-import { getUserInited, userActions } from "../entities/user";
+import { getUserInited, initAuthData } from "../entities/user";
 
 import { AppRouter } from "./providers/router";
 
@@ -28,9 +28,9 @@ export const App = () => {
 
   useEffect(() => {
     if (!inited) {
-      dispatch(userActions.initAuthData());
+      dispatch(initAuthData());
     }
-  }, [inited]);
+  }, [dispatch, inited]);
 
   if (!inited) {
     return <PageLoader />;

@@ -214,7 +214,7 @@ Clear.args = {
 - [addArticleComment](/src/features/addArticleComment/README.md)
 - [auth](/src/features/auth/README.md)
 - [authByUsername](/src/features/authByUsername/README.md)
-- [features](/src/features/features/README.md)
+- [features](/src/shared/lib/features/README.md)
 - [langSwitch](/src/features/langSwitch/README.md)
 - [rateArticle](/src/features/rateArticle/README.md)
 - [selectArticleView](/src/features/selectArticleView/README.md)
