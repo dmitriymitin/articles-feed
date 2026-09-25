@@ -42,5 +42,5 @@
 #### Пример
 
 ```ts
-import { getUserAuthData, UserRole, type User } from "@/entities/User";
+import { getUserAuthData, UserRole, type User } from "@/entities/user";
 ```

@@ -1,16 +1,19 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState } from 'react';
 
-import { Button } from "@/shared/ui/Button";
-import { BrowserView, MobileView } from "@/shared/ui/DeviceDetect";
-import { Drawer } from "@/shared/ui/Drawer";
-import { Icon } from "@/shared/ui/Icon";
-import { Popover } from "@/shared/ui/Popups";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
+import { BrowserView, MobileView } from '@/shared/ui/DeviceDetect';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Popover } from '@/shared/ui/redesigned/Popups';
 
-import NotificationIcon from "@/shared/assets/icons/notification-20-20.svg";
+import { ToggleFeatures } from '@/shared/lib/features';
+import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 
-import { NavbarNotificationsList } from "../NavbarNotificationsList/NavbarNotificationsList";
+import { NavbarNotificationsList } from '../NavbarNotificationsList/NavbarNotificationsList';
 
-import s from "./NavbarShowNotificationsButton.module.scss";
+import s from './NavbarShowNotificationsButton.module.scss';
 
 export const NavbarShowNotificationsButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,17 +23,35 @@ export const NavbarShowNotificationsButton = () => {
   }, []);
 
   const trigger = (
-    <Button onClick={toggleDrawer} theme="clear">
-      <Icon Svg={NotificationIcon} inverted />
-    </Button>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<Icon Svg={NotificationIcon} clickable onClick={toggleDrawer} />}
+      off={
+        <ButtonDeprecated onClick={toggleDrawer} theme="clear">
+          <IconDeprecated Svg={NotificationIcon} inverted />
+        </ButtonDeprecated>
+      }
+    />
   );
+
+  const list = <NavbarNotificationsList className={s.notifications} />;
 
   return (
     <div>
       <BrowserView>
-        <Popover direction="bottom left" trigger={trigger}>
-          <NavbarNotificationsList className={s.notifications} />
-        </Popover>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
+            <Popover direction="bottom left" trigger={trigger}>
+              {list}
+            </Popover>
+          }
+          off={
+            <PopoverDeprecated direction="bottom left" trigger={trigger}>
+              {list}
+            </PopoverDeprecated>
+          }
+        />
       </BrowserView>
       <MobileView>
         {trigger}

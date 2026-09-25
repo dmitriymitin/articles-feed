@@ -1,11 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { Button } from "@/shared/ui/Button";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
 
-import { getUserAuthData } from "@/entities/user";
+import { ToggleFeatures } from '@/shared/lib/features';
 
-import { useLogout } from "../../model/hooks/useLogout";
+import { getUserAuthData } from '@/entities/user';
+
+import { useLogout } from '../../model/hooks/useLogout';
 
 interface AuthButtonProps {
   className?: string;
@@ -21,13 +24,31 @@ export const AuthButton = (props: AuthButtonProps) => {
   return (
     <>
       {authData ? (
-        <Button className={className} theme="clearInverted" onClick={logout}>
+        <ButtonDeprecated
+          className={className}
+          theme="clearInverted"
+          onClick={logout}
+        >
           Выйти
-        </Button>
+        </ButtonDeprecated>
       ) : (
-        <Button className={className} theme="clearInverted" onClick={onLogin}>
-          Войти
-        </Button>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
+            <Button variant="clear" className={className} onClick={onLogin}>
+              Войти
+            </Button>
+          }
+          off={
+            <ButtonDeprecated
+              className={className}
+              theme="clearInverted"
+              onClick={onLogin}
+            >
+              Войти
+            </ButtonDeprecated>
+          }
+        />
       )}
     </>
   );
