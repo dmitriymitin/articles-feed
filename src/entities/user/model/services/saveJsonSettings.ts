@@ -6,7 +6,7 @@ import { setJsonSettingsMutation } from '../../api/userApi';
 
 import { getUserAuthData } from "../selector/getUserAuthData/getUserAuthData";
 import { getJsonSettings } from '../selector/jsonSettings';
-import { JsonSettings } from '../types/jsonSettings';
+import { JsonSettings } from "../types/jsonSettings";
 
 export const saveJsonSettings = createAsyncThunk<
     JsonSettings,
