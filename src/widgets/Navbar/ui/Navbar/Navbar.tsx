@@ -10,8 +10,6 @@ import { getRouteArticleCreate } from '@/shared/const/router';
 
 import { getUserAuthData } from '@/entities/user';
 
-import { AvatarDropdown } from '@/features/avatarDropdown';
-
 import { NavbarAuthButton } from '../NavbarAuthButton/NavbarAuthButton';
 import { NavbarShowNotificationsButton } from '../NavbarShowNotificationsButton/NavbarShowNotificationsButton';
 import { NavbarUserMenu } from '../NavbarUserMenu/NavbarUserMenu';
@@ -46,7 +44,7 @@ export const Navbar = () => {
         <NavbarWrapper>
           <Flex gap="16" className={s.actions}>
             <NavbarShowNotificationsButton />
-            <AvatarDropdown />
+            <NavbarUserMenu />
           </Flex>
         </NavbarWrapper>
       }
@@ -62,10 +60,7 @@ export const Navbar = () => {
           </AppLink>
           <Flex gap="16" className={s.actions} align="center">
             <NavbarShowNotificationsButton />
-            <NavbarUserMenu
-              profileId={authData.id}
-              profileAvatar={authData.avatar}
-            />
+            <NavbarUserMenu />
           </Flex>
         </NavbarWrapper>
       }

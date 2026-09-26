@@ -1,17 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Skeleton } from "@/shared/ui/Skeleton";
-import { Text } from "@/shared/ui/Text";
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Flex } from '@/shared/ui/Flex';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { Text } from '@/shared/ui/Text';
 
-import { cn } from "@/shared/lib/classNames/classNames";
+import { cn } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 
 import {
   NotificationItem,
   useNotificationsQuery,
-} from "@/entities/notification";
+} from '@/entities/notification';
 
-import s from "./NavbarNotificationsList.module.scss";
+import s from './NavbarNotificationsList.module.scss';
 
 const NotificationsWrapper = ({ children, className }) => (
   <Flex vertical gap="16" max className={cn(s.NotificationList, className)}>
@@ -24,7 +26,7 @@ interface NavbarNotificationsListProps {
 }
 
 export const NavbarNotificationsList = (
-  props: NavbarNotificationsListProps
+  props: NavbarNotificationsListProps,
 ) => {
   const { className } = props;
 
@@ -37,7 +39,14 @@ export const NavbarNotificationsList = (
   });
 
   if (isLoading) {
+    const Skeleton = toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => SkeletonRedesigned,
+      off: () => SkeletonDeprecated,
+    });
+
     const skeleton = <Skeleton width="100%" border="8px" height="80px" />;
+
     return (
       <NotificationsWrapper className={className}>
         {skeleton}

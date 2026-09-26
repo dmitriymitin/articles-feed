@@ -1022,7 +1022,7 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "avatar": "https://avatars.mds.yandex.net/i?id=a5aebe75cd14586081259f4ff424fdc268904d67-4570234-images-thumbs&n=1",
       "jsonSettings": {
@@ -1061,7 +1061,8 @@
       },
       "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg",
       "jsonSettings": {
-        "isArticlesPageWasOpened": false
+        "isArticlesPageWasOpened": false,
+        "theme": "app_light_theme"
       }
     },
     {

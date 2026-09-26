@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import { ComponentMeta,ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import { NavbarUserMenu } from './NavbarUserMenu';
-
 
 export default {
   title: 'widgets/Navbar/NavbarUserMenu',
@@ -16,13 +15,15 @@ export default {
 } as ComponentMeta<typeof NavbarUserMenu>;
 
 const Template: ComponentStory<typeof NavbarUserMenu> = (args) => (
-  <NavbarUserMenu {...args} />
+  <NavbarUserMenu />
 );
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-  user: {
-    authData: { id: '1' }
-  }
-})]
+Normal.decorators = [
+  StoreDecorator({
+    user: {
+      authData: { id: '1' },
+    },
+  }),
+];

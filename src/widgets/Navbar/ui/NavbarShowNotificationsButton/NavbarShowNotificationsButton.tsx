@@ -9,7 +9,8 @@ import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups';
 
 import { ToggleFeatures } from '@/shared/lib/features';
-import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20.svg';
 
 import { NavbarNotificationsList } from '../NavbarNotificationsList/NavbarNotificationsList';
 
@@ -28,7 +29,7 @@ export const NavbarShowNotificationsButton = () => {
       on={<Icon Svg={NotificationIcon} clickable onClick={toggleDrawer} />}
       off={
         <ButtonDeprecated onClick={toggleDrawer} theme="clear">
-          <IconDeprecated Svg={NotificationIcon} inverted />
+          <IconDeprecated Svg={NotificationIconDeprecated} inverted />
         </ButtonDeprecated>
       }
     />

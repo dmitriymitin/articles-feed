@@ -8,8 +8,6 @@ import { ToggleFeatures } from '@/shared/lib/features';
 
 import { getUserAuthData } from '@/entities/user';
 
-import { useLogout } from '../../model/hooks/useLogout';
-
 interface AuthButtonProps {
   className?: string;
   onLogin?: () => void;
@@ -19,37 +17,27 @@ export const AuthButton = (props: AuthButtonProps) => {
   const { className, onLogin } = props;
   const authData = useSelector(getUserAuthData);
 
-  const { logout } = useLogout();
+  if (authData) {
+    return null;
+  }
 
   return (
-    <>
-      {authData ? (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Button variant="clear" className={className} onClick={onLogin}>
+          Войти
+        </Button>
+      }
+      off={
         <ButtonDeprecated
           className={className}
           theme="clearInverted"
-          onClick={logout}
+          onClick={onLogin}
         >
-          Выйти
+          Войти
         </ButtonDeprecated>
-      ) : (
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={
-            <Button variant="clear" className={className} onClick={onLogin}>
-              Войти
-            </Button>
-          }
-          off={
-            <ButtonDeprecated
-              className={className}
-              theme="clearInverted"
-              onClick={onLogin}
-            >
-              Войти
-            </ButtonDeprecated>
-          }
-        />
-      )}
-    </>
+      }
+    />
   );
 };

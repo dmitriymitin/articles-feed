@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, memo } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
@@ -11,7 +11,7 @@ interface SkeletonProps {
   border?: string;
 }
 
-export const Skeleton = (props: SkeletonProps) => {
+export const Skeleton = memo((props: SkeletonProps) => {
   const { className, height, width, border } = props;
 
   const styles: CSSProperties = {
@@ -21,4 +21,4 @@ export const Skeleton = (props: SkeletonProps) => {
   };
 
   return <div className={cn(s.Skeleton, className)} style={styles} />;
-};
+});

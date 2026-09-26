@@ -1,53 +1,51 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { Avatar } from "@/shared/ui/Avatar";
-import { Icon } from "@/shared/ui/Icon";
-import { Dropdown } from '@/shared/ui/Popups';
-import { DropdownItem } from "@/shared/ui/Popups/components/Dropdown/Dropdown";
-import { Trans } from "@/shared/ui/Translate";
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { DropdownItem } from '@/shared/ui/redesigned/Popups/components/Dropdown/Dropdown';
+import { Trans } from '@/shared/ui/Translate';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import {
   getRouteAdmin,
   getRouteProfile,
   getRouteSettings,
 } from '@/shared/const/router';
-import UserIcon from "@/shared/assets/icons/user-filled.svg";
 
-import { Profile } from "@/entities/profile";
-import {
-  isUserAdmin,
-  isUserManager,
-} from '@/entities/user';
+import { getUserAuthData, isUserAdmin, isUserManager } from '@/entities/user';
 
 import { useLogout } from '@/features/auth';
 
-interface NavbarUserMenuProps {
-  profileId: Profile['id']
-  profileAvatar: Profile['avatar']
-}
-
-export const NavbarUserMenu = (props: NavbarUserMenuProps) => {
-  const { profileId, profileAvatar } = props;
-
-  const { logout } = useLogout()
+export const NavbarUserMenu = () => {
+  const { logout } = useLogout();
 
   const isAdmin = useSelector(isUserAdmin);
   const isManager = useSelector(isUserManager);
+  const authData = useSelector(getUserAuthData);
+
+  if (!authData) {
+    return null;
+  }
 
   const items: DropdownItem[] = [
-    {
-      content: <Trans>Админка</Trans>,
-      href: getRouteAdmin(),
-      show: isAdmin || isManager
-    },
+    ...(isAdmin || isManager
+      ? [
+          {
+            content: <Trans>Админка</Trans>,
+            href: getRouteAdmin(),
+          },
+        ]
+      : []),
     {
       content: <Trans>Настройки</Trans>,
       href: getRouteSettings(),
     },
     {
       content: <Trans>Профиль</Trans>,
-      href: getRouteProfile(profileId),
+      href: getRouteProfile(authData.id),
     },
     {
       content: <Trans>Выйти</Trans>,
@@ -56,22 +54,26 @@ export const NavbarUserMenu = (props: NavbarUserMenuProps) => {
   ];
 
   return (
-    <Dropdown
-      direction="bottom left"
-      items={items}
-      trigger={
-        <Avatar
-          fallbackInverted
-          size={30}
-          src={profileAvatar}
-          errorFallback={(
-            <Icon
-              inverted
-              width={30}
-              height={30}
-              Svg={UserIcon}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Dropdown
+          direction="bottom left"
+          items={items}
+          trigger={<Avatar size={40} src={authData.avatar} />}
+        />
+      }
+      off={
+        <DropdownDeprecated
+          direction="bottom left"
+          items={items}
+          trigger={
+            <AvatarDeprecated
+              fallbackInverted
+              size={30}
+              src={authData.avatar}
             />
-          )}
+          }
         />
       }
     />

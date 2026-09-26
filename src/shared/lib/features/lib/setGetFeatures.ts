@@ -3,7 +3,7 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
 
 const defaultFeatures: FeatureFlags = {
   isAppRedesigned:
-    localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === "new",
+    localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new',
 };
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗАТЕЛЬНО ДЕЛАТЬ РЕАКТИВНЫМИ!
 let featureFlags: FeatureFlags = {
@@ -22,7 +22,7 @@ export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
 
 export function getFeatureFlag(flag: keyof FeatureFlags) {
   return {
-    value: featureFlags[flag],
+    value: featureFlags?.[flag],
   };
 }
 

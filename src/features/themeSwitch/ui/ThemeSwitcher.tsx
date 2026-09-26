@@ -1,17 +1,16 @@
-import { memo } from "react";
+import { memo } from 'react';
 
-import { Button } from "@/shared/ui/Button";
+import { Button } from '@/shared/ui/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
-import { cn } from "@/shared/lib/classNames/classNames";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
-import { Theme } from "@/shared/const/theme";
-import DarkIcon from "@/shared/assets/icons/theme-dark.svg";
-import LightIcon from "@/shared/assets/icons/theme-light.svg";
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
+import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 
-import { saveJsonSettings } from "@/entities/user";
-
-import s from "./ThemeSwitcher.module.scss";
+import { saveJsonSettings } from '@/entities/user';
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -26,14 +25,23 @@ export const _ThemeSwitcher = (props: ThemeSwitcherProps) => {
     toggleTheme((newTheme) => {
       dispatch(saveJsonSettings({ theme: newTheme }));
     });
-  }
-
-  const cls = cn(s.ThemeSwitcher, className);
+  };
 
   return (
-    <Button theme="clear" onClick={onToggleHandler} className={cls}>
-      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
-    </Button>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
+      off={
+        <Button theme="clear" onClick={onToggleHandler}>
+          <IconDeprecated
+            Svg={ThemeIconDeprecated}
+            width={40}
+            height={40}
+            inverted
+          />
+        </Button>
+      }
+    />
   );
 };
 
