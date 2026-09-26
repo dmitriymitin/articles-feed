@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Skeleton } from "@/shared/ui/Skeleton";
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import s from './ArticleDetails.module.scss'
+import s from './ArticleDetails.module.scss';
 
 export const ArticleDetailsSkeleton = () => {
   return (
-    <Flex vertical max gap='16'>
-      <Skeleton
+    <Flex vertical max gap="16">
+      <SkeletonDeprecated
         className={s.avatar}
         width={200}
         height={200}
         border="50%"
       />
-      <Skeleton className={s.title} width={300} height={32} />
-      <Skeleton className={s.skeleton} width={600} height={24} />
-      <Skeleton className={s.skeleton} width="100%" height={200} />
-      <Skeleton className={s.skeleton} width="100%" height={200} />
+      <SkeletonDeprecated className={s.title} width={300} height={32} />
+      <SkeletonDeprecated className={s.skeleton} width={600} height={24} />
+      <SkeletonDeprecated className={s.skeleton} width="100%" height={200} />
+      <SkeletonDeprecated className={s.skeleton} width="100%" height={200} />
     </Flex>
   );
 };

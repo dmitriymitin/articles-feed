@@ -1,21 +1,21 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { AppLink } from "@/shared/ui/AppLink";
-import { Button } from "@/shared/ui/Button";
-import { Flex } from "@/shared/ui/Flex";
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
-import { Article } from "@/entities/article";
+import { Article } from '@/entities/article';
 
-import { getCanEditArticle } from "../../model/selectors/article/article";
+import { getCanEditArticle } from '../../model/selectors/article/article';
 
 interface ArticleDetailsPageHeaderProps {
-  articleId: Article["id"];
+  articleId: Article['id'];
 }
 
 export const ArticleDetailsPageHeader = (
-  props: ArticleDetailsPageHeaderProps
+  props: ArticleDetailsPageHeaderProps,
 ) => {
   const { articleId } = props;
 
@@ -23,17 +23,17 @@ export const ArticleDetailsPageHeader = (
 
   return (
     <Flex max align="center" justify="between">
-      <AppLink to={getRouteArticles()}>
-        <Button theme="outline" tabIndex={-1}>
+      <AppLinkDeprecated to={getRouteArticles()}>
+        <ButtonDeprecated theme="outline" tabIndex={-1}>
           Назад к списку
-        </Button>
-      </AppLink>
+        </ButtonDeprecated>
+      </AppLinkDeprecated>
       {canEdit && (
-        <AppLink to={getRouteArticleEdit(articleId)}>
-          <Button theme="outline" tabIndex={-1}>
+        <AppLinkDeprecated to={getRouteArticleEdit(articleId)}>
+          <ButtonDeprecated theme="outline" tabIndex={-1}>
             Редактировать
-          </Button>
-        </AppLink>
+          </ButtonDeprecated>
+        </AppLinkDeprecated>
       )}
     </Flex>
   );

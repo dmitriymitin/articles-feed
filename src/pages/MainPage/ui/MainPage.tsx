@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Trans } from "@/shared/ui/Translate";
+import { Trans } from '@/shared/ui/redesigned/Translate';
 
-import { Page } from "@/widgets/Page";
+import { Page } from '@/widgets/Page';
 
 const MainPage = () => {
   return (

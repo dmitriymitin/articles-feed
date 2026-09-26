@@ -3,8 +3,8 @@ import React, { useCallback, useState } from 'react';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
-import { BrowserView, MobileView } from '@/shared/ui/DeviceDetect';
-import { Drawer } from '@/shared/ui/Drawer';
+import { BrowserView, MobileView } from '@/shared/ui/redesigned/DeviceDetect';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups';
 

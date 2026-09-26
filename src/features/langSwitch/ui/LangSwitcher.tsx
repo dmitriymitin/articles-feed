@@ -1,11 +1,11 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { Button } from "@/shared/ui/Button";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 
-import { cn } from "@/shared/lib/classNames/classNames";
+import { cn } from '@/shared/lib/classNames/classNames';
 
-import s from "./LangSwitcher.module.scss";
+import s from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
   className?: string;
@@ -17,14 +17,14 @@ export const LangSwitcher = (props: LangSwitcherProps) => {
   const { i18n } = useTranslation();
 
   const toggle = () => {
-    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
 
   const cls = cn(s.LangSwitcher, className);
 
   return (
-    <Button className={cls} theme="clear" onClick={toggle}>
-      {short ? "Короткий язык" : "Язык"}
-    </Button>
+    <ButtonDeprecated className={cls} theme="clear" onClick={toggle}>
+      {short ? 'Короткий язык' : 'Язык'}
+    </ButtonDeprecated>
   );
 };

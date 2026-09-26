@@ -1,12 +1,12 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import { Loader } from "@/shared/ui/Loader";
-import { Modal, ModalProps } from "@/shared/ui/Modal";
+import { Loader as LoaderDeprecated } from '@/shared/ui/deprecated/Loader';
+import { Modal, ModalProps } from '@/shared/ui/redesigned/Modal';
 
-import { LoginFormAsync } from "../LoginForm/LoginForm.async";
+import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
-interface LoginModalProps extends Pick<ModalProps, "isOpen"> {
-  onClose: () => void
+interface LoginModalProps extends Pick<ModalProps, 'isOpen'> {
+  onClose: () => void;
 }
 
 export const LoginModal = (props: LoginModalProps) => {
@@ -14,7 +14,7 @@ export const LoginModal = (props: LoginModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} lazy>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<LoaderDeprecated />}>
         <LoginFormAsync onLogin={onClose} />
       </Suspense>
     </Modal>

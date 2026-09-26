@@ -1,32 +1,30 @@
 import React from 'react';
 
-import { Card } from "@/shared/ui/Card";
-import { Skeleton } from "@/shared/ui/Skeleton";
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 
-import s from './ArticleListItemSmall.module.scss'
+import s from './ArticleListItemSmall.module.scss';
 
 interface ArticleListItemSmallSkeletonProps {
-  className?: string
+  className?: string;
 }
 
-export const ArticleListItemSmallSkeleton = (props: ArticleListItemSmallSkeletonProps) => {
-  const { className } = props
+export const ArticleListItemSmallSkeleton = (
+  props: ArticleListItemSmallSkeletonProps,
+) => {
+  const { className } = props;
 
   return (
     <div className={className}>
-      <Card className={s.card}>
+      <CardDeprecated className={s.card}>
         <div className={s.imageWrapper}>
-          <Skeleton
-            width={200}
-            height={200}
-            className={s.img}
-          />
+          <SkeletonDeprecated width={200} height={200} className={s.img} />
         </div>
         <div className={s.infoWrapper}>
-          <Skeleton width={130} height={16} />
+          <SkeletonDeprecated width={130} height={16} />
         </div>
-        <Skeleton width={150} height={16} className={s.title} />
-      </Card>
+        <SkeletonDeprecated width={150} height={16} className={s.title} />
+      </CardDeprecated>
     </div>
   );
 };

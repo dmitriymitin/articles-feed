@@ -1,24 +1,24 @@
-import React, { FC } from "react"
-import { useParams } from "react-router-dom";
+import React, { FC } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { ReducersList } from "@/app/providers/StoreProvider";
+import { ReducersList } from '@/app/providers/StoreProvider';
 
-import { Card } from "@/shared/ui/Card";
-import { Flex } from "@/shared/ui/Flex";
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { ToggleFeatures } from "@/shared/lib/features";
+import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
 
-import { ArticleDetails } from "@/entities/article";
+import { ArticleDetails } from '@/entities/article';
 
-import { ArticleRating } from "@/features/rateArticle";
-import { Page } from "@/widgets/Page";
+import { ArticleRating } from '@/features/rateArticle';
+import { Page } from '@/widgets/Page';
 
-import { articleDetailsPageReducer } from "../../model/slices";
+import { articleDetailsPageReducer } from '../../model/slices';
 
-import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
-import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import { ArticleDetailsRecommendations } from "../ArticleDetailsRecommendations/ArticleDetailsRecommendations";
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetailsRecommendations } from '../ArticleDetailsRecommendations/ArticleDetailsRecommendations';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -40,7 +40,7 @@ const ArticleDetailsPage: FC = () => {
           <ToggleFeatures
             feature="isArticleRatingEnabled"
             on={<ArticleRating articleId={id} />}
-            off={<Card>Оценка статей скоро появится!</Card>}
+            off={<CardDeprecated>Оценка статей скоро появится!</CardDeprecated>}
           />
           <ArticleDetailsRecommendations />
           <ArticleDetailsComments articleId={id} />

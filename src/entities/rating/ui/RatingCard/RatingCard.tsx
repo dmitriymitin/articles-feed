@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Button } from "@/shared/ui/Button";
-import { Card } from "@/shared/ui/Card";
-import { BrowserView, MobileView } from "@/shared/ui/DeviceDetect";
-import { Drawer } from "@/shared/ui/Drawer";
-import { Flex } from "@/shared/ui/Flex";
-import { Input } from "@/shared/ui/Input";
-import { Modal } from "@/shared/ui/Modal";
-import { StarRating } from "@/shared/ui/StarRating";
-import { Text } from "@/shared/ui/Text";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { StarRating as StarRatingDeprecated } from '@/shared/ui/deprecated/StarRating';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { BrowserView, MobileView } from '@/shared/ui/redesigned/DeviceDetect';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Flex } from '@/shared/ui/redesigned/Flex';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 interface RatingCardProps {
   className?: string;
@@ -32,7 +32,7 @@ export const RatingCard = (props: RatingCardProps) => {
   } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [starsCount, setStarsCount] = useState(rate);
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState('');
 
   const onSelectStars = (selectedStarsCount: number) => {
     setStarsCount(selectedStarsCount);
@@ -55,8 +55,8 @@ export const RatingCard = (props: RatingCardProps) => {
 
   const modalContent = (
     <>
-      <Text title={feedbackTitle} />
-      <Input
+      <TextDeprecated title={feedbackTitle} />
+      <InputDeprecated
         data-testid="RatingCard.Input"
         value={feedback}
         onChange={setFeedback}
@@ -68,8 +68,8 @@ export const RatingCard = (props: RatingCardProps) => {
   const content = (
     <>
       <Flex vertical align="center" gap="8" max>
-        <Text title={starsCount ? "Спасибо за оценку!" : title} />
-        <StarRating
+        <TextDeprecated title={starsCount ? 'Спасибо за оценку!' : title} />
+        <StarRatingDeprecated
           selectedStars={starsCount}
           size={40}
           onSelect={onSelectStars}
@@ -80,16 +80,16 @@ export const RatingCard = (props: RatingCardProps) => {
           <Flex vertical max gap="32">
             {modalContent}
             <Flex align="center" max gap="16" justify="end">
-              <Button
+              <ButtonDeprecated
                 data-testid="RatingCard.Close"
                 onClick={cancel}
                 theme="outline_red"
               >
                 Закрыть
-              </Button>
-              <Button data-testid="RatingCard.Send" onClick={accept}>
+              </ButtonDeprecated>
+              <ButtonDeprecated data-testid="RatingCard.Send" onClick={accept}>
                 Отправить
-              </Button>
+              </ButtonDeprecated>
             </Flex>
           </Flex>
         </Modal>
@@ -98,9 +98,9 @@ export const RatingCard = (props: RatingCardProps) => {
         <Drawer isOpen={isModalOpen} lazy onClose={cancel}>
           <Flex vertical gap="32">
             {modalContent}
-            <Button fullWidth onClick={accept} size="l">
+            <ButtonDeprecated fullWidth onClick={accept} size="l">
               Отправить
-            </Button>
+            </ButtonDeprecated>
           </Flex>
         </Drawer>
       </MobileView>
@@ -108,8 +108,8 @@ export const RatingCard = (props: RatingCardProps) => {
   );
 
   return (
-    <Card className={className} max data-testid="RatingCard">
+    <CardDeprecated className={className} max data-testid="RatingCard">
       {content}
-    </Card>
+    </CardDeprecated>
   );
 };

@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Text } from "@/shared/ui/Text";
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
-import { Article } from "@/entities/article"
+import { Article } from '@/entities/article';
 
-import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 import { ArticleDetailsCommentsOld } from './ArticleDetailsCommentsOld';
 
@@ -16,7 +16,9 @@ interface ArticleDetailsCommentsContainerProps {
   articleId: Article['id'];
 }
 
-export const ArticleDetailsCommentsContainer = (props: ArticleDetailsCommentsContainerProps) => {
+export const ArticleDetailsCommentsContainer = (
+  props: ArticleDetailsCommentsContainerProps,
+) => {
   const { articleId } = props;
 
   const dispatch = useAppDispatch();
@@ -31,7 +33,7 @@ export const ArticleDetailsCommentsContainer = (props: ArticleDetailsCommentsCon
 
   return (
     <Flex vertical gap="16" max>
-      <Text size='size_l' title='Комментарии'/>
+      <TextDeprecated size="size_l" title="Комментарии" />
       {/* <Suspense fallback={<Loader />}> */}
       {/*  <AddCommentForm onSendComment={onSendComment} /> */}
       {/* </Suspense> */}

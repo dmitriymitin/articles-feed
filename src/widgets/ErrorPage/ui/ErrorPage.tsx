@@ -1,9 +1,9 @@
-import { Button } from "@/shared/ui/Button";
-import { Trans } from "@/shared/ui/Translate";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Trans } from '@/shared/ui/redesigned/Translate';
 
-import { cn } from "@/shared/lib/classNames/classNames";
+import { cn } from '@/shared/lib/classNames/classNames';
 
-import s from "./ErrorPage.module.scss";
+import s from './ErrorPage.module.scss';
 
 interface ErrorPageProps {
   className?: string;
@@ -22,7 +22,9 @@ export const ErrorPage = (props: ErrorPageProps) => {
       <p>
         <Trans>Произошла непредвиденная ошибка</Trans>
       </p>
-      <Button onClick={reloadPage}>Обновить страницу</Button>
+      <ButtonDeprecated onClick={reloadPage}>
+        Обновить страницу
+      </ButtonDeprecated>
     </div>
   );
 };

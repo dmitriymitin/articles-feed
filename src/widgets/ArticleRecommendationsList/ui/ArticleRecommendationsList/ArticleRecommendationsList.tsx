@@ -1,17 +1,17 @@
-import { Suspense } from "react";
-import { useTranslation } from "react-i18next";
+import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Loader } from "@/shared/ui/Loader";
-import { Text } from "@/shared/ui/Text";
+import { Loader as LoaderDeprecated } from '@/shared/ui/deprecated/Loader';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
 import {
   ArticleListItemSmall,
   ArticleListItemSmallSkeleton,
   articleRecommendationsListLimit,
-} from "@/entities/article";
+} from '@/entities/article';
 
-import { useArticleRecommendationsListQuery } from "../../api/aritcleRecommendationsApi";
+import { useArticleRecommendationsListQuery } from '../../api/aritcleRecommendationsApi';
 
 const ArticleRecommendationsList = () => {
   const { t } = useTranslation();
@@ -27,12 +27,12 @@ const ArticleRecommendationsList = () => {
 
   return (
     <Flex data-testid="ArticleRecommendationsList" vertical gap="8">
-      <Text size="size_l" title={t("Рекомендуем")} />
+      <TextDeprecated size="size_l" title={t('Рекомендуем')} />
       <Flex wrap="wrap" gap="30">
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<LoaderDeprecated />}>
           {isLoading &&
             new Array(articleRecommendationsListLimit)
-              .fill("")
+              .fill('')
               .map((_, index) => <ArticleListItemSmallSkeleton key={index} />)}
         </Suspense>
         {articles?.map((article) => (

@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { Text } from "@/shared/ui/Text";
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
-import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 
 interface LoginFormErrorProps {}
 
@@ -13,5 +13,5 @@ export const LoginFormError = (props: LoginFormErrorProps) => {
     return null;
   }
 
-  return <Text text={error} theme="error" />;
+  return <TextDeprecated text={error} theme="error" />;
 };

@@ -1,19 +1,19 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { Skeleton } from "@/shared/ui/Skeleton";
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 
-import { Article } from "@/entities/article";
-import { RatingCard } from "@/entities/rating";
-import { getUserAuthData } from "@/entities/user";
+import { Article } from '@/entities/article';
+import { RatingCard } from '@/entities/rating';
+import { getUserAuthData } from '@/entities/user';
 
 import {
   useArticleRatingMutation,
   useArticleRatingQuery,
-} from "../../api/articleRatingApi";
+} from '../../api/articleRatingApi';
 
 export interface ArticleRatingProps {
   className?: string;
-  articleId: Article["id"];
+  articleId: Article['id'];
 }
 
 const ArticleRating = (props: ArticleRatingProps) => {
@@ -28,7 +28,7 @@ const ArticleRating = (props: ArticleRatingProps) => {
 
   const handleRateArticle = (starsCount: number, feedback?: string) => {
     rateArticleMutation({
-      userId: userData?.id ?? "",
+      userId: userData?.id ?? '',
       articleId,
       rate: starsCount,
       feedback,
@@ -44,7 +44,7 @@ const ArticleRating = (props: ArticleRatingProps) => {
   };
 
   if (isLoading) {
-    return <Skeleton width="100%" height={120} />;
+    return <SkeletonDeprecated width="100%" height={120} />;
   }
 
   if (error || !data) {

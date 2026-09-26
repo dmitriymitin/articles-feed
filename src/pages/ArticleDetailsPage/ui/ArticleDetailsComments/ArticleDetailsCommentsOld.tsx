@@ -1,19 +1,19 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Text } from "@/shared/ui/Text";
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { CommentCard, CommentCardSkeleton } from "@/entities/comment";
+import { CommentCard, CommentCardSkeleton } from '@/entities/comment';
 
-import { getArticleCommentsIsLoading } from "../../model/selectors/comments/comments";
-import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentsSlice";
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments/comments';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentsSlice';
 
 const CommentsWrapper = ({ children }: PropsWithChildren) => (
   <Flex vertical gap="16" max>
     {children}
   </Flex>
-)
+);
 
 export const ArticleDetailsCommentsOld = () => {
   const comments = useSelector(getArticleComments.selectAll);
@@ -31,17 +31,17 @@ export const ArticleDetailsCommentsOld = () => {
 
   if (!comments?.length) {
     return (
-      <Flex align='center' justify='center'>
-        <Text text='Комментарии отсутствуют' />
+      <Flex align="center" justify="center">
+        <TextDeprecated text="Комментарии отсутствуют" />
       </Flex>
-    )
+    );
   }
 
   return (
     <CommentsWrapper>
-      {comments.map((comment) =>
-        <CommentCard key={comment.id} comment={comment}/>
-      )}
+      {comments.map((comment) => (
+        <CommentCard key={comment.id} comment={comment} />
+      ))}
     </CommentsWrapper>
   );
-}
+};

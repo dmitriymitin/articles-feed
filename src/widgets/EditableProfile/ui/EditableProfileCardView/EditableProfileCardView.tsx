@@ -1,17 +1,17 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { Loader } from "@/shared/ui/Loader";
-import { Text } from "@/shared/ui/Text";
+import { Loader as LoaderDeprecated } from '@/shared/ui/deprecated/Loader';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
-import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
-import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 
-import { EditableProfileAvatar } from "../EditableProfileAvatar/EditableProfileAvatar";
-import { EditableProfileCountrySelect } from "../EditableProfileCountrySelect/EditableProfileCountrySelect";
-import { EditableProfileCurrencySelect } from "../EditableProfileCurrencySelect/EditableProfileCurrencySelect";
-import { EditableProfileInput } from "../EditableProfileInput/EditableProfileInput";
+import { EditableProfileAvatar } from '../EditableProfileAvatar/EditableProfileAvatar';
+import { EditableProfileCountrySelect } from '../EditableProfileCountrySelect/EditableProfileCountrySelect';
+import { EditableProfileCurrencySelect } from '../EditableProfileCurrencySelect/EditableProfileCurrencySelect';
+import { EditableProfileInput } from '../EditableProfileInput/EditableProfileInput';
 
-import s from "./EditableProfileCardView.module.scss";
+import s from './EditableProfileCardView.module.scss';
 
 export const EditableProfileCardView = () => {
   const isLoading = useSelector(getProfileIsLoading);
@@ -20,19 +20,19 @@ export const EditableProfileCardView = () => {
   if (isLoading) {
     return (
       <div className={s.loading}>
-        <Loader />
+        <LoaderDeprecated />
       </div>
-    )
+    );
   }
 
   if (error) {
     return (
       <div className={s.error}>
-        <Text
-          theme='error'
-          title='Произошла ошибка при загрузке профиля'
-          text='Попробуйте обновить страницу'
-          align='center'
+        <TextDeprecated
+          theme="error"
+          title="Произошла ошибка при загрузке профиля"
+          text="Попробуйте обновить страницу"
+          align="center"
         />
       </div>
     );
@@ -45,18 +45,18 @@ export const EditableProfileCardView = () => {
         field="first"
         placeholder="Ваше имя"
         className={s.input}
-        data-testid='EditableProfileCardView.first'
+        data-testid="EditableProfileCardView.first"
       />
       <EditableProfileInput
         field="lastname"
         placeholder="Ваша фамилия"
         className={s.input}
-        data-testid='EditableProfileCardView.lastname'
+        data-testid="EditableProfileCardView.lastname"
       />
       <EditableProfileInput
         field="age"
         placeholder="Ваш возраст"
-        type='number'
+        type="number"
         className={s.input}
       />
       <EditableProfileInput

@@ -1,33 +1,33 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Button } from "@/shared/ui/Button";
-import { Flex } from "@/shared/ui/Flex";
-import { Input } from "@/shared/ui/Input";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { Article } from "@/entities/article";
+import { Article } from '@/entities/article';
 
-import { addArticleComment } from "../../model/services/addArticleComment/addArticleComment";
+import { addArticleComment } from '../../model/services/addArticleComment/addArticleComment';
 
-import s from "./AddArticleComment.module.scss";
+import s from './AddArticleComment.module.scss';
 
 export interface AddArticleCommentProps {
-  articleId: Article["id"];
+  articleId: Article['id'];
   onSendComment: () => void;
 }
 
 const AddArticleComment = (props: AddArticleCommentProps) => {
   const { articleId, onSendComment } = props;
 
-  const [comment, setComment] = useState<string>("");
+  const [comment, setComment] = useState<string>('');
   const dispatch = useAppDispatch();
 
   const sendComment = async () => {
     const response = await dispatch(addArticleComment({ comment, articleId }));
 
-    if (response.meta.requestStatus !== "rejected") {
-      setComment("");
+    if (response.meta.requestStatus !== 'rejected') {
+      setComment('');
       onSendComment();
     }
   };
@@ -40,20 +40,20 @@ const AddArticleComment = (props: AddArticleCommentProps) => {
       max
       className={s.AddCommentForm}
     >
-      <Input
+      <InputDeprecated
         className={s.input}
         placeholder="Введите текст комментария"
         value={comment}
         data-testid="AddArticleComment.Input"
         onChange={setComment}
       />
-      <Button
+      <ButtonDeprecated
         data-testid="AddArticleComment.Button"
         theme="outline"
         onClick={sendComment}
       >
         Отправить
-      </Button>
+      </ButtonDeprecated>
     </Flex>
   );
 };

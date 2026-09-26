@@ -2,7 +2,7 @@ import { HTMLAttributes, memo, ReactNode } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
-import { Trans } from '../../Translate';
+import { Trans } from '../../redesigned/Translate';
 
 import s from './Card.module.scss';
 

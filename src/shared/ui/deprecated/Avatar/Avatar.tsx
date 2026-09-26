@@ -16,6 +16,10 @@ interface AvatarProps {
   errorFallback?: ReactElement;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 export const Avatar = (props: AvatarProps) => {
   const {
     className,

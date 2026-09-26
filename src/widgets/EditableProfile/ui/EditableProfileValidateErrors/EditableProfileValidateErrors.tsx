@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { Text } from "@/shared/ui/Text";
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
-import { ValidateProfileError } from "../../model/consts/editableProfileConsts";
-import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
+import { ValidateProfileError } from '../../model/consts/editableProfileConsts';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 const validateProfileErrorText = {
   [ValidateProfileError.SERVER_ERROR]: 'Серверная ошибка при сохранении',
@@ -14,24 +14,22 @@ const validateProfileErrorText = {
 };
 
 export const EditableProfileValidateErrors = () => {
-  const validateErrors = useSelector(getProfileValidateErrors)
+  const validateErrors = useSelector(getProfileValidateErrors);
 
   if (!validateErrors?.length) {
-    return <></>
+    return <></>;
   }
 
   return (
     <>
-      {
-        validateErrors.map((err) => (
-          <Text
-            key={err}
-            theme="error"
-            text={validateProfileErrorText[err]}
-            data-testid="EditableProfileValidateErrors.Error"
-          />
-        ))
-      }
+      {validateErrors.map((err) => (
+        <TextDeprecated
+          key={err}
+          theme="error"
+          text={validateProfileErrorText[err]}
+          data-testid="EditableProfileValidateErrors.Error"
+        />
+      ))}
     </>
   );
 };

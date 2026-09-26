@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import AppSvg from '@/shared/assets/icons/app-image.svg';
 
-import { Flex } from '../../Flex';
+import { Flex } from '../Flex';
 
 import s from './AppLogo.module.scss';
 

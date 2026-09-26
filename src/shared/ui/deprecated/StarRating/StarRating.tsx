@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { cn } from "@/shared/lib/classNames/classNames";
-import StarIcon from "@/shared/assets/icons/star.svg";
+import { cn } from '@/shared/lib/classNames/classNames';
+import StarIcon from '@/shared/assets/icons/star.svg';
 
-import { Icon } from "../Icon";
+import { Icon } from '../Icon';
 
-import s from "./StarRating.module.scss";
+import s from './StarRating.module.scss';
 
 interface StarRatingProps {
   className?: string;
@@ -16,6 +16,10 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 export const StarRating = (props: StarRatingProps) => {
   const { className, size = 30, selectedStars = 0, onSelect } = props;
   const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
@@ -48,7 +52,7 @@ export const StarRating = (props: StarRatingProps) => {
           className: cn(
             s.starIcon,
             currentStarsCount >= starNumber ? s.hovered : s.normal,
-            { [s.selected]: isSelected }
+            { [s.selected]: isSelected },
           ),
           Svg: StarIcon,
           key: starNumber,
@@ -57,8 +61,8 @@ export const StarRating = (props: StarRatingProps) => {
           onMouseLeave: onLeave,
           onMouseEnter: onHover(starNumber),
           onClick: onClick(starNumber),
-          "data-testid": `StarRating.${starNumber}`,
-          "data-selected": currentStarsCount >= starNumber,
+          'data-testid': `StarRating.${starNumber}`,
+          'data-selected': currentStarsCount >= starNumber,
         };
         return <Icon {...commonProps} />;
       })}

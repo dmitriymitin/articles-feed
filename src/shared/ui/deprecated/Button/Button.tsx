@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, memo, PropsWithChildren } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
-import { Trans } from '../../Translate';
+import { Trans } from '../../redesigned/Translate';
 
 import s from './Button.module.scss';
 
@@ -16,6 +16,7 @@ export type ButtonTheme =
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
+/** @deprecated */
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   /**

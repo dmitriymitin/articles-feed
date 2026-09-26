@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { Button, ButtonProps } from "@/shared/ui/Button";
+import {
+  Button as ButtonDeprecated,
+  ButtonProps as ButtonDeprecatedProps,
+} from '@/shared/ui/deprecated/Button';
 
-import { getLoginLoading } from "../../model/selectors/getLoginLoading/getLoginLoading";
+import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 
 interface LoginFormSubmitBtnProps
-  extends Pick<ButtonProps, "className" | "onClick"> {}
+  extends Pick<ButtonDeprecatedProps, 'className' | 'onClick'> {}
 
 export const LoginFormSubmitBtn = (props: LoginFormSubmitBtnProps) => {
   const { className, onClick } = props;
@@ -13,13 +16,13 @@ export const LoginFormSubmitBtn = (props: LoginFormSubmitBtnProps) => {
   const isLoading = useSelector(getLoginLoading);
 
   return (
-    <Button
+    <ButtonDeprecated
       theme="outline"
       disabled={isLoading}
       onClick={onClick}
       className={className}
     >
       Войти
-    </Button>
+    </ButtonDeprecated>
   );
 };

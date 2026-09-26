@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 
-import { Select } from "@/shared/ui/Select";
+import { Select as SelectDeprecated } from '@/shared/ui/deprecated/Select';
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
-import { articlesPageSearchParams } from "@/shared/const/searchParams";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppQueryState } from '@/shared/lib/hooks/useAppQueryState/useAppQueryState';
+import { articlesPageSearchParams } from '@/shared/const/searchParams';
 
-import { articleSortSelectOptions } from "@/entities/article";
+import { articleSortSelectOptions } from '@/entities/article';
 
-import { articlesPageActions } from "../../model/slices/articlesPageSlice";
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 export const ArticlesSortFilter = () => {
   const dispatch = useAppDispatch();
 
-  const [sort, setSort] = useAppQueryState(articlesPageSearchParams, "sort");
+  const [sort, setSort] = useAppQueryState(articlesPageSearchParams, 'sort');
 
   return (
-    <Select
+    <SelectDeprecated
       label="Сортировать ПО"
       value={sort}
       options={articleSortSelectOptions}

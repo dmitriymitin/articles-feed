@@ -1,18 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { Button } from "@/shared/ui/Button";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { getUserAuthData } from "@/entities/user";
+import { getUserAuthData } from '@/entities/user';
 
-import { getProfileId } from "../../model/selectors/getProfileId/getProfileId";
-import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
-import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
-import { profileActions } from "../../model/slice/profileSlice";
+import { getProfileId } from '../../model/selectors/getProfileId/getProfileId';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
 
-import s from "./EditableProfileCardHeaderActions.module.scss";
+import s from './EditableProfileCardHeaderActions.module.scss';
 
 export const EditableProfileCardHeaderActions = () => {
   const dispatch = useAppDispatch();
@@ -41,32 +41,32 @@ export const EditableProfileCardHeaderActions = () => {
 
   if (readonly) {
     return (
-      <Button
+      <ButtonDeprecated
         onClick={activateEdit}
         className={s.editBtn}
         data-testid="EditableProfileCardHeader.EditButton"
       >
         Редактировать
-      </Button>
+      </ButtonDeprecated>
     );
   }
 
   return (
     <>
-      <Button
+      <ButtonDeprecated
         onClick={saveEdit}
         className={s.saveBtn}
         data-testid="EditableProfileCardHeader.SaveButton"
       >
         Сохранить
-      </Button>
-      <Button
+      </ButtonDeprecated>
+      <ButtonDeprecated
         onClick={cancelEdit}
         theme="outline_red"
         data-testid="EditableProfileCardHeader.CancelButton"
       >
         Отменить
-      </Button>
+      </ButtonDeprecated>
     </>
   );
 };

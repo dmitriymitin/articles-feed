@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Flex } from '@/shared/ui/Flex';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import { Text } from '@/shared/ui/Text';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 import { toggleFeatures } from '@/shared/lib/features';
@@ -58,12 +58,15 @@ export const NavbarNotificationsList = (
 
   if (error) {
     return (
-      <Text theme="error" text="Произошла ошбка при получений уведомлений" />
+      <TextDeprecated
+        theme="error"
+        text="Произошла ошбка при получений уведомлений"
+      />
     );
   }
 
   if (!notifications) {
-    return <Text text="Уведомений пока нет" />;
+    return <TextDeprecated text="Уведомений пока нет" />;
   }
 
   return (

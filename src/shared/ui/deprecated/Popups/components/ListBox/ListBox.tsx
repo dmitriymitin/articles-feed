@@ -5,8 +5,8 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
-import { Flex } from '../../../../Flex';
-import { Trans } from '../../../../Translate';
+import { Flex } from '../../../../redesigned/Flex';
+import { Trans } from '../../../../redesigned/Translate';
 import { Button as ButtonDeprecated } from '../../../Button';
 
 import { mapDirectionClass } from '../../styles/consts';
@@ -14,12 +14,14 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import s from './ListBox.module.scss';
 
+/** @deprecated */
 export interface ListBoxItem<T = string> {
   value: T;
   content: ReactNode;
   disabled?: boolean;
 }
 
+/** @deprecated */
 export interface ListBoxProps<T = string> {
   options?: ListBoxItem<T>[];
   className?: string;

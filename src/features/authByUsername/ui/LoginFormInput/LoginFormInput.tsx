@@ -1,16 +1,19 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { Input, InputProps } from "@/shared/ui/Input";
+import {
+  Input as InputDeprecated,
+  InputProps,
+} from '@/shared/ui/deprecated/Input';
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { getLoginField } from "../../model/selectors/getLoginField/getLoginField";
-import { loginActions } from "../../model/slice/loginSlice";
-import { LoginSchema } from "../../model/types/LoginSchema";
+import { getLoginField } from '../../model/selectors/getLoginField/getLoginField';
+import { loginActions } from '../../model/slice/loginSlice';
+import { LoginSchema } from '../../model/types/LoginSchema';
 
 interface LoginFormInputProps
-  extends Pick<InputProps, "placeholder" | "autofocus" | 'className'> {
-  field: keyof Pick<LoginSchema, "password" | "username">;
+  extends Pick<InputProps, 'placeholder' | 'autofocus' | 'className'> {
+  field: keyof Pick<LoginSchema, 'password' | 'username'>;
 }
 
 export const LoginFormInput = (props: LoginFormInputProps) => {
@@ -25,7 +28,7 @@ export const LoginFormInput = (props: LoginFormInputProps) => {
   };
 
   return (
-    <Input
+    <InputDeprecated
       type="text"
       className={className}
       onChange={onChangeField}

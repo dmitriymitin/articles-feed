@@ -1,13 +1,13 @@
-import { Text } from "@/shared/ui/Text";
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
-import { EditableProfileCardHeaderActions } from "../EditableProfileCardHeaderActions/EditableProfileCardHeaderActions";
+import { EditableProfileCardHeaderActions } from '../EditableProfileCardHeaderActions/EditableProfileCardHeaderActions';
 
-import s from "./EditableProfileCardHeader.module.scss";
+import s from './EditableProfileCardHeader.module.scss';
 
 export const EditableProfileCardHeader = () => {
   return (
     <div className={s.EditableProfileCardHeader}>
-      <Text title="Профиль" />
+      <TextDeprecated title="Профиль" />
       <EditableProfileCardHeaderActions />
     </div>
   );

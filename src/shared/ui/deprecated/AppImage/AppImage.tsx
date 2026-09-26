@@ -3,47 +3,58 @@ import {
   ReactElement,
   useLayoutEffect,
   useState,
-} from "react";
+} from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-    className?: string;
-    fallback?: ReactElement;
-    errorFallback?: ReactElement;
+  className?: string;
+  fallback?: ReactElement;
+  errorFallback?: ReactElement;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 export const AppImage = (props: AppImageProps) => {
-    const {
-        className,
-        src,
-        alt = 'image',
-        fallback,
-        errorFallback: customErrorFallback,
-        ...otherProps
-    } = props;
-    const errorFallback = customErrorFallback || <img {...otherProps} alt='placeholder_image' src='/placeholderImage.jpeg' className={className} />;
+  const {
+    className,
+    src,
+    alt = 'image',
+    fallback,
+    errorFallback: customErrorFallback,
+    ...otherProps
+  } = props;
+  const errorFallback = customErrorFallback || (
+    <img
+      {...otherProps}
+      alt="placeholder_image"
+      src="/placeholderImage.jpeg"
+      className={className}
+    />
+  );
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
-    useLayoutEffect(() => {
-        const img = new Image();
-        img.src = src ?? '';
-        img.onload = () => {
-            setIsLoading(false);
-        };
-        img.onerror = () => {
-            setIsLoading(false);
-            setHasError(true);
-        };
-    }, [src]);
+  useLayoutEffect(() => {
+    const img = new Image();
+    img.src = src ?? '';
+    img.onload = () => {
+      setIsLoading(false);
+    };
+    img.onerror = () => {
+      setIsLoading(false);
+      setHasError(true);
+    };
+  }, [src]);
 
-    if (isLoading && fallback) {
-        return fallback;
-    }
+  if (isLoading && fallback) {
+    return fallback;
+  }
 
-    if (hasError && errorFallback) {
-        return errorFallback;
-    }
+  if (hasError && errorFallback) {
+    return errorFallback;
+  }
 
-    return <img className={className} src={src} alt={alt} {...otherProps} />;
+  return <img className={className} src={src} alt={alt} {...otherProps} />;
 };

@@ -1,16 +1,17 @@
-import React, { InputHTMLAttributes, useEffect, useRef, useState } from "react";
+import React, { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 
-import { cn } from "@/shared/lib/classNames/classNames";
+import { cn } from '@/shared/lib/classNames/classNames';
 
-import { Trans, TransProps } from "../Translate";
+import { Trans, TransProps } from '../../redesigned/Translate';
 
-import s from "./Input.module.scss";
+import s from './Input.module.scss';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange" | "readOnly"
+  'value' | 'onChange' | 'readOnly'
 >;
 
+/** @deprecated */
 export interface InputProps extends HTMLInputProps, Pick<TransProps, 'ns'> {
   className?: string;
   value?: string | number;
@@ -19,12 +20,16 @@ export interface InputProps extends HTMLInputProps, Pick<TransProps, 'ns'> {
   readonly?: boolean;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 export const Input = (props: InputProps) => {
   const {
     className,
     value,
     onChange,
-    type = "text",
+    type = 'text',
     placeholder,
     autofocus,
     readonly,
@@ -66,7 +71,7 @@ export const Input = (props: InputProps) => {
     {
       [s.readonly]: readonly,
     },
-    className
+    className,
   );
 
   return (
@@ -74,7 +79,7 @@ export const Input = (props: InputProps) => {
       {placeholder && (
         <div className={s.placeholder}>
           <Trans ns={ns}>{placeholder}</Trans>
-          {">"}
+          {'>'}
         </div>
       )}
       <div className={s.caretWrapper}>

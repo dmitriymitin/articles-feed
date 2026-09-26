@@ -1,36 +1,38 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Input } from "@/shared/ui/Input";
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
-import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
-import { articlesPageSearchParams } from "@/shared/const/searchParams";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppQueryState } from '@/shared/lib/hooks/useAppQueryState/useAppQueryState';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { articlesPageSearchParams } from '@/shared/const/searchParams';
 
-import { articlesPageActions } from "../../model/slices/articlesPageSlice";
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 export const ArticlesSearchFilter = () => {
   const dispatch = useAppDispatch();
 
-  const [paramsSearch, setParamsSearch] = useAppQueryState(articlesPageSearchParams, 'search')
-  const [search, setSearch] = useState<string>(paramsSearch || '')
-
+  const [paramsSearch, setParamsSearch] = useAppQueryState(
+    articlesPageSearchParams,
+    'search',
+  );
+  const [search, setSearch] = useState<string>(paramsSearch || '');
 
   const debounceSetParamsSearch = useDebounce((search: string) => {
     dispatch(articlesPageActions.setPage(1));
     setParamsSearch(search);
-  }, 500)
+  }, 500);
 
   const updateSearch = (search: string) => {
     setSearch(search);
     debounceSetParamsSearch(search);
-  }
+  };
 
   return (
-    <Input
+    <InputDeprecated
       onChange={updateSearch}
       value={search}
-      placeholder='Поиск'
+      placeholder="Поиск"
     />
   );
 };

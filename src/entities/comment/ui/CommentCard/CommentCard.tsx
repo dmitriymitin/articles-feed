@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { AppLink } from "@/shared/ui/AppLink";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Text } from "@/shared/ui/Text";
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
-import { getRouteProfile } from "@/shared/const/router";
+import { getRouteProfile } from '@/shared/const/router';
 
 import { Comment } from '../../model/types/comment';
 
-import { CommentCardWrapper } from "./CommentCardWrapper";
+import { CommentCardWrapper } from './CommentCardWrapper';
 
-import s from './CommentCard.module.scss'
+import s from './CommentCard.module.scss';
 
 interface CommentCardProps {
   comment: Comment;
@@ -21,17 +21,20 @@ export const CommentCard = (props: CommentCardProps) => {
 
   return (
     <CommentCardWrapper>
-      <AppLink to={getRouteProfile(comment.user.id)} className={s.header}>
+      <AppLinkDeprecated
+        to={getRouteProfile(comment.user.id)}
+        className={s.header}
+      >
         {comment.user.avatar && (
-          <Avatar
+          <AvatarDeprecated
             size={30}
             src={comment.user.avatar}
             alt={comment.user.username}
           />
         )}
-        <Text className={s.username} title={comment.user.username} />
-      </AppLink>
-      <Text className={s.text} text={comment.text} />
+        <TextDeprecated className={s.username} title={comment.user.username} />
+      </AppLinkDeprecated>
+      <TextDeprecated className={s.text} text={comment.text} />
     </CommentCardWrapper>
   );
 };

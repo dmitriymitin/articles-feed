@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { AppLink } from "@/shared/ui/AppLink";
-import { Trans } from "@/shared/ui/Translate";
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Trans } from '@/shared/ui/redesigned/Translate';
 
-import { cn } from "@/shared/lib/classNames/classNames";
+import { cn } from '@/shared/lib/classNames/classNames';
 
-import { getUserAuthData } from "@/entities/user";
+import { getUserAuthData } from '@/entities/user';
 
-import { SidebarItemType } from "../../model/types/sidebar";
+import { SidebarItemType } from '../../model/types/sidebar';
 
-import s from "./SidebarItem.module.scss";
+import s from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
   item: SidebarItemType;
@@ -29,11 +29,11 @@ export const SidebarItem = (props: SidebarItemProps) => {
   });
 
   return (
-    <AppLink theme="secondary" to={item.path} className={classes}>
+    <AppLinkDeprecated theme="secondary" to={item.path} className={classes}>
       <item.Icon className={s.icon} />
       <span className={s.link}>
         <Trans>{item.text}</Trans>
       </span>
-    </AppLink>
+    </AppLinkDeprecated>
   );
 };

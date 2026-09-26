@@ -1,10 +1,10 @@
-import { Trans } from "@/shared/ui/Translate";
+import { Trans } from '@/shared/ui/redesigned/Translate';
 
-import { cn } from "@/shared/lib/classNames/classNames";
+import { cn } from '@/shared/lib/classNames/classNames';
 
-import { Page } from "@/widgets/Page";
+import { Page } from '@/widgets/Page';
 
-import s from "./NotFoundPage.module.scss";
+import s from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
   className?: string;

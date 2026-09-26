@@ -1,12 +1,12 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Text } from "@/shared/ui/Text";
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { Article } from "@/entities/article";
-import { CommentCard, CommentCardSkeleton } from "@/entities/comment";
+import { Article } from '@/entities/article';
+import { CommentCard, CommentCardSkeleton } from '@/entities/comment';
 
-import { useArticleCommentsListQuery } from "../../api/aritcleCommentsApi";
+import { useArticleCommentsListQuery } from '../../api/aritcleCommentsApi';
 
 const CommentsWrapper = ({ children }: PropsWithChildren) => (
   <Flex vertical gap="16" max>
@@ -15,7 +15,7 @@ const CommentsWrapper = ({ children }: PropsWithChildren) => (
 );
 
 export interface ArticleCommentsListProps {
-  articleId: Article["id"];
+  articleId: Article['id'];
 }
 
 const ArticleCommentsList = (props: ArticleCommentsListProps) => {
@@ -45,7 +45,7 @@ const ArticleCommentsList = (props: ArticleCommentsListProps) => {
   if (!comments?.length) {
     return (
       <Flex align="center" justify="center">
-        <Text text="Комментарии отсутствуют" />
+        <TextDeprecated text="Комментарии отсутствуют" />
       </Flex>
     );
   }

@@ -6,7 +6,7 @@ import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { DropdownItem } from '@/shared/ui/redesigned/Popups/components/Dropdown/Dropdown';
-import { Trans } from '@/shared/ui/Translate';
+import { Trans } from '@/shared/ui/redesigned/Translate';
 
 import { ToggleFeatures } from '@/shared/lib/features';
 import {

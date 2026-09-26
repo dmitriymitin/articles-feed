@@ -1,25 +1,25 @@
-import { memo, Suspense } from "react";
-import { useSelector } from "react-redux";
+import { memo, Suspense } from 'react';
+import { useSelector } from 'react-redux';
 
-import { Loader } from "@/shared/ui/Loader";
-import { Text } from "@/shared/ui/Text";
+import { Loader as LoaderDeprecated } from '@/shared/ui/deprecated/Loader';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
-import { useAppQueryState } from "@/shared/lib/hooks/useAppQueryState/useAppQueryState";
-import { articlesPageSearchParams } from "@/shared/const/searchParams";
+import { useAppQueryState } from '@/shared/lib/hooks/useAppQueryState/useAppQueryState';
+import { articlesPageSearchParams } from '@/shared/const/searchParams';
 
-import { ArticleView } from "@/entities/article";
+import { ArticleView } from '@/entities/article';
 
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
-} from "../../model/selectors/articlesPage";
-import { getArticles } from "../../model/slices/articlesPageSlice";
+} from '../../model/selectors/articlesPage';
+import { getArticles } from '../../model/slices/articlesPageSlice';
 
-import { renderArticleListItem } from "./renderArticleItem";
-import { renderArticleListItemSkeleton } from "./renderArticleItemSkeleton";
+import { renderArticleListItem } from './renderArticleItem';
+import { renderArticleListItemSkeleton } from './renderArticleItemSkeleton';
 
 const _ArticleInfiniteList = () => {
-  const [searchView] = useAppQueryState(articlesPageSearchParams, "view");
+  const [searchView] = useAppQueryState(articlesPageSearchParams, 'view');
   const view = searchView!;
 
   const articles = useSelector(getArticles.selectAll);
@@ -27,19 +27,21 @@ const _ArticleInfiniteList = () => {
   const error = useSelector(getArticlesPageError);
 
   if (!isLoading && !error && !articles.length) {
-    return <Text size="size_l" title="Статьи не найдены" />;
+    return <TextDeprecated size="size_l" title="Статьи не найдены" />;
   }
 
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<LoaderDeprecated />}>
         {articles.map((article) => renderArticleListItem(view, article))}
       </Suspense>
       {isLoading &&
         new Array(view === ArticleView.SMALL ? 9 : 3)
           .fill(0)
           .map((_, index) => renderArticleListItemSkeleton(view, index))}
-      {error && <Text theme="error" text="Ошибка при загрузке статей" />}
+      {error && (
+        <TextDeprecated theme="error" text="Ошибка при загрузке статей" />
+      )}
     </>
   );
 };

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Icon } from "@/shared/ui/Icon";
-import { Text } from "@/shared/ui/Text";
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 
@@ -12,11 +12,11 @@ interface ArticleListItemViewsProps {
 }
 
 export const ArticleListItemViews = (props: ArticleListItemViewsProps) => {
-  const { className, views } = props
+  const { className, views } = props;
   return (
-    <Flex gap="4" align='center'>
-      <Text text={views} className={className} />
-      <Icon Svg={EyeIcon} />
+    <Flex gap="4" align="center">
+      <TextDeprecated text={views} className={className} />
+      <IconDeprecated Svg={EyeIcon} />
     </Flex>
   );
 };

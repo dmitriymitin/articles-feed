@@ -1,18 +1,17 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react';
 
-import { Flex } from "@/shared/ui/Flex";
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { cn } from "@/shared/lib/classNames/classNames";
+import { cn } from '@/shared/lib/classNames/classNames';
 
-import s from "./CommentCard.module.scss";
-
+import s from './CommentCard.module.scss';
 
 interface CommentCardWrapperProps extends PropsWithChildren {
   loading?: boolean;
 }
 
 export const CommentCardWrapper = (props: CommentCardWrapperProps) => {
-  const { children, loading } = props
+  const { children, loading } = props;
 
   return (
     <Flex
@@ -21,7 +20,7 @@ export const CommentCardWrapper = (props: CommentCardWrapperProps) => {
       gap="8"
       max
       className={cn(s.CommentCard, { [s.loading]: loading })}
-     >
+    >
       {children}
     </Flex>
   );

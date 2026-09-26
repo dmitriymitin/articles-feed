@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { Button } from "@/shared/ui/Button";
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 
 // Компонент для тестирования ErrorBoundary
 export const BugButton = () => {
@@ -14,5 +14,5 @@ export const BugButton = () => {
     }
   }, [error]);
 
-  return <Button onClick={onThrow}>throw error</Button>;
+  return <ButtonDeprecated onClick={onThrow}>throw error</ButtonDeprecated>;
 };

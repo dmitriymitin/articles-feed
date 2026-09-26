@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Card } from '@/shared/ui/Card';
-import { Flex } from '@/shared/ui/Flex';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
 import { ArticlesOrderFilter } from '../ArticlesOrderFilter/ArticlesOrderFilter';
 import { ArticlesSearchFilter } from '../ArticlesSearchFilter/ArticlesSearchFilter';
@@ -21,9 +21,9 @@ export const ArticlesPageFilters = () => {
         </Flex>
         <ArticlesViewFilter />
       </Flex>
-      <Card className={s.search}>
+      <CardDeprecated className={s.search}>
         <ArticlesSearchFilter />
-      </Card>
+      </CardDeprecated>
       <ArticlesTypeFilter className={s.tabs} />
     </div>
   );

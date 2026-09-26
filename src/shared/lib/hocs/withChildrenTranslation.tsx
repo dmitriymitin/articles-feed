@@ -1,19 +1,19 @@
-import { ComponentType, FC, PropsWithChildren, ReactNode } from "react";
+import { ComponentType, FC, PropsWithChildren, ReactNode } from 'react';
 
-import { Trans, TransProps } from "@/shared/ui/Translate";
+import { Trans, TransProps } from '@/shared/ui/redesigned/Translate';
 
-import { GetProps } from "@/shared/types/getProps";
+import { GetProps } from '@/shared/types/getProps';
 
-type Props = Pick<TransProps, "ns"> & PropsWithChildren;
+type Props = Pick<TransProps, 'ns'> & PropsWithChildren;
 
 export const withChildrenTranslation = <T extends ComponentType<any> | object>(
-  WrappedComponent: T
+  WrappedComponent: T,
 ): FC<GetProps<T> & Props> => {
   return (props: Props) => {
     const { children, ns, ...restProps } = props;
 
     const translatedChildren: ReactNode =
-      typeof children === "string" ? (
+      typeof children === 'string' ? (
         // @ts-ignore
         <Trans ns={ns}>{children}</Trans>
       ) : (

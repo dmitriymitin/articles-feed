@@ -1,41 +1,41 @@
-import  { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { ListBox } from "@/shared/ui/Popups";
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
 
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import {
-  Currency,
-  currencyListOptions,
-} from "@/entities/currency";
+import { Currency, currencyListOptions } from '@/entities/currency';
 
-import { getProfileFormField } from "../../model/selectors/getProfileFormField/getProfileFormField";
-import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
-import { profileActions } from "../../model/slice/profileSlice";
+import { getProfileFormField } from '../../model/selectors/getProfileFormField/getProfileFormField';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileActions } from '../../model/slice/profileSlice';
 
 interface EditableProfileCurrencySelectProps {
   className?: string;
 }
 
-
-export const EditableProfileCurrencySelect = (props: EditableProfileCurrencySelectProps) => {
+export const EditableProfileCurrencySelect = (
+  props: EditableProfileCurrencySelectProps,
+) => {
   const { className } = props;
   const dispatch = useAppDispatch();
 
-  const currency = useSelector(getProfileFormField("currency"));
+  const currency = useSelector(getProfileFormField('currency'));
   const readonly = useSelector(getProfileReadonly);
 
   return (
-    <ListBox<Currency>
+    <ListBoxDeprecated<Currency>
       value={currency}
       options={currencyListOptions}
       readonly={readonly}
       className={className}
-      defaultValue='Укажите валюту'
-      label='Укажите валюту'
-      direction='top right'
+      defaultValue="Укажите валюту"
+      label="Укажите валюту"
+      direction="top right"
       onChange={(currency) => {
-        dispatch(profileActions.setField({ field: 'currency', value: currency }))
+        dispatch(
+          profileActions.setField({ field: 'currency', value: currency }),
+        );
       }}
     />
   );

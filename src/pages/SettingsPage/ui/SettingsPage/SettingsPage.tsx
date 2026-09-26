@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
-import { Flex } from "@/shared/ui/Flex";
-import { Text } from '@/shared/ui/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
 import { Page } from '@/widgets/Page';
 
@@ -11,7 +11,7 @@ const SettingsPage = () => {
   return (
     <Page>
       <Flex vertical gap="16">
-        <Text title={t('Настройки пользователя')} />
+        <TextDeprecated title={t('Настройки пользователя')} />
       </Flex>
     </Page>
   );

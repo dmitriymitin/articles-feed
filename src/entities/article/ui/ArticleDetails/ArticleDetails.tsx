@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { ReducersList } from "@/app/providers/StoreProvider";
+import { ReducersList } from '@/app/providers/StoreProvider';
 
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Flex } from "@/shared/ui/Flex";
-import { Icon } from "@/shared/ui/Icon";
-import { Text } from "@/shared/ui/Text";
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
-import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 
@@ -17,26 +17,26 @@ import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
-} from "../../model/selectors/articleDetails";
-import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
+} from '../../model/selectors/articleDetails';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { Article } from '../../model/types/article';
 
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import { renderArticleBlock } from './renderBlock';
 
-import s from './ArticleDetails.module.scss'
+import s from './ArticleDetails.module.scss';
 
 const reducers: ReducersList = {
-  articleDetails: articleDetailsReducer
+  articleDetails: articleDetailsReducer,
 };
 
 interface ArticleDetailsProps {
-  articleId: Article['id']
+  articleId: Article['id'];
 }
 
 const _ArticleDetails = (props: ArticleDetailsProps) => {
-  const { articleId } = props
+  const { articleId } = props;
 
   const dispatch = useAppDispatch();
 
@@ -45,54 +45,54 @@ const _ArticleDetails = (props: ArticleDetailsProps) => {
   const error = useSelector(getArticleDetailsError);
 
   useInitialEffect(() => {
-    dispatch(fetchArticleById(articleId))
-  }, [articleId])
+    dispatch(fetchArticleById(articleId));
+  }, [articleId]);
 
   if (isLoading) {
-    return <ArticleDetailsSkeleton />
+    return <ArticleDetailsSkeleton />;
   }
 
   if (error) {
     return (
-      <Text
-        align='center'
-        title='Произошла ошибка при загрузке статьи.'
+      <TextDeprecated
+        align="center"
+        title="Произошла ошибка при загрузке статьи."
       />
-    )
+    );
   }
 
   return (
     <>
       {article?.img && (
-        <Flex justify='center' align='center' max>
-          <Avatar src={article?.img} alt='article_image' size={200} />
+        <Flex justify="center" align="center" max>
+          <AvatarDeprecated src={article?.img} alt="article_image" size={200} />
         </Flex>
       )}
-      <Flex vertical gap='4' max data-testid="ArticleDetails.Info">
-        <Text
+      <Flex vertical gap="4" max data-testid="ArticleDetails.Info">
+        <TextDeprecated
           className={s.title}
           title={article?.title}
           text={article?.subtitle}
-          size='size_l'
+          size="size_l"
         />
-        <Flex gap='8' align='center'>
-          <Icon className={s.icon} Svg={EyeIcon} />
-          <Text text={String(article?.views)} />
+        <Flex gap="8" align="center">
+          <IconDeprecated className={s.icon} Svg={EyeIcon} />
+          <TextDeprecated text={String(article?.views)} />
         </Flex>
-        <Flex gap='8' align='center'>
-          <Icon className={s.icon} Svg={CalendarIcon} />
-          <Text text={article?.createdAt} />
+        <Flex gap="8" align="center">
+          <IconDeprecated className={s.icon} Svg={CalendarIcon} />
+          <TextDeprecated text={article?.createdAt} />
         </Flex>
       </Flex>
       {article?.blocks.map(renderArticleBlock)}
     </>
-  )
+  );
 };
 
 export const ArticleDetails: typeof _ArticleDetails = (props) => (
   <DynamicModuleLoader reducers={reducers}>
-    <Flex vertical gap='16' max className={s.ArticleDetails}>
+    <Flex vertical gap="16" max className={s.ArticleDetails}>
       <_ArticleDetails {...props} />
     </Flex>
-   </DynamicModuleLoader>
-)
+  </DynamicModuleLoader>
+);

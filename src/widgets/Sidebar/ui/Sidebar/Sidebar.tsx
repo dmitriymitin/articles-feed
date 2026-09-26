@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Button } from '@/shared/ui/Button';
-import { Flex } from '@/shared/ui/Flex';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import { cn } from '@/shared/lib/classNames/classNames';
@@ -67,7 +67,7 @@ export const Sidebar = (props: SidebarProps) => {
             [s.collapsed]: collapsed,
           })}
         >
-          <Button
+          <ButtonDeprecated
             data-testid="sidebar-toggle"
             onClick={onToggle}
             className={s.collapseBtn}
@@ -76,7 +76,7 @@ export const Sidebar = (props: SidebarProps) => {
             square
           >
             {collapsed ? '>' : '<'}
-          </Button>
+          </ButtonDeprecated>
           <Flex role="navigation" vertical gap="8" className={s.items}>
             {itemsList}
           </Flex>

@@ -1,7 +1,7 @@
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
-import { Flex } from '@/shared/ui/Flex';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import { cn } from '@/shared/lib/classNames/classNames';

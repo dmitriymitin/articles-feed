@@ -7,7 +7,7 @@ import {
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
-import { Trans } from '../../Translate';
+import { Trans } from '../../redesigned/Translate';
 
 import s from './Button.module.scss';
 

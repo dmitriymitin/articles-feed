@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { Button } from '@/shared/ui/Button';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
@@ -32,14 +32,14 @@ export const _ThemeSwitcher = (props: ThemeSwitcherProps) => {
       feature="isAppRedesigned"
       on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
       off={
-        <Button theme="clear" onClick={onToggleHandler}>
+        <ButtonDeprecated theme="clear" onClick={onToggleHandler}>
           <IconDeprecated
             Svg={ThemeIconDeprecated}
             width={40}
             height={40}
             inverted
           />
-        </Button>
+        </ButtonDeprecated>
       }
     />
   );

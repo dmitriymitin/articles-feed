@@ -1,28 +1,28 @@
-import React from "react";
+import React from 'react';
 
-import { AppImage } from "@/shared/ui/AppImage";
-import { AppLink } from "@/shared/ui/AppLink";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Button } from "@/shared/ui/Button";
-import { Card } from "@/shared/ui/Card";
-import { Skeleton } from "@/shared/ui/Skeleton";
-import { Text } from "@/shared/ui/Text";
+import { AppImage as AppImageDeprecated } from '@/shared/ui/deprecated/AppImage';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
-import { getRouteArticleDetails } from "@/shared/const/router";
+import { getRouteArticleDetails } from '@/shared/const/router';
 
-import { ArticleBlockType } from "../../model/consts/articleConsts";
-import { Article, ArticleTextBlock } from "../../model/types/article";
+import { ArticleBlockType } from '../../model/consts/articleConsts';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 
-import { ArticleListItemTypes } from "../ArticleListItemTypes/ArticleListItemTypes";
-import { ArticleListItemViews } from "../ArticleListItemViews/ArticleListItemViews";
-import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
+import { ArticleListItemTypes } from '../ArticleListItemTypes/ArticleListItemTypes';
+import { ArticleListItemViews } from '../ArticleListItemViews/ArticleListItemViews';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
-import s from "./ArticleListItemBig.module.scss";
+import s from './ArticleListItemBig.module.scss';
 
 interface ArticleListItemBigProps {
   article: Pick<
     Article,
-    "id" | "img" | "blocks" | "user" | "createdAt" | "title" | "views" | "type"
+    'id' | 'img' | 'blocks' | 'user' | 'createdAt' | 'title' | 'views' | 'type'
   >;
   className?: string;
 }
@@ -30,25 +30,25 @@ interface ArticleListItemBigProps {
 const ArticleListItemBig = (props: ArticleListItemBigProps) => {
   const { article, className } = props;
   const textBlock = article.blocks.find(
-    (block) => block.type === ArticleBlockType.TEXT
+    (block) => block.type === ArticleBlockType.TEXT,
   ) as ArticleTextBlock;
 
   return (
     <div data-testid="ArticleListItemBig" className={className}>
-      <Card>
+      <CardDeprecated>
         <div className={s.header}>
-          <Avatar
+          <AvatarDeprecated
             size={30}
             src={article.user.avatar}
             alt={article.user.username}
           />
-          <Text text={article.user.username} className={s.username} />
-          <Text text={article.createdAt} className={s.date} />
+          <TextDeprecated text={article.user.username} className={s.username} />
+          <TextDeprecated text={article.createdAt} className={s.date} />
         </div>
-        <Text title={article.title} className={s.title} />
+        <TextDeprecated title={article.title} className={s.title} />
         <ArticleListItemTypes type={article.type} />
-        <AppImage
-          fallback={<Skeleton width="100%" height={250} />}
+        <AppImageDeprecated
+          fallback={<SkeletonDeprecated width="100%" height={250} />}
           src={article.img}
           className={s.img}
           alt={article.title}
@@ -60,14 +60,14 @@ const ArticleListItemBig = (props: ArticleListItemBigProps) => {
           />
         )}
         <div className={s.footer}>
-          <AppLink to={getRouteArticleDetails(article.id)}>
-            <Button tabIndex={-1} theme="outline">
+          <AppLinkDeprecated to={getRouteArticleDetails(article.id)}>
+            <ButtonDeprecated tabIndex={-1} theme="outline">
               Читать далее...
-            </Button>
-          </AppLink>
+            </ButtonDeprecated>
+          </AppLinkDeprecated>
           <ArticleListItemViews views={article.views} className={s.views} />
         </div>
-      </Card>
+      </CardDeprecated>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { Menu } from '@headlessui/react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
-import { AppLink } from '../../../../AppLink';
+import { AppLink as AppLinkDeprecated } from '../../../AppLink';
 
 import { mapDirectionClass } from '../../styles/consts';
 
@@ -57,7 +57,7 @@ export function Dropdown(props: DropdownProps) {
             if (item.href) {
               return (
                 <Menu.Item
-                  as={AppLink}
+                  as={AppLinkDeprecated}
                   to={item.href}
                   disabled={item.disabled}
                   key={`dropdown-key-${index}`}

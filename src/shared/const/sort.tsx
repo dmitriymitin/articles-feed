@@ -1,9 +1,9 @@
-import { SelectOption } from "@/shared/ui/Select";
-import { Trans } from "@/shared/ui/Translate";
+import { SelectOption as SelectDeprecatedOption } from '@/shared/ui/deprecated/Select';
+import { Trans } from '@/shared/ui/redesigned/Translate';
 
-import { SortOrder } from "../types/sort";
+import { SortOrder } from '../types/sort';
 
-export const sortOrderOptions: SelectOption<SortOrder>[] = [
+export const sortOrderOptions: SelectDeprecatedOption<SortOrder>[] = [
   {
     value: 'asc',
     content: <Trans>возрастанию</Trans>,
@@ -12,4 +12,4 @@ export const sortOrderOptions: SelectOption<SortOrder>[] = [
     value: 'desc',
     content: <Trans>убыванию</Trans>,
   },
-]
+];

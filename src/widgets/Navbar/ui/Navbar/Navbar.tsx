@@ -1,9 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
-import { AppLink } from '@/shared/ui/AppLink';
-import { Flex } from '@/shared/ui/Flex';
-import { Text } from '@/shared/ui/Text';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Flex } from '@/shared/ui/redesigned/Flex';
 
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { getRouteArticleCreate } from '@/shared/const/router';
@@ -50,14 +50,18 @@ export const Navbar = () => {
       }
       off={
         <NavbarWrapper>
-          <Text className={s.appName} title="DM App" theme="inverted" />
-          <AppLink
+          <TextDeprecated
+            className={s.appName}
+            title="DM App"
+            theme="inverted"
+          />
+          <AppLinkDeprecated
             to={getRouteArticleCreate()}
             theme="secondary"
             className={s.createBtn}
           >
             Создать статью
-          </AppLink>
+          </AppLinkDeprecated>
           <Flex gap="16" className={s.actions} align="center">
             <NavbarShowNotificationsButton />
             <NavbarUserMenu />
