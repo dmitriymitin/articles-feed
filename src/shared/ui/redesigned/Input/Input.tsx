@@ -6,11 +6,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
 import { Flex } from '../Flex';
 import { Text } from '../Text';
+import { TransProps } from '../Translate';
 
 import s from './Input.module.scss';
 
@@ -21,7 +23,7 @@ type HTMLInputProps = Omit<
 
 type InputSize = 's' | 'm' | 'l';
 
-interface InputProps extends HTMLInputProps {
+interface InputProps extends HTMLInputProps, Pick<TransProps, 'ns'> {
   className?: string;
   value?: string | number;
   label?: string;
@@ -46,8 +48,11 @@ export const Input = memo((props: InputProps) => {
     addonRight,
     label,
     size = 'm',
+    ns,
     ...otherProps
   } = props;
+  const { t } = useTranslation(ns);
+
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -94,7 +99,7 @@ export const Input = memo((props: InputProps) => {
         onFocus={onFocus}
         onBlur={onBlur}
         readOnly={readonly}
-        placeholder={placeholder}
+        placeholder={placeholder && t(placeholder)}
         {...otherProps}
       />
       <div className={s.addonRight}>{addonRight}</div>
@@ -103,7 +108,7 @@ export const Input = memo((props: InputProps) => {
 
   if (label) {
     return (
-      <Flex max gap="8">
+      <Flex max gap="8" align="center">
         <Text text={label} />
         {input}
       </Flex>

@@ -1,6 +1,8 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
+
+import { Trans, TransProps } from '../Translate';
 
 import s from './Text.module.scss';
 
@@ -10,7 +12,7 @@ export type TextAlign = 'right' | 'left' | 'center';
 
 export type TextSize = 's' | 'm' | 'l';
 
-interface TextProps {
+interface TextProps extends Pick<TransProps, 'ns'> {
   className?: string;
   title?: string;
   text?: string;
@@ -44,6 +46,7 @@ export const Text = memo((props: TextProps) => {
     align = 'left',
     size = 'm',
     bold,
+    ns,
     'data-testid': dataTestId = 'Text',
   } = props;
 
@@ -56,12 +59,12 @@ export const Text = memo((props: TextProps) => {
     <div className={cn(s.Text, { [s.bold]: bold }, ...additionalClasses)}>
       {title && (
         <HeaderTag className={s.title} data-testid={`${dataTestId}.Header`}>
-          {title}
+          <Trans ns={ns}>{title}</Trans>
         </HeaderTag>
       )}
       {text && (
         <p className={s.text} data-testid={`${dataTestId}.Paragraph`}>
-          {text}
+          <Trans ns={ns}>{text}</Trans>
         </p>
       )}
     </div>

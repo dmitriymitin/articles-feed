@@ -1,7 +1,12 @@
 import { useSelector } from 'react-redux';
 
-import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import {
+  ListBox as ListBoxDeprecated,
+  ListBoxProps,
+} from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { Currency, currencyListOptions } from '@/entities/currency';
@@ -23,20 +28,28 @@ export const EditableProfileCurrencySelect = (
   const currency = useSelector(getProfileFormField('currency'));
   const readonly = useSelector(getProfileReadonly);
 
+  const generalProps: ListBoxProps<Currency> = {
+    value: currency,
+    readonly,
+    className,
+    defaultValue: 'Укажите валюту',
+    label: 'Укажите валюту',
+    direction: 'top right',
+    onChange: (currency) => {
+      dispatch(profileActions.setField({ field: 'currency', value: currency }));
+    },
+  };
+
   return (
-    <ListBoxDeprecated<Currency>
-      value={currency}
-      options={currencyListOptions}
-      readonly={readonly}
-      className={className}
-      defaultValue="Укажите валюту"
-      label="Укажите валюту"
-      direction="top right"
-      onChange={(currency) => {
-        dispatch(
-          profileActions.setField({ field: 'currency', value: currency }),
-        );
-      }}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<ListBox<Currency> {...generalProps} items={currencyListOptions} />}
+      off={
+        <ListBoxDeprecated<Currency>
+          {...generalProps}
+          options={currencyListOptions}
+        />
+      }
     />
   );
 };

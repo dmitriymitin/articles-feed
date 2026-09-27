@@ -53,7 +53,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
     <Flex align="center" gap="8">
       {label && (
         <span className={s.label}>
-          <Trans>{label}</Trans>
+          <Trans>{`${label}>`}</Trans>
         </span>
       )}
       <HListBox

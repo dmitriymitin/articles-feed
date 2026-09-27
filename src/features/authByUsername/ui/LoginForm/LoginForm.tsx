@@ -4,11 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { ReducersList } from '@/app/providers/StoreProvider';
 
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppStore } from '@/shared/lib/hooks/useAppStore/useAppStore';
 import { getRouteAbout } from '@/shared/const/router';
+
+import { ToggleFeatures } from '../../../../shared/lib/features';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginField } from '../../model/selectors/getLoginField/getLoginField';
@@ -50,7 +53,11 @@ const LoginForm = (props: LoginFormProps) => {
 
   return (
     <div className={s.LoginForm}>
-      <TextDeprecated title="Форма авторизации" />
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Text title="Форма авторизации" />}
+        off={<TextDeprecated title="Форма авторизации" />}
+      />
       <LoginFormInput
         placeholder="Введите username"
         field="username"

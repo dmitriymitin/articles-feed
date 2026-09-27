@@ -42,7 +42,7 @@ export const Navbar = () => {
       feature="isAppRedesigned"
       on={
         <NavbarWrapper>
-          <Flex gap="16" className={s.actions}>
+          <Flex gap="8" className={s.actions} align="center">
             <NavbarShowNotificationsButton />
             <NavbarUserMenu />
           </Flex>

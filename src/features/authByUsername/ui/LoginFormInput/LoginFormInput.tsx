@@ -4,7 +4,9 @@ import {
   Input as InputDeprecated,
   InputProps,
 } from '@/shared/ui/deprecated/Input';
+import { Input } from '@/shared/ui/redesigned/Input';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { getLoginField } from '../../model/selectors/getLoginField/getLoginField';
@@ -28,13 +30,28 @@ export const LoginFormInput = (props: LoginFormInputProps) => {
   };
 
   return (
-    <InputDeprecated
-      type="text"
-      className={className}
-      onChange={onChangeField}
-      autofocus={autofocus}
-      value={fieldValue}
-      placeholder={placeholder}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Input
+          autofocus
+          type="text"
+          className={className}
+          placeholder={placeholder}
+          onChange={onChangeField}
+          value={fieldValue}
+        />
+      }
+      off={
+        <InputDeprecated
+          type="text"
+          className={className}
+          onChange={onChangeField}
+          autofocus={autofocus}
+          value={fieldValue}
+          placeholder={placeholder}
+        />
+      }
     />
   );
 };

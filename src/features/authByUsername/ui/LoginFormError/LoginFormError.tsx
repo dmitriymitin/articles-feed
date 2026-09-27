@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux';
 
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+
+import { ToggleFeatures } from '@/shared/lib/features';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 
@@ -13,5 +16,11 @@ export const LoginFormError = (props: LoginFormErrorProps) => {
     return null;
   }
 
-  return <TextDeprecated text={error} theme="error" />;
+  return (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<Text text={error} variant="error" />}
+      off={<TextDeprecated title="Форма авторизации" theme="error" />}
+    />
+  );
 };

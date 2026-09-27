@@ -4,6 +4,9 @@ import {
   Button as ButtonDeprecated,
   ButtonProps as ButtonDeprecatedProps,
 } from '@/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
+
+import { ToggleFeatures } from '../../../../shared/lib/features';
 
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 
@@ -16,13 +19,23 @@ export const LoginFormSubmitBtn = (props: LoginFormSubmitBtnProps) => {
   const isLoading = useSelector(getLoginLoading);
 
   return (
-    <ButtonDeprecated
-      theme="outline"
-      disabled={isLoading}
-      onClick={onClick}
-      className={className}
-    >
-      Войти
-    </ButtonDeprecated>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Button className={className} onClick={onClick} disabled={isLoading}>
+          Войти
+        </Button>
+      }
+      off={
+        <ButtonDeprecated
+          theme="outline"
+          disabled={isLoading}
+          onClick={onClick}
+          className={className}
+        >
+          Войти
+        </ButtonDeprecated>
+      }
+    />
   );
 };

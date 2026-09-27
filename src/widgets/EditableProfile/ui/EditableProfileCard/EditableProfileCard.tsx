@@ -1,25 +1,24 @@
-import { ReducersList } from "@/app/providers/StoreProvider";
+import { ReducersList } from '@/app/providers/StoreProvider';
 
-import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
-import { Profile } from "@/entities/profile";
+import { Profile } from '@/entities/profile';
 
-import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
-import { profileReducer } from "../../model/slice/profileSlice";
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { profileReducer } from '../../model/slice/profileSlice';
 
-import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
-import { EditableProfileCardView } from "../EditableProfileCardView/EditableProfileCardView";
-import { EditableProfileCardViewWrapper } from "../EditableProfileCardViewWrapper/EditableProfileCardViewWrapper";
-import { EditableProfileValidateErrors } from "../EditableProfileValidateErrors/EditableProfileValidateErrors";
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { EditableProfileCardView } from '../EditableProfileCardView/EditableProfileCardView';
+import { EditableProfileValidateErrors } from '../EditableProfileValidateErrors/EditableProfileValidateErrors';
 
 const reducers: ReducersList = {
   profile: profileReducer,
 };
 
 interface EditableProfileCardProps {
-  id: Profile["id"];
+  id: Profile['id'];
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
@@ -35,9 +34,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     <DynamicModuleLoader reducers={reducers}>
       <EditableProfileCardHeader />
       <EditableProfileValidateErrors />
-      <EditableProfileCardViewWrapper>
-        <EditableProfileCardView />
-      </EditableProfileCardViewWrapper>
+      <EditableProfileCardView />
     </DynamicModuleLoader>
   );
 };

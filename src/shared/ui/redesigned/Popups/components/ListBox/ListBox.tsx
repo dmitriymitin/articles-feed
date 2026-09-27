@@ -51,7 +51,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
   }, [items, value]);
 
   return (
-    <Flex gap="4">
+    <Flex gap="8" align="center">
       {label && <span>{`${label}>`}</span>}
       <HListBox
         disabled={readonly}

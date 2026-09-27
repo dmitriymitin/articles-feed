@@ -4,9 +4,12 @@ import {
   Input as InputDeprecated,
   InputProps,
 } from '@/shared/ui/deprecated/Input';
+import { Input } from '@/shared/ui/redesigned/Input';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { TestProps } from '@/shared/types/tests';
+
+import { ToggleFeatures } from '../../../../shared/lib/features';
 
 import { getProfileFormField } from '../../model/selectors/getProfileFormField/getProfileFormField';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -40,15 +43,32 @@ export const EditableProfileInput = (props: EditableProfileInputProps) => {
   };
 
   return (
-    <InputDeprecated
-      ns="profile"
-      type={type}
-      className={className}
-      onChange={onChangeField}
-      value={fieldValue}
-      placeholder={placeholder}
-      readonly={readonly}
-      data-testid={props?.['data-testid']}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Input
+          ns="profile"
+          type={type}
+          className={className}
+          onChange={onChangeField}
+          value={fieldValue}
+          label={placeholder}
+          readonly={readonly}
+          data-testid={props?.['data-testid']}
+        />
+      }
+      off={
+        <InputDeprecated
+          ns="profile"
+          type={type}
+          className={className}
+          onChange={onChangeField}
+          value={fieldValue}
+          placeholder={placeholder}
+          readonly={readonly}
+          data-testid={props?.['data-testid']}
+        />
+      }
     />
   );
 };
