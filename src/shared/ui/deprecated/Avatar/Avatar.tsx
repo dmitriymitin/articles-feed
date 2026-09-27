@@ -2,7 +2,8 @@ import { CSSProperties, ReactElement, useMemo } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
+
 import { Skeleton } from '../Skeleton';
 
 import s from './Avatar.module.scss';

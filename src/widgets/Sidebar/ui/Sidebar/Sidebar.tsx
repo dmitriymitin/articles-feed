@@ -43,7 +43,7 @@ export const Sidebar = (props: SidebarProps) => {
             [s.collapsedRedesigned]: collapsed,
           })}
         >
-          <AppLogo size={collapsed ? 30 : 50} className={s.appLogo} />
+          <AppLogo size={collapsed ? 40 : 70} className={s.appLogo} />
           <Flex vertical role="navigation" gap="8" className={s.items}>
             {itemsList}
           </Flex>

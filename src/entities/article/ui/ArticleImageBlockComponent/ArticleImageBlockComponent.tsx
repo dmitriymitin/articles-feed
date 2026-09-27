@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AppImage as AppImageDeprecated } from '@/shared/ui/deprecated/AppImage';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 import { ArticleImageBlock } from '../../model/types/article';
 
@@ -19,7 +19,7 @@ export const ArticleImageBlockComponent = (
 
   return (
     <div className={className}>
-      <AppImageDeprecated src={block.src} alt={block.title} className={s.img} />
+      <AppImage src={block.src} alt={block.title} className={s.img} />
       {block.title && <TextDeprecated text={block.title} align="center" />}
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { HTMLAttributeAnchorTarget } from 'react';
 
-import { AppImage as AppImageDeprecated } from '@/shared/ui/deprecated/AppImage';
 import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Flex } from '@/shared/ui/redesigned/Flex';
 
 import { cn } from '@/shared/lib/classNames/classNames';
@@ -38,7 +38,7 @@ const ArticleListItemSmall = (props: ArticleListItemSmallProps) => {
     >
       <CardDeprecated className={s.card}>
         <div className={s.imageWrapper}>
-          <AppImageDeprecated
+          <AppImage
             fallback={<SkeletonDeprecated width={200} height={200} />}
             alt={article.title}
             src={article.img}

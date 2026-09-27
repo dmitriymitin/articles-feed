@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Code as CodeDeprecated } from '@/shared/ui/deprecated/Code';
+import { Code } from '@/shared/ui/redesigned/Code';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
@@ -20,7 +20,7 @@ export const ArticleCodeBlockComponent = (
 
   return (
     <div className={cn(s.ArticleCodeBlockComponent, className)}>
-      <CodeDeprecated text={block.code} />
+      <Code text={block.code} />
     </div>
   );
 };

@@ -13,7 +13,7 @@ interface AppLogoProps {
 }
 
 const _AppLogo = (props: AppLogoProps) => {
-  const { className, size = 50 } = props;
+  const { className, size } = props;
 
   return (
     <Flex max justify="center" className={cn(s.appLogoWrapper, className)}>

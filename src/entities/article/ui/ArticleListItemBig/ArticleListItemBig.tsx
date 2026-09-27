@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { AppImage as AppImageDeprecated } from '@/shared/ui/deprecated/AppImage';
 import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 import { getRouteArticleDetails } from '@/shared/const/router';
 
@@ -47,7 +47,7 @@ const ArticleListItemBig = (props: ArticleListItemBigProps) => {
         </div>
         <TextDeprecated title={article.title} className={s.title} />
         <ArticleListItemTypes type={article.type} />
-        <AppImageDeprecated
+        <AppImage
           fallback={<SkeletonDeprecated width="100%" height={250} />}
           src={article.img}
           className={s.img}
