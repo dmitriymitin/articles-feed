@@ -9,9 +9,8 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { Flex } from '@/shared/ui/redesigned/Flex';
 import { Text } from '@/shared/ui/redesigned/Text';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import { getRouteProfile } from '@/shared/const/router';
-
-import { ToggleFeatures } from '../../../../shared/lib/features';
 
 import { Comment } from '../../model/types/comment';
 

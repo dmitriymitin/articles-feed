@@ -19,7 +19,7 @@ interface DesignSwitcherProps {
 export const DesignSwitcher = (props: DesignSwitcherProps) => {
   const { className } = props;
 
-  const isAppRedesigned = getFeatureFlag('isAppRedesigned');
+  const isAppRedesigned = getFeatureFlag('isAppRedesigned').value;
 
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);

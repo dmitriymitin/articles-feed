@@ -1009,6 +1009,12 @@
       "userId": "1",
       "text": "test3",
       "id": "QowkcHS"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "test",
+      "id": "TNAMLJC"
     }
   ],
   "users": [
@@ -1027,7 +1033,7 @@
       "avatar": "https://avatars.mds.yandex.net/i?id=a5aebe75cd14586081259f4ff424fdc268904d67-4570234-images-thumbs&n=1",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_light_theme"
+        "theme": "app_orange_theme"
       }
     },
     {
@@ -1085,8 +1091,8 @@
       "first": "asdasd",
       "lastname": "dm",
       "age": 21,
-      "currency": "EUR",
-      "country": "Armenia",
+      "currency": "USD",
+      "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://avatars.mds.yandex.net/i?id=a5aebe75cd14586081259f4ff424fdc268904d67-4570234-images-thumbs&n=13"

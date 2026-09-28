@@ -9,8 +9,8 @@ import {
 import { initAuthData } from '../services/initAuthData';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
-import { User } from "../types/user";
-import { UserSchema } from "../types/userSchema";
+import { User } from '../types/user';
+import { UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {
   _inited: false,
@@ -21,8 +21,8 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setAuthData: (state, { payload }: PayloadAction<User>) => {
-      state.authData = payload;
       setFeatureFlags(payload.features);
+      state.authData = payload;
       localStorage.setItem(USER_LOCALSTORAGE_KEY, payload.id);
       localStorage.setItem(
         LOCAL_STORAGE_LAST_DESIGN_KEY,
@@ -46,8 +46,8 @@ export const userSlice = createSlice({
     builder.addCase(
       initAuthData.fulfilled,
       (state, { payload }: PayloadAction<User>) => {
-        state.authData = payload;
         setFeatureFlags(payload.features);
+        state.authData = payload;
         state._inited = true;
       },
     );

@@ -16,10 +16,19 @@ export const AppImage = (props: AppImageProps) => {
     className,
     src,
     alt = 'image',
-    errorFallback,
+    errorFallback: customErrorFallback,
     fallback,
     ...otherProps
   } = props;
+  const errorFallback = customErrorFallback || (
+    <img
+      {...otherProps}
+      alt="placeholder_image"
+      src="/placeholderImage.jpeg"
+      className={className}
+    />
+  );
+
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
