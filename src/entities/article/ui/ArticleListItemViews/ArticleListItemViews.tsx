@@ -6,6 +6,8 @@ import { Flex } from '@/shared/ui/redesigned/Flex';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 
+import { ToggleFeatures } from '../../../../shared/lib/features';
+
 interface ArticleListItemViewsProps {
   className?: string;
   views: number;
@@ -13,10 +15,22 @@ interface ArticleListItemViewsProps {
 
 export const ArticleListItemViews = (props: ArticleListItemViewsProps) => {
   const { className, views } = props;
+
   return (
-    <Flex gap="4" align="center">
-      <TextDeprecated text={views} className={className} />
-      <IconDeprecated Svg={EyeIcon} />
-    </Flex>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Flex gap="8" align="center">
+          <IconDeprecated Svg={EyeIcon} />
+          <TextDeprecated text={views} className={className} />
+        </Flex>
+      }
+      off={
+        <>
+          <TextDeprecated text={views} className={className} />
+          <IconDeprecated Svg={EyeIcon} />
+        </>
+      }
+    />
   );
 };

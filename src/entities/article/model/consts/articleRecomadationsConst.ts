@@ -1,1 +1,1 @@
-export const articleRecommendationsListLimit = 4
+export const articleRecommendationsListLimit = 3;

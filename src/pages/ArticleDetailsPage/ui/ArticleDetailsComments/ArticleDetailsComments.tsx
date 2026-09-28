@@ -3,7 +3,9 @@ import React, { Suspense } from 'react';
 import { Loader as LoaderDeprecated } from '@/shared/ui/deprecated/Loader';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Flex } from '@/shared/ui/redesigned/Flex';
+import { Text } from '@/shared/ui/redesigned/Text';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { Article } from '@/entities/article';
@@ -28,7 +30,11 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
 
   return (
     <Flex vertical gap="16" max>
-      <TextDeprecated size="size_l" title="Комментарии" />
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Text size="l" title="Комментарии" />}
+        off={<TextDeprecated size="size_l" title="Комментарии" />}
+      />
       <Suspense fallback={<LoaderDeprecated />}>
         <AddArticleComment
           articleId={articleId}

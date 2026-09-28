@@ -3,16 +3,52 @@ import {
   ArticleListItemBig,
   ArticleListItemSmall,
   ArticleView,
-} from "@/entities/article";
+} from '@/entities/article';
 
-import s from './ArticleInfiniteList.module.scss'
+import { toggleFeatures } from '../../../../shared/lib/features';
 
-export const renderArticleListItem = (view: ArticleView, article: Article) => {
+import { RenderArticleItemOptions } from './ArticleInfiniteList';
+
+import s from './ArticleInfiniteList.module.scss';
+
+export const renderArticleListItem = (
+  view: ArticleView,
+  article: Article,
+  options: RenderArticleItemOptions,
+) => {
+  const { classNameSmall, classNameBig } = options;
+
   switch (view) {
-    case ArticleView.BIG:
-      return <ArticleListItemBig key={article.id} article={article} className={s.card} />
-    case ArticleView.SMALL:
-      return <ArticleListItemSmall key={article.id} article={article} className={s.card} />
+    case ArticleView.BIG: {
+      const cls = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => undefined,
+        off: () => s.cardBig,
+      });
+
+      return (
+        <ArticleListItemBig
+          key={article.id}
+          article={article}
+          className={classNameBig}
+        />
+      );
+    }
+    case ArticleView.SMALL: {
+      const cls = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => undefined,
+        off: () => s.cardSmall,
+      });
+
+      return (
+        <ArticleListItemSmall
+          key={article.id}
+          article={article}
+          className={classNameSmall}
+        />
+      );
+    }
     default:
       return null;
   }

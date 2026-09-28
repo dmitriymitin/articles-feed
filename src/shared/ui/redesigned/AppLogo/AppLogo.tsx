@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
-import AppSvg from '@/shared/assets/icons/app-image.svg';
 
 import { Flex } from '../Flex';
 
@@ -17,7 +16,7 @@ const _AppLogo = (props: AppLogoProps) => {
 
   return (
     <Flex max justify="center" className={cn(s.appLogoWrapper, className)}>
-      <AppSvg width={size} height={size} color="black" className={s.appLogo} />
+      {/* <AppSvg width={size} height={size} color="black" className={s.appLogo} /> */}
       <div className={s.gradientBig} />
       <div className={s.gradientSmall} />
     </Flex>

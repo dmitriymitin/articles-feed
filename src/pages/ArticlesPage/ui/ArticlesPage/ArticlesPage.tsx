@@ -1,17 +1,31 @@
-import React from "react";
+import React from 'react';
 
-import { ReducersList } from "@/app/providers/StoreProvider";
+import { ReducersList } from '@/app/providers/StoreProvider';
 
-import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Flex } from '@/shared/ui/redesigned/Flex';
+import { Text } from '@/shared/ui/redesigned/Text';
 
-import { Page } from "@/widgets/Page";
+import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
 
-import { articlesPageReducer } from "../../model/slices/articlesPageSlice";
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
+import { Page } from '@/widgets/Page';
 
-import { ArticleInfiniteListContainer } from "../ArticleInfiniteListContainer/ArticleInfiniteListContainer";
-import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
+import { Card } from '../../../../shared/ui/redesigned/Card';
 
-import s from "./ArticlesPage.module.scss";
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
+
+import { ArticleInfiniteListContainer } from '../ArticleInfiniteListContainer/ArticleInfiniteListContainer';
+import { ArticlesOrderFilter } from '../ArticlesOrderFilter/ArticlesOrderFilter';
+import { ArticlesSearchFilter } from '../ArticlesSearchFilter/ArticlesSearchFilter';
+import { ArticlesSortFilter } from '../ArticlesSortFilter/ArticlesSortFilter';
+import { ArticlesTypeFilter } from '../ArticlesTypeFilter/ArticlesTypeFilter';
+import { ArticlesViewFilter } from '../ArticlesViewFilter/ArticlesViewFilter';
+
+import s from './ArticlesPage.module.scss';
+
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 
 const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
@@ -19,19 +33,59 @@ const reducers: ReducersList = {
 
 const ArticlesPage = () => {
   return (
-    <div className={s.ArticlesPage}>
-      <ArticlesPageFilters />
-      <ArticleInfiniteListContainer className={s.list} />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <StickyContentLayout
+          left={<ArticlesViewFilter />}
+          right={
+            <Card className={s.filtersRedesigned} padding="24">
+              <Flex vertical gap="32">
+                <ArticlesSearchFilter />
+                <ArticlesTypeFilter />
+                <Flex vertical gap="8">
+                  <Text text="Сортировать по:" />
+                  <ArticlesSortFilter />
+                  <ArticlesOrderFilter className={s.order} />
+                </Flex>
+              </Flex>
+            </Card>
+          }
+          content={
+            <Page data-testid="ArticlesPage">
+              <ArticleInfiniteListContainer />
+              <ArticlePageGreeting />
+            </Page>
+          }
+        />
+      }
+      off={
+        <Page className={s.ArticlesPage} data-testid="ArticlesPage">
+          <div>
+            <Flex align="center" justify="between">
+              <Flex align="center" gap="4">
+                <ArticlesSortFilter />
+                <ArticlesOrderFilter className={s.order} />
+              </Flex>
+              <ArticlesViewFilter />
+            </Flex>
+            <CardDeprecated className={s.search}>
+              <ArticlesSearchFilter />
+            </CardDeprecated>
+            <ArticlesTypeFilter className={s.tabs} />
+          </div>
+          <ArticleInfiniteListContainer className={s.list} />
+          <ArticlePageGreeting />
+        </Page>
+      }
+    />
   );
 };
 
 export default () => {
   return (
-    <Page>
-      <DynamicModuleLoader reducers={reducers}>
-        <ArticlesPage />
-      </DynamicModuleLoader>
-    </Page>
+    <DynamicModuleLoader reducers={reducers}>
+      <ArticlesPage />
+    </DynamicModuleLoader>
   );
 };

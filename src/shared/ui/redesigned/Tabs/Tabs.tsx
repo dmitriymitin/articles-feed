@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { Key, ReactNode } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
@@ -7,23 +7,23 @@ import { Flex, FlexDirection } from '../Flex';
 
 import s from './Tabs.module.scss';
 
-export interface TabItem {
-  value: string;
+export interface TabItem<T extends Key = string> {
+  value: T;
   content: ReactNode;
 }
 
-interface TabsProps {
+interface TabsProps<T extends Key = string> {
   className?: string;
-  tabs: TabItem[];
-  value: string;
-  onTabClick: (tab: TabItem) => void;
+  tabs: TabItem<T>[];
+  value?: T | null;
+  onTabClick: (tab: TabItem<T>) => void;
   direction?: FlexDirection;
 }
 
-export const Tabs = (props: TabsProps) => {
+export const Tabs = <T extends string>(props: TabsProps<T>) => {
   const { className, tabs, onTabClick, value, direction = 'row' } = props;
 
-  const clickHandle = (tab: TabItem) => () => {
+  const clickHandle = (tab: TabItem<T>) => () => {
     onTabClick(tab);
   };
 

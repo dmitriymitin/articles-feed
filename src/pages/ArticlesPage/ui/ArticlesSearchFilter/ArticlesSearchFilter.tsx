@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Input } from '@/shared/ui/redesigned/Input';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppQueryState } from '@/shared/lib/hooks/useAppQueryState/useAppQueryState';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { articlesPageSearchParams } from '@/shared/const/searchParams';
+import SearchIcon from '@/shared/assets/icons/search.svg';
 
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
@@ -29,10 +33,24 @@ export const ArticlesSearchFilter = () => {
   };
 
   return (
-    <InputDeprecated
-      onChange={updateSearch}
-      value={search}
-      placeholder="Поиск"
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Input
+          onChange={updateSearch}
+          value={search}
+          size="s"
+          placeholder="Поиск"
+          addonLeft={<Icon Svg={SearchIcon} />}
+        />
+      }
+      off={
+        <InputDeprecated
+          onChange={updateSearch}
+          value={search}
+          placeholder="Поиск"
+        />
+      }
     />
   );
 };

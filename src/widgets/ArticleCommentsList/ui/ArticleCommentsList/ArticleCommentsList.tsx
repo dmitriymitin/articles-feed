@@ -2,6 +2,9 @@ import React, { PropsWithChildren } from 'react';
 
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Flex } from '@/shared/ui/redesigned/Flex';
+import { Text } from '@/shared/ui/redesigned/Text';
+
+import { ToggleFeatures } from '@/shared/lib/features';
 
 import { Article } from '@/entities/article';
 import { CommentCard, CommentCardSkeleton } from '@/entities/comment';
@@ -45,7 +48,11 @@ const ArticleCommentsList = (props: ArticleCommentsListProps) => {
   if (!comments?.length) {
     return (
       <Flex align="center" justify="center">
-        <TextDeprecated text="Комментарии отсутствуют" />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text text="Комментарии отсутствуют" />}
+          off={<TextDeprecated text="Комментарии отсутствуют" />}
+        />
       </Flex>
     );
   }

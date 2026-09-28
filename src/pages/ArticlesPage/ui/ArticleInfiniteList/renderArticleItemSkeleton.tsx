@@ -2,16 +2,26 @@ import {
   ArticleListItemBigSkeleton,
   ArticleListItemSmallSkeleton,
   ArticleView,
-} from "@/entities/article";
+} from '@/entities/article';
 
-import s from './ArticleInfiniteList.module.scss'
+import { RenderArticleItemOptions } from './ArticleInfiniteList';
 
-export const renderArticleListItemSkeleton = (view: ArticleView, index: number) => {
+export const renderArticleListItemSkeleton = (
+  view: ArticleView,
+  index: number,
+  options: RenderArticleItemOptions,
+) => {
+  const { classNameSmall, classNameBig } = options;
+
   switch (view) {
     case ArticleView.BIG:
-      return <ArticleListItemBigSkeleton key={index} className={s.card} />
+      return (
+        <ArticleListItemBigSkeleton key={index} className={classNameBig} />
+      );
     case ArticleView.SMALL:
-      return <ArticleListItemSmallSkeleton key={index} className={s.card} />
+      return (
+        <ArticleListItemSmallSkeleton key={index} className={classNameSmall} />
+      );
     default:
       return null;
   }

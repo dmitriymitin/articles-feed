@@ -1,38 +1,57 @@
-.views {
-    margin-left: auto;
+.ArticleListItemBigRedesigned {
+    .img {
+        width: 100%;
+        max-height: 420px;
+        object-fit: cover;
+    }
+
+    .textBlock {
+        height: 72px;
+        overflow: hidden;
+    }
 }
 
-.header {
-    display: flex;
-    align-items: center;
-}
-
-.username {
-    margin-left: 8px;
-}
-
-.date {
-    margin-left: auto;
-}
-
-.title {
-    margin-top: 8px;
-}
-
-.img {
+.redesignedSkeletonWrapper {
     width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    margin: 16px 0;
 }
 
-.footer {
-    display: flex;
-    align-items: center;
-    margin-top: 16px;
-}
+.ArticleListItemBigDeprecated {
+    .views {
+        margin-left: auto;
+    }
 
-.textBlock {
-    max-height: 200px;
-    overflow-y: hidden;
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .username {
+        margin-left: 8px;
+    }
+
+    .date {
+        margin-left: auto;
+    }
+
+    .title {
+        margin-top: 8px;
+    }
+
+    .img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+        margin: 16px 0;
+    }
+
+    .footer {
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    .textBlock {
+        max-height: 200px;
+        overflow-y: hidden;
+    }
 }

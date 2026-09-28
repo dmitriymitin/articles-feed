@@ -2,8 +2,12 @@ import { useState } from 'react';
 
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { Flex } from '@/shared/ui/redesigned/Flex';
+import { Input } from '@/shared/ui/redesigned/Input';
 
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { Article } from '@/entities/article';
@@ -33,28 +37,55 @@ const AddArticleComment = (props: AddArticleCommentProps) => {
   };
 
   return (
-    <Flex
-      data-testid="AddArticleComment"
-      align="center"
-      justify="between"
-      max
-      className={s.AddCommentForm}
-    >
-      <InputDeprecated
-        className={s.input}
-        placeholder="Введите текст комментария"
-        value={comment}
-        data-testid="AddArticleComment.Input"
-        onChange={setComment}
-      />
-      <ButtonDeprecated
-        data-testid="AddArticleComment.Button"
-        theme="outline"
-        onClick={sendComment}
-      >
-        Отправить
-      </ButtonDeprecated>
-    </Flex>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Card padding="24" border="partial" fullWidth>
+          <Flex
+            align="center"
+            data-testid="AddCommentForm"
+            justify="between"
+            max
+            gap="16"
+          >
+            <Input
+              className={s.input}
+              placeholder="Введите текст комментария"
+              value={comment}
+              data-testid="AddCommentForm.Input"
+              onChange={setComment}
+            />
+            <Button data-testid="AddCommentForm.Button" onClick={sendComment}>
+              Отправить
+            </Button>
+          </Flex>
+        </Card>
+      }
+      off={
+        <Flex
+          data-testid="AddArticleComment"
+          align="center"
+          justify="between"
+          max
+          className={s.AddCommentForm}
+        >
+          <InputDeprecated
+            className={s.input}
+            placeholder="Введите текст комментария"
+            value={comment}
+            data-testid="AddArticleComment.Input"
+            onChange={setComment}
+          />
+          <ButtonDeprecated
+            data-testid="AddArticleComment.Button"
+            theme="outline"
+            onClick={sendComment}
+          >
+            Отправить
+          </ButtonDeprecated>
+        </Flex>
+      }
+    />
   );
 };
 
