@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode } from 'react';
 
 import { cn } from '@/shared/lib/classNames/classNames';
 
@@ -15,7 +15,7 @@ export type TextSize = 's' | 'm' | 'l';
 interface TextProps extends Pick<TransProps, 'ns'> {
   className?: string;
   title?: string;
-  text?: string;
+  text?: ReactNode;
   variant?: TextVariant;
   align?: TextAlign;
   size?: TextSize;

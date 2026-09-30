@@ -1,12 +1,14 @@
-import React, { Fragment, ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
-import { cn } from "@/shared/lib/classNames/classNames";
-import { useModal } from "@/shared/lib/hooks/useModal";
+import { cn } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
+import { useModal } from '@/shared/lib/hooks/useModal';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
-import { Overlay } from "../Overlay";
-import { Portal } from "../Portal";
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
 
-import s from "./Modal.module.scss";
+import s from './Modal.module.scss';
 
 export interface ModalProps {
   className?: string;
@@ -27,15 +29,7 @@ export const Modal = (props: ModalProps) => {
     isOpen,
   });
 
-  const cls = cn(
-    s.Modal,
-    s.modalOld,
-    {
-      [s.opened]: isOpen,
-      [s.isClosing]: isClosing,
-    },
-    className
-  );
+  const { theme } = useTheme();
 
   if (lazy && !isMounted) {
     return null;
@@ -45,8 +39,24 @@ export const Modal = (props: ModalProps) => {
    * {@link DynamicModuleLoader}
    * */
   return isOpen ? (
-    <Portal element={document.getElementById("app") ?? document.body}>
-      <div className={cls}>
+    <Portal element={document.getElementById('app') ?? document.body}>
+      <div
+        className={cn(
+          s.Modal,
+          {
+            [s.opened]: isOpen,
+            [s.isClosing]: isClosing,
+          },
+          className,
+          theme,
+          'app_modal',
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => s.modalNew,
+            off: () => s.modalOld,
+          }),
+        )}
+      >
         <Overlay onClick={close} />
         <div className={s.content}>{children}</div>
       </div>
