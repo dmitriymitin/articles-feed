@@ -1,14 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import avatar from '@/shared/assets/tests/storybook.jpg'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import avatar from '@/shared/assets/tests/storybook.jpg';
 
-import { Country } from "@/entities/country";
-import { Currency } from "@/entities/currency";
+import { Country } from '@/entities/country';
+import { Currency } from '@/entities/currency';
 
-import { ValidateProfileError } from "../../model/consts/editableProfileConsts";
+import { ValidateProfileError } from '../../model/consts/editableProfileConsts';
 
-import { EditableProfileCard } from "./EditableProfileCard";
+import { EditableProfileCard } from './EditableProfileCard';
 
 export default {
   title: 'widgets/EditableProfileCard',
@@ -20,57 +21,74 @@ const Template: ComponentStory<typeof EditableProfileCard> = () => (
   <EditableProfileCard />
 );
 
+const baseDecorators = [
+  StoreDecorator({
+    profile: {
+      readonly: true,
+      form: {
+        avatar,
+        username: 'admin asd as da sd asd as',
+        age: 22,
+        country: Country.Armenia,
+        lastname: 'dm asd as das das das das',
+        first: 'asd',
+        city: 'asf',
+        currency: Currency.USD,
+      },
+      data: {
+        avatar,
+        username: 'admin',
+        age: 22,
+        country: Country.Armenia,
+        lastname: 'dm',
+        first: 'asd',
+        city: 'asf',
+        currency: Currency.USD,
+      },
+    },
+  }),
+];
+
 export const Base = Template.bind({});
 Base.args = {};
-Base.decorators = [StoreDecorator({
-  profile: {
-    readonly: true,
-    form: {
-      avatar,
-      username: 'admin asd as da sd asd as',
-      age: 22,
-      country: Country.Armenia,
-      lastname: 'dm asd as das das das das',
-      first: 'asd',
-      city: 'asf',
-      currency: Currency.USD,
-    },
-    data: {
-      avatar,
-      username: 'admin',
-      age: 22,
-      country: Country.Armenia,
-      lastname: 'dm',
-      first: 'asd',
-      city: 'asf',
-      currency: Currency.USD,
-    }
-  }
-})]
+Base.decorators = baseDecorators;
+
+export const BaseRedesigned = Template.bind({});
+BaseRedesigned.args = {};
+BaseRedesigned.decorators = [NewDesignDecorator, ...baseDecorators];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-  profile: {
-    readonly: true,
-    isLoading: true,
-  }
-})]
+Loading.decorators = [
+  StoreDecorator({
+    profile: {
+      readonly: true,
+      isLoading: true,
+    },
+  }),
+];
 
 export const ServerError = Template.bind({});
 ServerError.args = {};
-ServerError.decorators = [StoreDecorator({
-  profile: {
-    readonly: true,
-    error: 'internal server error',
-  }
-})]
+ServerError.decorators = [
+  StoreDecorator({
+    profile: {
+      readonly: true,
+      error: 'internal server error',
+    },
+  }),
+];
 
 export const ValidateErrors = Template.bind({});
 ValidateErrors.args = {};
-ValidateErrors.decorators = [StoreDecorator({
-  profile: {
-    readonly: true,
-    validateErrors: [ValidateProfileError.SERVER_ERROR, ValidateProfileError.INCORRECT_AGE]
-  }
-})]
+ValidateErrors.decorators = [
+  StoreDecorator({
+    profile: {
+      readonly: true,
+      validateErrors: [
+        ValidateProfileError.SERVER_ERROR,
+        ValidateProfileError.INCORRECT_AGE,
+      ],
+    },
+  }),
+];
